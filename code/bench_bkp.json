@@ -1,0 +1,696 @@
+{
+    "title" : "Ubuntu 16.04 CIS Benchmark",
+    "compiled_by": "epeisam",
+    "compiled_on": "2021/10/12",
+    "items" : [
+        {
+            "name":"1.1.1.1 Ensure mounting of cramfs filesystems is disabled",
+            "audit": [
+                {
+                    "cmd":"modprobe -n -v cramfs",
+                    "response_conditions":[
+                        {
+                            "condition": "match",
+                            "match_to": "install /bin/true"
+                        }
+                    ]
+                },
+                {
+                    "cmd":"find",
+                    "response_conditions":[
+                        {
+                            "condition": "match",
+                            "match_to": ""
+                        }
+                    ]  
+                }
+                
+            ]
+        },
+        {
+            "name":"1.1.1.2 Ensure mounting of freevxfs filesystems is disabled",
+            "audit": [
+                {
+                    "cmd":"modprobe -n -v freevxfs",
+                    "response_conditions":[
+                        {
+                            "condition": "match",
+                            "match_to": "install /bin/true"
+                        }
+                    ]
+                },
+                {
+                    "cmd":"lsmod | grep freevxfs",
+                    "response_conditions":[
+                        {
+                            "condition": "match",
+                            "match_to": ""
+                        }
+                    ]  
+                }
+                
+            ]
+        },
+        {
+            "name":"1.1.1.3 Ensure mounting of jffs2 filesystems is disabled",
+            "audit": [
+                {
+                    "cmd":"modprobe -n -v jffs2",
+                    "response_conditions":[
+                        {
+                            "condition": "match",
+                            "match_to": "install /bin/true"
+                        }
+                    ]
+                },
+                {
+                    "cmd":"lsmod | grep jffs2",
+                    "response_conditions":[
+                        {
+                            "condition": "match",
+                            "match_to": ""
+                        }
+                    ]
+                }                    
+            ]
+        },
+
+
+        {
+            "name":"1.1.1.4 Ensure mounting of hfs filesystems is disabled",
+            "audit": [
+                {
+                    "cmd":"modprobe -n -v hfs",
+                    "response_conditions":[
+                        {
+                            "condition": "match",
+                            "match_to": "install /bin/true"
+                        }
+                    ]
+                },
+                {
+                    "cmd":"lsmod | grep hfs",
+                    "response_conditions":[
+                        {
+                            "condition": "match",
+                            "match_to": ""
+                        }
+                    ]
+                }                    
+            ]
+        },
+
+
+        {
+            "name":"1.1.1.5 Ensure mounting of hfsplus filesystems is disabled",
+            "audit": [
+                {
+                    "cmd":"modprobe -n -v hfsplus",
+                    "response_conditions":[
+                        {
+                            "condition": "match",
+                            "match_to": "install /bin/true"
+                        }
+                    ]
+                },
+                {
+                    "cmd":"lsmod | grep hfsplus",
+                    "response_conditions":[
+                        {
+                            "condition": "match",
+                            "match_to": ""
+                        }
+                    ]
+                }                    
+            ]
+        },
+
+
+        {
+            "name":"1.1.1.6 Ensure mounting of squashfs filesystems is disabled",
+            "audit": [
+                {
+                    "cmd":"modprobe -n -v squashfs",
+                    "response_conditions":[
+                        {
+                            "condition": "match",
+                            "match_to": "install /bin/true"
+                        }
+                    ]
+                },
+                {
+                    "cmd":"lsmod | grep squashfs",
+                    "response_conditions":[
+                        {
+                            "condition": "match",
+                            "match_to": ""
+                        }
+                    ]
+                }                    
+            ]
+        },
+    
+
+        {
+            "name":"1.1.1.7 Ensure mounting of udf filesystems is disabled",
+            "audit": [
+                {
+                    "cmd":"modprobe -n -v udf",
+                    "response_conditions":[
+                        {
+                            "condition": "match",
+                            "match_to": "install /bin/true"
+                        }
+                    ]
+                },
+                {
+                    "cmd":"lsmod | grep udf",
+                    "response_conditions":[
+                        {
+                            "condition": "match",
+                            "match_to": ""
+                        }
+                    ]
+                }                    
+            ]
+        },
+
+        
+        {
+            "name":"1.1.1.8 Ensure mounting of FAT filesystems is disabled",
+            "audit": [
+                {
+                    "cmd":"modprobe -n -v vfat",
+                    "response_conditions":[
+                        {
+                            "condition": "match",
+                            "match_to": "install /bin/true"
+                        }
+                    ]
+                },
+                {
+                    "cmd":" lsmod | grep vfat",
+                    "response_conditions":[
+                        {
+                            "condition": "match",
+                            "match_to": ""
+                        }
+                    ]
+                }                    
+            ]
+        },
+
+        {
+            "name":"1.1.2 Ensure separate partition exists for /tmp",
+            "audit": [
+                {
+                    "cmd":"mount | grep /tmp",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "on /tmp type"
+                        }
+                    ]
+                }                 
+            ]
+        },
+        {
+            "name":"1.1.3 Ensure nodev option set on /tmp partition",
+            "audit": [
+                {
+                    "cmd":"mount | grep /tmp",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "on /tmp type"
+                        },
+                        {
+                            "condition": "like",
+                            "like_to": "nodev"
+                        }
+                    ]
+                }                 
+            ]
+        },
+        {
+            "name":"1.1.4 Ensure nosuid option set on /tmp partition",
+            "audit": [
+                {
+                    "cmd":"mount | grep /tmp",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "on /tmp type"
+                        },
+                        {
+                            "condition": "like",
+                            "like_to": "nosuid"
+                        }
+                    ]
+                }                 
+            ]
+        },
+    
+        {
+            "name":"1.1.5 Ensure separate partition exists for /var",
+            "audit": [
+                {
+                    "cmd":"mount | grep /var",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "on /var type"
+                        }
+                    ]
+                }                 
+            ]
+        },   
+        
+        
+        {
+            "name":"1.1.6 Ensure separate partition exists for /var/tmp",
+            "audit": [
+                {
+                    "cmd":"mount | grep /var/tmp",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "on /var/tmp type"
+                        }
+                    ]
+                }                 
+            ]
+        },  
+
+        {
+            "name":"1.1.7 Ensure nodev option set on /var/tmp partition",
+            "audit": [
+                {
+                    "cmd":"mount | grep /var/tmp",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "on /var/tmp type"
+                        },
+                        {
+                            "condition": "like",
+                            "like_to": "nodev"
+                        }
+                    ]
+                }                 
+            ]
+        },  
+
+        {
+            "name":"1.1.8 Ensure nosuid option set on /var/tmp partition",
+            "audit": [
+                {
+                    "cmd":"mount | grep /var/tmp",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "on /var/tmp type"
+                        },
+                        {
+                            "condition": "like",
+                            "like_to": "nosuid"
+                        }
+                    ]
+                }                 
+            ]
+        },  
+    
+        {
+            "name":"1.1.9 Ensure noexec option set on /var/tmp partition",
+            "audit": [
+                {
+                    "cmd":"mount | grep /var/tmp",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "on /var/tmp type"
+                        },
+                        {
+                            "condition": "like",
+                            "like_to": "noexec"
+                        }
+                    ]
+                }                 
+            ]
+        },  
+
+        {
+            "name":"1.1.10 Ensure separate partition exists for /var/log",
+            "audit": [
+                {
+                    "cmd":"mount | grep /var/log",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "on /var/log type"
+                        }
+                    ]
+                }                 
+            ]
+        },  
+
+        {
+            "name":"1.1.11 Ensure separate partition exists for /var/log/audit",
+            "audit": [
+                {
+                    "cmd":"mount | grep /var/log/audit",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "on /var/log/audit type"
+                        }
+                    ]
+                }                 
+            ]
+        }, 
+
+        {
+            "name":"1.1.11 Ensure separate partition exists for /var/log/audit",
+            "audit": [
+                {
+                    "cmd":"mount | grep /home",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "on /home type"
+                        }
+                    ]
+                }                 
+            ]
+        }, 
+
+        {
+            "name":"1.1.13 Ensure nodev option set on /home partition",
+            "audit": [
+                {
+                    "cmd":"mount | grep /home",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "on /home type"
+                        },
+                        {
+                            "condition": "like",
+                            "like_to": "nodev"
+                        }
+                    ]
+                }                 
+            ]
+        }, 
+        {
+            "name":"1.1.14 Ensure nodev option set on /dev/shm partition",
+            "audit": [
+                {
+                    "cmd":"mount | grep /dev/shm",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "on /dev/shm type"
+                        }
+                    ]
+                }                 
+            ]
+        }, 
+
+        {
+            "name":"1.1.15 Ensure nosuid option set on /dev/shm partition",
+            "audit": [
+                {
+                    "cmd":"mount | grep /dev/shm",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "on /dev/shm type"
+                        },
+                        {
+                            "condition": "like",
+                            "like_to": "nosuid"
+                        }
+                    ]
+                }                 
+            ]
+        }, 
+        {
+            "name":"1.1.16 Ensure noexec option set on /dev/shm partition",
+            "audit": [
+                {
+                    "cmd":"mount | grep /dev/shm",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "on /dev/shm type"
+                        },
+                        {
+                            "condition": "like",
+                            "like_to": "noexec"
+                        }
+                    ]
+                }                 
+            ]
+        },
+
+        {
+            "name":"1.1.17 Ensure nodev option set on removable media partitions",
+            "audit": [
+                {
+                    "cmd":"mount | grep /dev/sd",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "on /dev/sd"
+                        },
+                        {
+                            "condition": "like",
+                            "like_to": "nodev"
+                        },
+                        {
+                            "condition": "pass_if_no_lines"
+                        }
+                    ]
+                }                 
+            ]
+        },
+
+        {
+            "name":"1.1.17 Ensure nodev option set on removable media partitions",
+            "audit": [
+                {
+                    "cmd":"mount | grep /dev/sd",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "on /dev/sd"
+                        },
+                        {
+                            "condition": "like",
+                            "like_to": "nosuid"
+                        },
+                        {
+                            "condition": "pass_if_no_lines"
+                        }
+
+                    ]
+                }                 
+            ]
+        },
+
+        {
+            "name":"1.1.19 Ensure noexec option set on removable media partitions",
+            "audit": [
+                {
+                    "cmd":"mount | grep /dev/sd",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "on /dev/sd"
+                        },
+                        {
+                            "condition": "like",
+                            "like_to": "noexec"
+                        },
+                        {
+                            "condition": "pass_if_no_lines"
+                        }
+                    ]
+                }                 
+            ]
+        },
+
+        {
+            "name":"1.1.20 Ensure sticky bit is set on all world-writable directories",
+            "audit": [
+                {
+                    "cmd":"df --local -P | awk {'if (NR!=1) print $6'} | xargs -I '{}' find '{}' -xdev -type d -perm -0002 -a ! -perm -1000 2>/dev/null",
+                    "response_conditions":[
+                        {
+                            "condition": "pass_if_no_lines"
+                        }
+                    ]
+                }                 
+            ]
+        },
+
+        {
+            "name":"1.1.21 Disable Automounting",
+            "audit": [
+                {
+                    "cmd":"systemctl is-enabled autofs",
+                    "response_conditions":[
+                        {
+                            "condition": "match",
+                            "match_to": "disabled"
+                        }
+                    ]
+                }                 
+            ]
+        },
+
+        {
+            "name":"1.2.1 Ensure package manager repositories are configured",
+            "audit": [
+                {
+                    "cmd":"apt-cache policy",
+                    "response_conditions":[
+                        {
+                            "condition": "pass_if_lines"
+                        }
+                    ]
+                }                 
+            ]
+        },
+        {
+            "name":"1.3.1 Ensure AIDE is installed",
+            "audit": [
+                {
+                    "cmd":"dpkg -s aide",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "install ok installed"
+                        }
+                    ]
+                }                 
+            ]
+        },
+        {
+            "name":"1.3.2 Ensure filesystem integrity is regularly checked",
+            "audit": [
+                {
+                    "cmd":"crontab -u root -l | grep aide",
+                    "response_conditions":[
+                        {
+                            "condition": "pass_if_lines"
+                        }
+                    ]
+                },
+                {
+                    "cmd":"grep -r aide /etc/cron.* /etc/crontab",
+                    "response_conditions":[
+                        {
+                            "condition": "pass_if_lines"
+                        }
+                    ]
+                }                 
+            ]
+        },
+
+        {
+            "name":"1.4.1 Ensure permissions on bootloader config are configured",
+            "audit": [
+                {
+                    "cmd":"stat /boot/grub/grub.cfg",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "Access: (0600/-rw-------)  Uid: (    0/    root)   Gid: (    0/    root)"
+                        }
+                    ]
+                }           
+            ]
+        },
+
+        {
+            "name":"1.4.2 Ensure bootloader password is set",
+            "audit": [
+                {
+                    "cmd":"grep '^set superusers' /boot/grub/grub.cfg",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "set superusers="
+                        }
+                    ]
+                },
+                {
+                    "cmd":"grep '^password' /boot/grub/grub.cfg",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "password_pbkdf2"
+                        }
+                    ]
+                }            
+            ]
+        },
+        {
+            "name":"1.4.3 Ensure authentication required for single user mode",
+            "audit": [
+                {
+                    "cmd":"grep ^root:[*\\!]: /etc/shadow",
+                    "response_conditions":[
+                        {
+                            "condition": "pass_if_no_lines"
+                        }
+                    ]
+                }         
+            ]
+        },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        {
+            "name":"n.n Known true test case",
+            "audit": [
+                {
+                    "cmd":"mount | grep /run",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "on /run type"
+                        },
+                        {
+                            "condition": "like",
+                            "like_to": "nosuid"
+                        }
+                    ]
+                }                
+            ]
+        }
+
+    ]
+}

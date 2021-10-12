@@ -4,8 +4,17 @@
     "compiled_on": "2021/10/12",
     "items" : [
         {
-            
+            "name":"1.4.3 Ensure authentication required for single user mode",
+            "audit": [
+                {
+                    "cmd":"grep ^root:[*\\!]: /etc/shadow",
+                    "response_conditions":[
+                        {
+                            "condition": "pass_if_no_lines"
+                        }
+                    ]
+                }         
+            ]
         }
-
     ]
 }
