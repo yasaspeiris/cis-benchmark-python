@@ -748,6 +748,20 @@
                     ]
                 }      
             ]
+        },
+        {
+            "name":"1.5.4 Ensure prelink is disabled",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"dpkg -s prelink",
+                    "response_conditions":[
+                        {
+                            "condition": "pass_if_no_lines"
+                        }
+                    ]
+                }      
+            ]
         }
     ]
 }

@@ -50,6 +50,9 @@ def response_evaluator(response_string,response_conditions):
         if response_condition['condition'] == 'like':
             if response_condition['like_to'] not in response_string: 
                 condition_fail = True
+        if response_condition['condition'] == 'not_like':
+            if response_condition['not_like_to'] in response_string: 
+                condition_fail = True
         if response_condition['condition'] == 'pass_if_no_lines':
             if response_string == "": 
                 condition_fail = False
