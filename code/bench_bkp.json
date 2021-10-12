@@ -8,6 +8,7 @@
             "audit": [
                 {
                     "cmd":"modprobe -n -v cramfs",
+                    "elevated" : true,
                     "response_conditions":[
                         {
                             "condition": "match",
@@ -16,7 +17,8 @@
                     ]
                 },
                 {
-                    "cmd":"find",
+                    "cmd":"lsmod | grep cramfs",
+                    "elevated" : true,
                     "response_conditions":[
                         {
                             "condition": "match",
@@ -32,6 +34,7 @@
             "audit": [
                 {
                     "cmd":"modprobe -n -v freevxfs",
+                    "elevated" : true,
                     "response_conditions":[
                         {
                             "condition": "match",
@@ -41,6 +44,7 @@
                 },
                 {
                     "cmd":"lsmod | grep freevxfs",
+                    "elevated" : true,
                     "response_conditions":[
                         {
                             "condition": "match",
@@ -56,6 +60,7 @@
             "audit": [
                 {
                     "cmd":"modprobe -n -v jffs2",
+                    "elevated" : true,
                     "response_conditions":[
                         {
                             "condition": "match",
@@ -65,6 +70,7 @@
                 },
                 {
                     "cmd":"lsmod | grep jffs2",
+                    "elevated" : true,
                     "response_conditions":[
                         {
                             "condition": "match",
@@ -81,6 +87,7 @@
             "audit": [
                 {
                     "cmd":"modprobe -n -v hfs",
+                    "elevated" : true,
                     "response_conditions":[
                         {
                             "condition": "match",
@@ -90,6 +97,7 @@
                 },
                 {
                     "cmd":"lsmod | grep hfs",
+                    "elevated" : true,
                     "response_conditions":[
                         {
                             "condition": "match",
@@ -106,6 +114,7 @@
             "audit": [
                 {
                     "cmd":"modprobe -n -v hfsplus",
+                    "elevated" : true,
                     "response_conditions":[
                         {
                             "condition": "match",
@@ -115,6 +124,7 @@
                 },
                 {
                     "cmd":"lsmod | grep hfsplus",
+                    "elevated" : true,
                     "response_conditions":[
                         {
                             "condition": "match",
@@ -131,6 +141,7 @@
             "audit": [
                 {
                     "cmd":"modprobe -n -v squashfs",
+                    "elevated" : true,
                     "response_conditions":[
                         {
                             "condition": "match",
@@ -140,6 +151,7 @@
                 },
                 {
                     "cmd":"lsmod | grep squashfs",
+                    "elevated" : true,
                     "response_conditions":[
                         {
                             "condition": "match",
@@ -156,6 +168,7 @@
             "audit": [
                 {
                     "cmd":"modprobe -n -v udf",
+                    "elevated" : true,
                     "response_conditions":[
                         {
                             "condition": "match",
@@ -165,6 +178,7 @@
                 },
                 {
                     "cmd":"lsmod | grep udf",
+                    "elevated" : true,
                     "response_conditions":[
                         {
                             "condition": "match",
@@ -181,6 +195,7 @@
             "audit": [
                 {
                     "cmd":"modprobe -n -v vfat",
+                    "elevated" : true,
                     "response_conditions":[
                         {
                             "condition": "match",
@@ -190,6 +205,7 @@
                 },
                 {
                     "cmd":" lsmod | grep vfat",
+                    "elevated" : true,
                     "response_conditions":[
                         {
                             "condition": "match",
@@ -205,6 +221,7 @@
             "audit": [
                 {
                     "cmd":"mount | grep /tmp",
+                    "elevated" : true,
                     "response_conditions":[
                         {
                             "condition": "like",
@@ -219,6 +236,7 @@
             "audit": [
                 {
                     "cmd":"mount | grep /tmp",
+                    "elevated" : true,
                     "response_conditions":[
                         {
                             "condition": "like",
@@ -237,6 +255,7 @@
             "audit": [
                 {
                     "cmd":"mount | grep /tmp",
+                    "elevated" : true,
                     "response_conditions":[
                         {
                             "condition": "like",
@@ -256,6 +275,7 @@
             "audit": [
                 {
                     "cmd":"mount | grep /var",
+                    "elevated" : true,
                     "response_conditions":[
                         {
                             "condition": "like",
@@ -272,6 +292,7 @@
             "audit": [
                 {
                     "cmd":"mount | grep /var/tmp",
+                    "elevated" : true,
                     "response_conditions":[
                         {
                             "condition": "like",
@@ -287,6 +308,7 @@
             "audit": [
                 {
                     "cmd":"mount | grep /var/tmp",
+                    "elevated" : true,
                     "response_conditions":[
                         {
                             "condition": "like",
@@ -306,6 +328,7 @@
             "audit": [
                 {
                     "cmd":"mount | grep /var/tmp",
+                    "elevated" : true,
                     "response_conditions":[
                         {
                             "condition": "like",
@@ -325,6 +348,7 @@
             "audit": [
                 {
                     "cmd":"mount | grep /var/tmp",
+                    "elevated" : true,
                     "response_conditions":[
                         {
                             "condition": "like",
@@ -344,6 +368,7 @@
             "audit": [
                 {
                     "cmd":"mount | grep /var/log",
+                    "elevated" : true,
                     "response_conditions":[
                         {
                             "condition": "like",
@@ -359,6 +384,7 @@
             "audit": [
                 {
                     "cmd":"mount | grep /var/log/audit",
+                    "elevated" : true,
                     "response_conditions":[
                         {
                             "condition": "like",
@@ -374,6 +400,7 @@
             "audit": [
                 {
                     "cmd":"mount | grep /home",
+                    "elevated" : true,
                     "response_conditions":[
                         {
                             "condition": "like",
@@ -389,6 +416,7 @@
             "audit": [
                 {
                     "cmd":"mount | grep /home",
+                    "elevated" : true,
                     "response_conditions":[
                         {
                             "condition": "like",
@@ -407,6 +435,7 @@
             "audit": [
                 {
                     "cmd":"mount | grep /dev/shm",
+                    "elevated" : true,
                     "response_conditions":[
                         {
                             "condition": "like",
@@ -422,6 +451,7 @@
             "audit": [
                 {
                     "cmd":"mount | grep /dev/shm",
+                    "elevated" : true,
                     "response_conditions":[
                         {
                             "condition": "like",
@@ -440,6 +470,7 @@
             "audit": [
                 {
                     "cmd":"mount | grep /dev/shm",
+                    "elevated" : true,
                     "response_conditions":[
                         {
                             "condition": "like",
@@ -459,6 +490,7 @@
             "audit": [
                 {
                     "cmd":"mount | grep /dev/sd",
+                    "elevated" : true,
                     "response_conditions":[
                         {
                             "condition": "like",
@@ -481,6 +513,7 @@
             "audit": [
                 {
                     "cmd":"mount | grep /dev/sd",
+                    "elevated" : true,
                     "response_conditions":[
                         {
                             "condition": "like",
@@ -504,6 +537,7 @@
             "audit": [
                 {
                     "cmd":"mount | grep /dev/sd",
+                    "elevated" : true,
                     "response_conditions":[
                         {
                             "condition": "like",
@@ -526,6 +560,7 @@
             "audit": [
                 {
                     "cmd":"df --local -P | awk {'if (NR!=1) print $6'} | xargs -I '{}' find '{}' -xdev -type d -perm -0002 -a ! -perm -1000 2>/dev/null",
+                    "elevated" : true,
                     "response_conditions":[
                         {
                             "condition": "pass_if_no_lines"
@@ -540,6 +575,7 @@
             "audit": [
                 {
                     "cmd":"systemctl is-enabled autofs",
+                    "elevated" : true,
                     "response_conditions":[
                         {
                             "condition": "match",
@@ -555,6 +591,7 @@
             "audit": [
                 {
                     "cmd":"apt-cache policy",
+                    "elevated" : true,
                     "response_conditions":[
                         {
                             "condition": "pass_if_lines"
@@ -568,6 +605,7 @@
             "audit": [
                 {
                     "cmd":"dpkg -s aide",
+                    "elevated" : true,
                     "response_conditions":[
                         {
                             "condition": "like",
@@ -582,6 +620,7 @@
             "audit": [
                 {
                     "cmd":"crontab -u root -l | grep aide",
+                    "elevated" : true,
                     "response_conditions":[
                         {
                             "condition": "pass_if_lines"
@@ -590,6 +629,7 @@
                 },
                 {
                     "cmd":"grep -r aide /etc/cron.* /etc/crontab",
+                    "elevated" : true,
                     "response_conditions":[
                         {
                             "condition": "pass_if_lines"
@@ -604,6 +644,7 @@
             "audit": [
                 {
                     "cmd":"stat /boot/grub/grub.cfg",
+                    "elevated" : true,
                     "response_conditions":[
                         {
                             "condition": "like",
@@ -619,6 +660,7 @@
             "audit": [
                 {
                     "cmd":"grep '^set superusers' /boot/grub/grub.cfg",
+                    "elevated" : true,
                     "response_conditions":[
                         {
                             "condition": "like",
@@ -628,6 +670,7 @@
                 },
                 {
                     "cmd":"grep '^password' /boot/grub/grub.cfg",
+                    "elevated" : true,
                     "response_conditions":[
                         {
                             "condition": "like",
@@ -641,6 +684,7 @@
             "name":"1.4.3 Ensure authentication required for single user mode",
             "audit": [
                 {
+                    "elevated" : true,
                     "cmd":"grep ^root:[*\\!]: /etc/shadow",
                     "response_conditions":[
                         {
@@ -650,47 +694,60 @@
                 }         
             ]
         },
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         {
-            "name":"n.n Known true test case",
+            "name":"1.5.1 Ensure core dumps are restricted",
             "audit": [
                 {
-                    "cmd":"mount | grep /run",
+                    "elevated" : true,
+                    "cmd":"grep 'hard core' /etc/security/limits.conf /etc/security/limits.d/*",
                     "response_conditions":[
                         {
                             "condition": "like",
-                            "like_to": "on /run type"
-                        },
-                        {
-                            "condition": "like",
-                            "like_to": "nosuid"
+                            "like_to": "hard core 0"
                         }
                     ]
-                }                
+                },
+                {
+                    "elevated" : true,
+                    "cmd":"sysctl fs.suid_dumpable",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "fs.suid_dumpable = 0"
+                        }
+                    ]
+                }         
+            ]
+        },
+        {
+            "name":"1.5.2 Ensure XD/NX support is enabled",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"dmesg | grep NX",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "NX (Execute Disable) protection: active"
+                        }
+                    ]
+                }      
+            ]
+        },
+        {
+            "name":"1.5.3 Ensure address space layout randomization (ASLR) is enabled",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"sysctl kernel.randomize_va_space",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "kernel.randomize_va_space = 2"
+                        }
+                    ]
+                }      
             ]
         }
-
     ]
 }

@@ -1,6 +1,7 @@
 import paramiko
 import json
 import configparser
+import time
 config = configparser.ConfigParser() 
 config.read(r'cis-benchmark-config.txt')
 
@@ -23,7 +24,13 @@ def auditor_engine(item):
     print(item['name'] +" : ", end = '')
     item_fail = False
     for audit_item in item['audit']:
-        stdin,stdout,stderr=ssh.exec_command(audit_item['cmd'])
+
+        if audit_item['elevated'] == True:
+            stdin, stdout, stderr = ssh.exec_command("sudo -S " + audit_item['cmd'])
+            stdin.write(password+ "\n")
+            stdin.flush()            
+        else:
+            stdin,stdout,stderr=ssh.exec_command(audit_item['cmd'])
         outlines=stdout.readlines()
         response_string=''.join(outlines[:max_outlines])
         item_eval = response_evaluator(response_string,audit_item['response_conditions'])
@@ -44,7 +51,6 @@ def response_evaluator(response_string,response_conditions):
             if response_condition['like_to'] not in response_string: 
                 condition_fail = True
         if response_condition['condition'] == 'pass_if_no_lines':
-            print(response_string)
             if response_string == "": 
                 condition_fail = False
             else:
@@ -63,5 +69,6 @@ def response_evaluator(response_string,response_conditions):
         
 
 print (benchmark['title'])
+
 for item in benchmark['items']:
     auditor_engine(item)

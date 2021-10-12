@@ -7,6 +7,7 @@
             "name":"1.4.3 Ensure authentication required for single user mode",
             "audit": [
                 {
+                    "elevated" : true,
                     "cmd":"grep ^root:[*\\!]: /etc/shadow",
                     "response_conditions":[
                         {
@@ -14,6 +15,61 @@
                         }
                     ]
                 }         
+            ]
+        },
+        {
+            "name":"1.5.1 Ensure core dumps are restricted",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"grep 'hard core' /etc/security/limits.conf /etc/security/limits.d/*",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "hard core 0"
+                        }
+                    ]
+                },
+                {
+                    "elevated" : true,
+                    "cmd":"sysctl fs.suid_dumpable",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "fs.suid_dumpable = 0"
+                        }
+                    ]
+                }         
+            ]
+        },
+        {
+            "name":"1.5.2 Ensure XD/NX support is enabled",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"dmesg | grep NX",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "NX (Execute Disable) protection: active"
+                        }
+                    ]
+                }      
+            ]
+        },
+        {
+            "name":"1.5.3 Ensure address space layout randomization (ASLR) is enabled",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"sysctl kernel.randomize_va_space",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "kernel.randomize_va_space = 2"
+                        }
+                    ]
+                }      
             ]
         }
     ]
