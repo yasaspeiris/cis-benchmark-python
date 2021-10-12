@@ -1,9 +1,12 @@
 import paramiko
+import configparser
+config = configparser.ConfigParser() 
+config.read(r'cis-benchmark-config.txt')
 
-ip='35.171.20.111'
-port=22
-username='audit-user'
-password='N2^ykGTG'
+username = config['session']['username']
+password = config['session']['password']
+ip = config['session']['ip']
+port = config['session']['port']
 
 cmd='uname' 
 
