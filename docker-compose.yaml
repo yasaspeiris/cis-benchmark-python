@@ -1,0 +1,8 @@
+version: "3.9"
+services:
+  monitor:
+    build:
+      context: .
+      target: cis-benchmark-python
+    volumes:
+      - ./code:/code
