@@ -45,43 +45,42 @@ def auditor_engine(item):
         
 
 def response_evaluator(stdout_string,err_string,response_conditions):
-    condition = True
+    condition = False
+    first_run = True
     for response_condition in response_conditions:
-        iter_response_condition = True
+        iter_response_condition = False
+        
         if response_condition['on'] == 'stdout':
             response_string = stdout_string
-            if err_string != "":
-                iter_response_condition = False
-        else:
+        elif response_condition['on'] == 'stderr':
             response_string = err_string
-            if response_string != "":
-                iter_response_condition = False
 
-        if iter_response_condition: #only proceed if the iter condition is still true
-            
-            if response_condition['condition'] == 'like':
-                if response_condition['like_to'] not in response_string: 
-                    iter_response_condition = False
-            elif response_condition['condition'] == 'not_like':
-                if response_condition['not_like_to'] in response_string: 
-                    iter_response_condition = False
-            elif response_condition['condition'] == 'pass_if_no_lines':
-                if response_string != "": 
-                    iter_response_condition = False
-            elif response_condition['condition'] == 'pass_if_lines':
-                if response_string == "": 
-                    iter_response_condition = False
+        if response_condition['condition'] == 'like':
+            if response_condition['like_to'] in response_string: 
+                iter_response_condition = True
+        elif response_condition['condition'] == 'not_like':
+            if response_condition['not_like_to'] not in response_string: 
+                iter_response_condition = True
+        elif response_condition['condition'] == 'pass_if_no_lines':
+            if response_string == "": 
+                iter_response_condition = True
+        elif response_condition['condition'] == 'pass_if_lines':
+            if response_string != "": 
+                iter_response_condition = True
+        elif response_condition['condition'] == 'default_pass':
+            #### log here
+            pass
 
-            if response_condition['control_flag'] == 'required':
-                condition = condition and iter_response_condition
-            elif response_condition['control_flag'] == 'optional':
+        if response_condition['control_flag'] == 'required':
+            if first_run:
                 condition = condition or iter_response_condition
+                first_run = False
+            else:
+                condition = condition and iter_response_condition
+        elif response_condition['control_flag'] == 'optional':
+            condition = condition or iter_response_condition
         
-
-    if condition:
-        return True
-    else:
-        return False
+    return condition
 
         
 
