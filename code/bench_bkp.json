@@ -12,7 +12,9 @@
                     "response_conditions":[
                         {
                             "condition": "match",
-                            "match_to": "install /bin/true"
+                            "match_to": "install /bin/true",
+                            "control_flag" : "required",
+                            "on" : "stdout"
                         }
                     ]
                 },
@@ -22,7 +24,9 @@
                     "response_conditions":[
                         {
                             "condition": "match",
-                            "match_to": ""
+                            "match_to": "",
+                            "control_flag" : "required",
+                            "on" : "stdout"
                         }
                     ]  
                 }
@@ -38,7 +42,9 @@
                     "response_conditions":[
                         {
                             "condition": "match",
-                            "match_to": "install /bin/true"
+                            "match_to": "install /bin/true",
+                            "control_flag" : "required",
+                            "on" : "stdout"
                         }
                     ]
                 },
@@ -48,7 +54,9 @@
                     "response_conditions":[
                         {
                             "condition": "match",
-                            "match_to": ""
+                            "match_to": "",
+                            "control_flag" : "required",
+                            "on" : "stdout"
                         }
                     ]  
                 }
@@ -64,7 +72,9 @@
                     "response_conditions":[
                         {
                             "condition": "match",
-                            "match_to": "install /bin/true"
+                            "match_to": "install /bin/true",
+                            "control_flag" : "required",
+                            "on" : "stdout"
                         }
                     ]
                 },
@@ -74,7 +84,9 @@
                     "response_conditions":[
                         {
                             "condition": "match",
-                            "match_to": ""
+                            "match_to": "",
+                            "control_flag" : "required",
+                            "on" : "stdout"
                         }
                     ]
                 }                    
@@ -91,7 +103,9 @@
                     "response_conditions":[
                         {
                             "condition": "match",
-                            "match_to": "install /bin/true"
+                            "match_to": "install /bin/true",
+                            "control_flag" : "required",
+                            "on" : "stdout"
                         }
                     ]
                 },
@@ -101,7 +115,9 @@
                     "response_conditions":[
                         {
                             "condition": "match",
-                            "match_to": ""
+                            "match_to": "",
+                            "control_flag" : "required",
+                            "on" : "stdout"
                         }
                     ]
                 }                    
@@ -118,7 +134,9 @@
                     "response_conditions":[
                         {
                             "condition": "match",
-                            "match_to": "install /bin/true"
+                            "match_to": "install /bin/true",
+                            "control_flag" : "required",
+                            "on" : "stdout"
                         }
                     ]
                 },
@@ -128,7 +146,9 @@
                     "response_conditions":[
                         {
                             "condition": "match",
-                            "match_to": ""
+                            "match_to": "",
+                            "control_flag" : "required",
+                            "on" : "stdout"
                         }
                     ]
                 }                    
@@ -145,7 +165,9 @@
                     "response_conditions":[
                         {
                             "condition": "match",
-                            "match_to": "install /bin/true"
+                            "match_to": "install /bin/true",
+                            "control_flag" : "required",
+                            "on" : "stdout"
                         }
                     ]
                 },
@@ -155,7 +177,9 @@
                     "response_conditions":[
                         {
                             "condition": "match",
-                            "match_to": ""
+                            "match_to": "",
+                            "control_flag" : "required",
+                            "on" : "stdout"
                         }
                     ]
                 }                    
@@ -172,7 +196,9 @@
                     "response_conditions":[
                         {
                             "condition": "match",
-                            "match_to": "install /bin/true"
+                            "match_to": "install /bin/true",
+                            "control_flag" : "required",
+                            "on" : "stdout"
                         }
                     ]
                 },
@@ -182,7 +208,9 @@
                     "response_conditions":[
                         {
                             "condition": "match",
-                            "match_to": ""
+                            "match_to": "",
+                            "control_flag" : "required",
+                            "on" : "stdout"
                         }
                     ]
                 }                    
@@ -199,7 +227,9 @@
                     "response_conditions":[
                         {
                             "condition": "match",
-                            "match_to": "install /bin/true"
+                            "match_to": "install /bin/true",
+                            "control_flag" : "required",
+                            "on" : "stdout"
                         }
                     ]
                 },
@@ -209,7 +239,9 @@
                     "response_conditions":[
                         {
                             "condition": "match",
-                            "match_to": ""
+                            "match_to": "",
+                            "control_flag" : "required",
+                            "on" : "stdout"
                         }
                     ]
                 }                    
@@ -225,7 +257,9 @@
                     "response_conditions":[
                         {
                             "condition": "like",
-                            "like_to": "on /tmp type"
+                            "like_to": "on /tmp type",
+                            "control_flag" : "required",
+                            "on" : "stdout"
                         }
                     ]
                 }                 
@@ -240,11 +274,15 @@
                     "response_conditions":[
                         {
                             "condition": "like",
-                            "like_to": "on /tmp type"
+                            "like_to": "on /tmp type",
+                            "control_flag" : "required",
+                            "on" : "stdout"
                         },
                         {
                             "condition": "like",
-                            "like_to": "nodev"
+                            "like_to": "nodev",
+                            "control_flag" : "required",
+                            "on" : "stdout"
                         }
                     ]
                 }                 
@@ -259,11 +297,15 @@
                     "response_conditions":[
                         {
                             "condition": "like",
-                            "like_to": "on /tmp type"
+                            "like_to": "on /tmp type",
+                            "control_flag" : "required",
+                            "on" : "stdout"
                         },
                         {
                             "condition": "like",
-                            "like_to": "nosuid"
+                            "like_to": "nosuid",
+                            "control_flag" : "required",
+                            "on" : "stdout"
                         }
                     ]
                 }                 
@@ -279,7 +321,9 @@
                     "response_conditions":[
                         {
                             "condition": "like",
-                            "like_to": "on /var type"
+                            "like_to": "on /var type",
+                            "control_flag" : "required",
+                            "on" : "stdout"
                         }
                     ]
                 }                 
@@ -296,7 +340,9 @@
                     "response_conditions":[
                         {
                             "condition": "like",
-                            "like_to": "on /var/tmp type"
+                            "like_to": "on /var/tmp type",
+                            "control_flag" : "required",
+                            "on" : "stdout"
                         }
                     ]
                 }                 
@@ -312,11 +358,15 @@
                     "response_conditions":[
                         {
                             "condition": "like",
-                            "like_to": "on /var/tmp type"
+                            "like_to": "on /var/tmp type",
+                            "control_flag" : "required",
+                            "on" : "stdout"
                         },
                         {
                             "condition": "like",
-                            "like_to": "nodev"
+                            "like_to": "nodev",
+                            "control_flag" : "required",
+                            "on" : "stdout"
                         }
                     ]
                 }                 
@@ -332,11 +382,15 @@
                     "response_conditions":[
                         {
                             "condition": "like",
-                            "like_to": "on /var/tmp type"
+                            "like_to": "on /var/tmp type",
+                            "control_flag" : "required",
+                            "on" : "stdout"
                         },
                         {
                             "condition": "like",
-                            "like_to": "nosuid"
+                            "like_to": "nosuid",
+                            "control_flag" : "required",
+                            "on" : "stdout"
                         }
                     ]
                 }                 
@@ -352,11 +406,15 @@
                     "response_conditions":[
                         {
                             "condition": "like",
-                            "like_to": "on /var/tmp type"
+                            "like_to": "on /var/tmp type",
+                            "control_flag" : "required",
+                            "on" : "stdout"
                         },
                         {
                             "condition": "like",
-                            "like_to": "noexec"
+                            "like_to": "noexec",
+                            "control_flag" : "required",
+                            "on" : "stdout"
                         }
                     ]
                 }                 
@@ -372,7 +430,9 @@
                     "response_conditions":[
                         {
                             "condition": "like",
-                            "like_to": "on /var/log type"
+                            "like_to": "on /var/log type",
+                            "control_flag" : "required",
+                            "on" : "stdout"
                         }
                     ]
                 }                 
@@ -388,7 +448,9 @@
                     "response_conditions":[
                         {
                             "condition": "like",
-                            "like_to": "on /var/log/audit type"
+                            "like_to": "on /var/log/audit type",
+                            "control_flag" : "required",
+                            "on" : "stdout"
                         }
                     ]
                 }                 
@@ -404,7 +466,9 @@
                     "response_conditions":[
                         {
                             "condition": "like",
-                            "like_to": "on /home type"
+                            "like_to": "on /home type",
+                            "control_flag" : "required",
+                            "on" : "stdout"
                         }
                     ]
                 }                 
@@ -420,11 +484,15 @@
                     "response_conditions":[
                         {
                             "condition": "like",
-                            "like_to": "on /home type"
+                            "like_to": "on /home type",
+                            "control_flag" : "required",
+                            "on" : "stdout"
                         },
                         {
                             "condition": "like",
-                            "like_to": "nodev"
+                            "like_to": "nodev",
+                            "control_flag" : "required",
+                            "on" : "stdout"
                         }
                     ]
                 }                 
@@ -439,7 +507,9 @@
                     "response_conditions":[
                         {
                             "condition": "like",
-                            "like_to": "on /dev/shm type"
+                            "like_to": "on /dev/shm type",
+                            "control_flag" : "required",
+                            "on" : "stdout"
                         }
                     ]
                 }                 
@@ -455,11 +525,15 @@
                     "response_conditions":[
                         {
                             "condition": "like",
-                            "like_to": "on /dev/shm type"
+                            "like_to": "on /dev/shm type",
+                            "control_flag" : "required",
+                            "on" : "stdout"
                         },
                         {
                             "condition": "like",
-                            "like_to": "nosuid"
+                            "like_to": "nosuid",
+                            "control_flag" : "required",
+                            "on" : "stdout"
                         }
                     ]
                 }                 
@@ -474,11 +548,15 @@
                     "response_conditions":[
                         {
                             "condition": "like",
-                            "like_to": "on /dev/shm type"
+                            "like_to": "on /dev/shm type",
+                            "control_flag" : "required",
+                            "on" : "stdout"
                         },
                         {
                             "condition": "like",
-                            "like_to": "noexec"
+                            "like_to": "noexec",
+                            "control_flag" : "required",
+                            "on" : "stdout"
                         }
                     ]
                 }                 
@@ -494,14 +572,20 @@
                     "response_conditions":[
                         {
                             "condition": "like",
-                            "like_to": "on /dev/sd"
+                            "like_to": "on /dev/sd",
+                            "control_flag" : "optional",
+                            "on" : "stdout"
                         },
                         {
                             "condition": "like",
-                            "like_to": "nodev"
+                            "like_to": "nodev",
+                            "control_flag" : "optional",
+                            "on" : "stdout"
                         },
                         {
-                            "condition": "pass_if_no_lines"
+                            "condition": "pass_if_no_lines",
+                            "control_flag" : "optional",
+                            "on" : "stdout"
                         }
                     ]
                 }                 
@@ -517,14 +601,20 @@
                     "response_conditions":[
                         {
                             "condition": "like",
-                            "like_to": "on /dev/sd"
+                            "like_to": "on /dev/sd",
+                            "control_flag" : "required",
+                            "on" : "stdout"
                         },
                         {
                             "condition": "like",
-                            "like_to": "nosuid"
+                            "like_to": "nosuid",
+                            "control_flag" : "required",
+                            "on" : "stdout"
                         },
                         {
-                            "condition": "pass_if_no_lines"
+                            "condition": "pass_if_no_lines",
+                            "control_flag" : "optional",
+                            "on" : "stdout"
                         }
 
                     ]
@@ -541,14 +631,20 @@
                     "response_conditions":[
                         {
                             "condition": "like",
-                            "like_to": "on /dev/sd"
+                            "like_to": "on /dev/sd",
+                            "control_flag" : "required",
+                            "on" : "stdout"
                         },
                         {
                             "condition": "like",
-                            "like_to": "noexec"
+                            "like_to": "noexec",
+                            "control_flag" : "required",
+                            "on" : "stdout"
                         },
                         {
-                            "condition": "pass_if_no_lines"
+                            "condition": "pass_if_no_lines",
+                            "control_flag" : "optional",
+                            "on" : "stdout"
                         }
                     ]
                 }                 
@@ -563,7 +659,9 @@
                     "elevated" : true,
                     "response_conditions":[
                         {
-                            "condition": "pass_if_no_lines"
+                            "condition": "pass_if_no_lines",
+                            "control_flag" : "required",
+                            "on" : "stdout"
                         }
                     ]
                 }                 
@@ -579,7 +677,9 @@
                     "response_conditions":[
                         {
                             "condition": "match",
-                            "match_to": "disabled"
+                            "match_to": "disabled",
+                            "control_flag" : "required",
+                            "on" : "stdout"
                         }
                     ]
                 }                 
@@ -594,7 +694,9 @@
                     "elevated" : true,
                     "response_conditions":[
                         {
-                            "condition": "pass_if_lines"
+                            "condition": "pass_if_lines",
+                            "control_flag" : "required",
+                            "on" : "stdout"
                         }
                     ]
                 }                 
@@ -609,7 +711,9 @@
                     "response_conditions":[
                         {
                             "condition": "like",
-                            "like_to": "install ok installed"
+                            "like_to": "install ok installed",
+                            "control_flag" : "required",
+                            "on" : "stdout"
                         }
                     ]
                 }                 
@@ -623,7 +727,9 @@
                     "elevated" : true,
                     "response_conditions":[
                         {
-                            "condition": "pass_if_lines"
+                            "condition": "pass_if_lines",
+                            "control_flag" : "required",
+                            "on" : "stdout"
                         }
                     ]
                 },
@@ -632,7 +738,9 @@
                     "elevated" : true,
                     "response_conditions":[
                         {
-                            "condition": "pass_if_lines"
+                            "condition": "pass_if_lines",
+                            "control_flag" : "required",
+                            "on" : "stdout"
                         }
                     ]
                 }                 
@@ -648,7 +756,9 @@
                     "response_conditions":[
                         {
                             "condition": "like",
-                            "like_to": "Access: (0600/-rw-------)  Uid: (    0/    root)   Gid: (    0/    root)"
+                            "like_to": "Access: (0600/-rw-------)  Uid: (    0/    root)   Gid: (    0/    root)",
+                            "control_flag" : "required",
+                            "on" : "stdout"
                         }
                     ]
                 }           
@@ -664,7 +774,9 @@
                     "response_conditions":[
                         {
                             "condition": "like",
-                            "like_to": "set superusers="
+                            "like_to": "set superusers=",
+                            "control_flag" : "required",
+                            "on" : "stdout"
                         }
                     ]
                 },
@@ -674,7 +786,9 @@
                     "response_conditions":[
                         {
                             "condition": "like",
-                            "like_to": "password_pbkdf2"
+                            "like_to": "password_pbkdf2",
+                            "control_flag" : "required",
+                            "on" : "stdout"
                         }
                     ]
                 }            
@@ -688,7 +802,9 @@
                     "cmd":"grep ^root:[*\\!]: /etc/shadow",
                     "response_conditions":[
                         {
-                            "condition": "pass_if_no_lines"
+                            "condition": "pass_if_no_lines",
+                            "control_flag" : "required",
+                            "on" : "stdout"
                         }
                     ]
                 }         
@@ -703,7 +819,9 @@
                     "response_conditions":[
                         {
                             "condition": "like",
-                            "like_to": "hard core 0"
+                            "like_to": "hard core 0",
+                            "control_flag" : "required",
+                            "on" : "stdout"
                         }
                     ]
                 },
@@ -713,7 +831,9 @@
                     "response_conditions":[
                         {
                             "condition": "like",
-                            "like_to": "fs.suid_dumpable = 0"
+                            "like_to": "fs.suid_dumpable = 0",
+                            "control_flag" : "required",
+                            "on" : "stdout"
                         }
                     ]
                 }         
@@ -728,7 +848,9 @@
                     "response_conditions":[
                         {
                             "condition": "like",
-                            "like_to": "NX (Execute Disable) protection: active"
+                            "like_to": "NX (Execute Disable) protection: active",
+                            "control_flag" : "required",
+                            "on" : "stdout"
                         }
                     ]
                 }      
@@ -743,7 +865,9 @@
                     "response_conditions":[
                         {
                             "condition": "like",
-                            "like_to": "kernel.randomize_va_space = 2"
+                            "like_to": "kernel.randomize_va_space = 2",
+                            "control_flag" : "required",
+                            "on" : "stdout"
                         }
                     ]
                 }      
@@ -757,10 +881,425 @@
                     "cmd":"dpkg -s prelink",
                     "response_conditions":[
                         {
-                            "condition": "pass_if_no_lines"
+                            "condition": "pass_if_no_lines",
+                            "control_flag" : "required",
+                            "on" : "stdout"
                         }
                     ]
                 }      
+            ]
+        },
+        {
+            "name":"1.6.1.1 Ensure SELinux is not disabled in bootloader configuration",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"grep '^\\s*linux' /boot/grub/grub.cfg",
+                    "response_conditions":[
+                        {
+                            "condition": "not_like",
+                            "not_like_to": "selinux=0",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        },
+                        {
+                            "condition": "not_like",
+                            "not_like_to": "enforcing=0",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }      
+            ]
+        },
+        {
+            "name":"1.6.1.2 Ensure the SELinux state is enforcing",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"grep SELINUX=enforcing /etc/selinux/config",
+                    "response_conditions":[
+                        {
+                            "condition": "match",
+                            "match_to": "SELINUX=enforcing",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                },
+                {
+                    "elevated" : true,
+                    "cmd":"sestatus",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "SELinux status: enabled",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        },
+                        {
+                            "condition": "like",
+                            "like_to": "Current mode: enforcing",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }        
+            ]
+        },
+        {
+            "name":"1.6.1.3 Ensure SELinux policy is configured",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"grep SELINUXTYPE= /etc/selinux/config",
+                    "response_conditions":[
+                        {
+                            "condition": "match",
+                            "match_to": "SELINUXTYPE=ubuntu",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                },
+                {
+                    "elevated" : true,
+                    "cmd":"sestatus",
+                    "response_conditions":[
+                        {
+                            "condition": "match",
+                            "match_to": "Policy from config file: ubuntu",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }        
+            ]
+        },
+        {
+            "name":"1.6.1.4 Ensure no unconfined daemons exist",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"ps -eZ | egrep 'initrc' | egrep -vw 'tr|ps|egrep|bash|awk' | tr ':' ' ' | awk '{ print $NF }'",
+                    "response_conditions":[
+                        {
+                            "condition": "pass_if_no_lines",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"1.6.2.1 Ensure AppArmor is not disabled in bootloader configuration",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"grep '^\\s*linux' /boot/grub/grub.cfg",
+                    "response_conditions":[
+                        {
+                            "condition": "not_like",
+                            "not_like_to": "apparmor=0",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }    
+            ]
+        },
+        {
+            "name":"1.6.2.2 Ensure all AppArmor Profiles are enforcing",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"apparmor_status",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "0 profiles are in complain mode",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        },
+                        {
+                            "condition": "like",
+                            "like_to": "0 processes are in complain mode",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        },
+                        {
+                            "condition": "like",
+                            "like_to": "0 processes are unconfined",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }    
+            ]
+        },
+        {
+            "name":"1.6.3 Ensure SELinux or AppArmor are installed",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"dpkg -s selinux",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "install ok installed",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                },
+                {
+                    "elevated" : true,
+                    "cmd":"dpkg -s apparmor",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "install ok installed",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                            
+                        }
+                    ]
+                }    
+            ]
+        },
+        {
+            "name":"1.7.1.1 Ensure message of the day is configured properly",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"cat /etc/motd",
+                    "response_conditions":[
+                        {
+                            "condition": "pass_if_lines",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                },
+                {
+                    "elevated" : true,
+                    "cmd":"egrep '(\\v|\\r|\\m|\\s)' /etc/motd",
+                    "response_conditions":[
+                        {
+                            "condition": "pass_if_no_lines",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"1.7.1.4 Ensure permissions on /etc/motd are configured",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"stat /etc/motd",
+                    "response_conditions":[
+                        {
+                            "condition": "match",
+                            "match_to" : "Access: (0644/-rw-r--r--) Uid: ( 0/ root) Gid: ( 0/ root)",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                } 
+            ]
+        },  
+        {
+            "name":"1.7.1.5 Ensure permissions on /etc/issue are configured",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"stat /etc/issue",
+                    "response_conditions":[
+                        {
+                            "condition": "match",
+                            "match_to" : "Access: (0644/-rw-r--r--) Uid: ( 0/ root) Gid: ( 0/ root)",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                } 
+            ]
+        },
+        {
+            "name":"1.7.1.6 Ensure permissions on /etc/issue.net are configured",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"stat /etc/issue.net",
+                    "response_conditions":[
+                        {
+                            "condition": "match",
+                            "match_to" : "Access: (0644/-rw-r--r--) Uid: ( 0/ root) Gid: ( 0/ root)",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                } 
+            ]
+        },
+        {
+            "name":"1.8 Ensure updates, patches, and additional security software are installed",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"apt-get -s upgrade",
+                    "response_conditions":[
+                        {
+                            "condition": "not_like",
+                            "not_like_to" : "The following packages will be upgraded",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                } 
+            ]
+        },
+        {
+            "name":"2.1.10 Ensure xinetd is not enabled",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"systemctl is-enabled xinetd",
+                    "response_conditions":[
+                        {
+                            "condition": "match",
+                            "match_to" : "disabled",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                } 
+            ]
+        },
+        {
+            "name":"2.1.10-A Ensure openbsd-inetd is not installed",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"dpkg -s openbsd-inted",
+                    "response_conditions":[
+                        {
+                            "condition": "not_like",
+                            "not_like_to": "install ok installed",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                } 
+            ]
+        },
+        {
+            "name":"2.2.1.1 Ensure time synchronization is in use",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"dpkg -s ntp",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "install ok installed",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                },
+                {
+                    "elevated" : true,
+                    "cmd":"dpkg -s chrony",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "install ok installed",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                } 
+            ]
+        },
+        {
+            "name":"2.2.1.2 Ensure ntp is configured",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"grep '^restrict' /etc/ntp.conf",
+                    "response_conditions":[
+                        {
+                            "condition": "match",
+                            "match_to": "restrict -4 default kod nomodify notrap nopeer noquery",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        },
+                        {
+                            "condition": "match",
+                            "match_to": "restrict -6 default kod nomodify notrap nopeer noquery",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "elevated" : true,
+            "cmd":"grep '^server' /etc/ntp.conf",
+            "response_conditions":[
+                {
+                    "condition": "like",
+                    "like_to": "server ",
+                    "control_flag" : "required",
+                    "on" : "stdout"
+                }
+            ]
+        },
+        {
+            "name":"2.2.2 Ensure X Window System is not installed",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"dpkg -l xserver-xorg*",
+                    "response_conditions":[
+                        {
+                            "condition": "not_like",
+                            "not_like_to": "install ok installed",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"2.2.3 Ensure Avahi Server is not enabled",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"systemctl is-enabled avahi-daemon",
+                    "response_conditions":[
+                        {
+                            "condition": "match",
+                            "match_to": "disabled",
+                            "control_flag" : "optional",
+                            "on" : "stdout"
+                        },
+                        {
+                            "condition": "like",
+                            "like_to": "Failed to get unit file state",
+                            "control_flag" : "optional",
+                            "on" : "stderr"
+                        }
+                        
+                    ]
+                }
             ]
         }
     ]
