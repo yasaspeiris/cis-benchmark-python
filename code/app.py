@@ -57,27 +57,25 @@ def response_evaluator(stdout_string,err_string,response_conditions):
             if response_string != "":
                 iter_response_condition = False
 
-        
-        if response_condition['condition'] == 'match':
-            if response_string != response_condition['match_to']:
-                iter_response_condition = False
-        elif response_condition['condition'] == 'like':
-            if response_condition['like_to'] not in response_string: 
-                iter_response_condition = False
-        elif response_condition['condition'] == 'not_like':
-            if response_condition['not_like_to'] in response_string: 
-                iter_response_condition = False
-        elif response_condition['condition'] == 'pass_if_no_lines':
-            if response_string != "": 
-                iter_response_condition = False
-        elif response_condition['condition'] == 'pass_if_lines':
-            if response_string == "": 
-                iter_response_condition = False
+        if iter_response_condition: #only proceed if the iter condition is still true
+            
+            if response_condition['condition'] == 'like':
+                if response_condition['like_to'] not in response_string: 
+                    iter_response_condition = False
+            elif response_condition['condition'] == 'not_like':
+                if response_condition['not_like_to'] in response_string: 
+                    iter_response_condition = False
+            elif response_condition['condition'] == 'pass_if_no_lines':
+                if response_string != "": 
+                    iter_response_condition = False
+            elif response_condition['condition'] == 'pass_if_lines':
+                if response_string == "": 
+                    iter_response_condition = False
 
-        if response_condition['control_flag'] == 'required':
-            condition = condition and iter_response_condition
-        elif response_condition['control_flag'] == 'optional':
-            condition = condition or iter_response_condition
+            if response_condition['control_flag'] == 'required':
+                condition = condition and iter_response_condition
+            elif response_condition['control_flag'] == 'optional':
+                condition = condition or iter_response_condition
         
 
     if condition:

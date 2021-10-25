@@ -11,8 +11,8 @@
                     "elevated" : true,
                     "response_conditions":[
                         {
-                            "condition": "match",
-                            "match_to": "install /bin/true",
+                            "condition": "like",
+                            "like_to": "install /bin/true",
                             "control_flag" : "required",
                             "on" : "stdout"
                         }
@@ -23,8 +23,8 @@
                     "elevated" : true,
                     "response_conditions":[
                         {
-                            "condition": "match",
-                            "match_to": "",
+                            "condition": "like",
+                            "like_to": "",
                             "control_flag" : "required",
                             "on" : "stdout"
                         }
@@ -41,8 +41,8 @@
                     "elevated" : true,
                     "response_conditions":[
                         {
-                            "condition": "match",
-                            "match_to": "install /bin/true",
+                            "condition": "like",
+                            "like_to": "install /bin/true",
                             "control_flag" : "required",
                             "on" : "stdout"
                         }
@@ -53,8 +53,8 @@
                     "elevated" : true,
                     "response_conditions":[
                         {
-                            "condition": "match",
-                            "match_to": "",
+                            "condition": "like",
+                            "like_to": "",
                             "control_flag" : "required",
                             "on" : "stdout"
                         }
@@ -71,8 +71,8 @@
                     "elevated" : true,
                     "response_conditions":[
                         {
-                            "condition": "match",
-                            "match_to": "install /bin/true",
+                            "condition": "like",
+                            "like_to": "install /bin/true",
                             "control_flag" : "required",
                             "on" : "stdout"
                         }
@@ -83,8 +83,8 @@
                     "elevated" : true,
                     "response_conditions":[
                         {
-                            "condition": "match",
-                            "match_to": "",
+                            "condition": "like",
+                            "like_to": "",
                             "control_flag" : "required",
                             "on" : "stdout"
                         }
@@ -102,8 +102,8 @@
                     "elevated" : true,
                     "response_conditions":[
                         {
-                            "condition": "match",
-                            "match_to": "install /bin/true",
+                            "condition": "like",
+                            "like_to": "install /bin/true",
                             "control_flag" : "required",
                             "on" : "stdout"
                         }
@@ -114,8 +114,8 @@
                     "elevated" : true,
                     "response_conditions":[
                         {
-                            "condition": "match",
-                            "match_to": "",
+                            "condition": "like",
+                            "like_to": "",
                             "control_flag" : "required",
                             "on" : "stdout"
                         }
@@ -133,8 +133,8 @@
                     "elevated" : true,
                     "response_conditions":[
                         {
-                            "condition": "match",
-                            "match_to": "install /bin/true",
+                            "condition": "like",
+                            "like_to": "install /bin/true",
                             "control_flag" : "required",
                             "on" : "stdout"
                         }
@@ -145,8 +145,8 @@
                     "elevated" : true,
                     "response_conditions":[
                         {
-                            "condition": "match",
-                            "match_to": "",
+                            "condition": "like",
+                            "like_to": "",
                             "control_flag" : "required",
                             "on" : "stdout"
                         }
@@ -164,8 +164,8 @@
                     "elevated" : true,
                     "response_conditions":[
                         {
-                            "condition": "match",
-                            "match_to": "install /bin/true",
+                            "condition": "like",
+                            "like_to": "install /bin/true",
                             "control_flag" : "required",
                             "on" : "stdout"
                         }
@@ -176,8 +176,8 @@
                     "elevated" : true,
                     "response_conditions":[
                         {
-                            "condition": "match",
-                            "match_to": "",
+                            "condition": "like",
+                            "like_to": "",
                             "control_flag" : "required",
                             "on" : "stdout"
                         }
@@ -195,8 +195,8 @@
                     "elevated" : true,
                     "response_conditions":[
                         {
-                            "condition": "match",
-                            "match_to": "install /bin/true",
+                            "condition": "like",
+                            "like_to": "install /bin/true",
                             "control_flag" : "required",
                             "on" : "stdout"
                         }
@@ -207,8 +207,8 @@
                     "elevated" : true,
                     "response_conditions":[
                         {
-                            "condition": "match",
-                            "match_to": "",
+                            "condition": "like",
+                            "like_to": "",
                             "control_flag" : "required",
                             "on" : "stdout"
                         }
@@ -226,8 +226,8 @@
                     "elevated" : true,
                     "response_conditions":[
                         {
-                            "condition": "match",
-                            "match_to": "install /bin/true",
+                            "condition": "like",
+                            "like_to": "install /bin/true",
                             "control_flag" : "required",
                             "on" : "stdout"
                         }
@@ -238,8 +238,8 @@
                     "elevated" : true,
                     "response_conditions":[
                         {
-                            "condition": "match",
-                            "match_to": "",
+                            "condition": "like",
+                            "like_to": "",
                             "control_flag" : "required",
                             "on" : "stdout"
                         }
@@ -676,8 +676,8 @@
                     "elevated" : true,
                     "response_conditions":[
                         {
-                            "condition": "match",
-                            "match_to": "disabled",
+                            "condition": "like",
+                            "like_to": "disabled",
                             "control_flag" : "required",
                             "on" : "stdout"
                         }
@@ -920,8 +920,8 @@
                     "cmd":"grep SELINUX=enforcing /etc/selinux/config",
                     "response_conditions":[
                         {
-                            "condition": "match",
-                            "match_to": "SELINUX=enforcing",
+                            "condition": "like",
+                            "like_to": "SELINUX=enforcing",
                             "control_flag" : "required",
                             "on" : "stdout"
                         }
@@ -955,8 +955,8 @@
                     "cmd":"grep SELINUXTYPE= /etc/selinux/config",
                     "response_conditions":[
                         {
-                            "condition": "match",
-                            "match_to": "SELINUXTYPE=ubuntu",
+                            "condition": "like",
+                            "like_to": "SELINUXTYPE=ubuntu",
                             "control_flag" : "required",
                             "on" : "stdout"
                         }
@@ -967,8 +967,8 @@
                     "cmd":"sestatus",
                     "response_conditions":[
                         {
-                            "condition": "match",
-                            "match_to": "Policy from config file: ubuntu",
+                            "condition": "like",
+                            "like_to": "Policy from config file: ubuntu",
                             "control_flag" : "required",
                             "on" : "stdout"
                         }
@@ -1103,8 +1103,8 @@
                     "cmd":"stat /etc/motd",
                     "response_conditions":[
                         {
-                            "condition": "match",
-                            "match_to" : "Access: (0644/-rw-r--r--) Uid: ( 0/ root) Gid: ( 0/ root)",
+                            "condition": "like",
+                            "like_to" : "Access: (0644/-rw-r--r--)  Uid: (    0/    root)   Gid: (    0/    root)",
                             "control_flag" : "required",
                             "on" : "stdout"
                         }
@@ -1120,8 +1120,8 @@
                     "cmd":"stat /etc/issue",
                     "response_conditions":[
                         {
-                            "condition": "match",
-                            "match_to" : "Access: (0644/-rw-r--r--) Uid: ( 0/ root) Gid: ( 0/ root)",
+                            "condition": "like",
+                            "like_to" : "Access: (0644/-rw-r--r--)  Uid: (    0/    root)   Gid: (    0/    root)",
                             "control_flag" : "required",
                             "on" : "stdout"
                         }
@@ -1137,8 +1137,8 @@
                     "cmd":"stat /etc/issue.net",
                     "response_conditions":[
                         {
-                            "condition": "match",
-                            "match_to" : "Access: (0644/-rw-r--r--) Uid: ( 0/ root) Gid: ( 0/ root)",
+                            "condition": "like",
+                            "like_to" : "Access: (0644/-rw-r--r--)  Uid: (    0/    root)   Gid: (    0/    root)",
                             "control_flag" : "required",
                             "on" : "stdout"
                         }
@@ -1171,8 +1171,8 @@
                     "cmd":"systemctl is-enabled xinetd",
                     "response_conditions":[
                         {
-                            "condition": "match",
-                            "match_to" : "disabled",
+                            "condition": "like",
+                            "like_to" : "disabled",
                             "control_flag" : "required",
                             "on" : "stdout"
                         }
@@ -1234,14 +1234,14 @@
                     "cmd":"grep '^restrict' /etc/ntp.conf",
                     "response_conditions":[
                         {
-                            "condition": "match",
-                            "match_to": "restrict -4 default kod nomodify notrap nopeer noquery",
+                            "condition": "like",
+                            "like_to": "restrict -4 default kod nomodify notrap nopeer noquery",
                             "control_flag" : "required",
                             "on" : "stdout"
                         },
                         {
-                            "condition": "match",
-                            "match_to": "restrict -6 default kod nomodify notrap nopeer noquery",
+                            "condition": "like",
+                            "like_to": "restrict -6 default kod nomodify notrap nopeer noquery",
                             "control_flag" : "required",
                             "on" : "stdout"
                         }
@@ -1286,8 +1286,8 @@
                     "cmd":"systemctl is-enabled avahi-daemon",
                     "response_conditions":[
                         {
-                            "condition": "match",
-                            "match_to": "disabled",
+                            "condition": "like",
+                            "like_to": "disabled",
                             "control_flag" : "optional",
                             "on" : "stdout"
                         },
@@ -1301,6 +1301,729 @@
                     ]
                 }
             ]
+        },
+        {
+            "name":"2.2.4 Ensure CUPS is not enabled",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"systemctl is-enabled cups",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "disabled",
+                            "control_flag" : "optional",
+                            "on" : "stdout"
+                        },
+                        {
+                            "condition": "like",
+                            "like_to": "Failed to get unit file state",
+                            "control_flag" : "optional",
+                            "on" : "stderr"
+                        }
+                        
+                    ]
+                }
+            ]
+        },
+
+        {
+            "name":"2.2.5 Ensure DHCP Server is not enabled ",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":" systemctl is-enabled isc-dhcp-server",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "disabled",
+                            "control_flag" : "optional",
+                            "on" : "stdout"
+                        },
+                        {
+                            "condition": "like",
+                            "like_to": "Failed to get unit file state",
+                            "control_flag" : "optional",
+                            "on" : "stderr"
+                        }
+                        
+                    ]
+                },
+                {
+                    "elevated" : true,
+                    "cmd":"systemctl is-enabled isc-dhcp-server6",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "disabled",
+                            "control_flag" : "optional",
+                            "on" : "stdout"
+                        },
+                        {
+                            "condition": "like",
+                            "like_to": "Failed to get unit file state",
+                            "control_flag" : "optional",
+                            "on" : "stderr"
+                        }
+                        
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"2.2.6 Ensure LDAP server is not enabled ",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"systemctl is-enabled slapd",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "disabled",
+                            "control_flag" : "optional",
+                            "on" : "stdout"
+                        },
+                        {
+                            "condition": "like",
+                            "like_to": "Failed to get unit file state",
+                            "control_flag" : "optional",
+                            "on" : "stderr"
+                        }
+                        
+                    ]
+                }
+            ]
+        },
+        
+        {
+            "name":"2.2.7 Ensure NFS and RPC are not enabled",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"systemctl is-enabled nfs-kernel-server",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "disabled",
+                            "control_flag" : "optional",
+                            "on" : "stdout"
+                        },
+                        {
+                            "condition": "like",
+                            "like_to": "Failed to get unit file state",
+                            "control_flag" : "optional",
+                            "on" : "stderr"
+                        }
+                        
+                    ]
+                },
+                {
+                    "elevated" : true,
+                    "cmd":" systemctl is-enabled rpcbind",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "disabled",
+                            "control_flag" : "optional",
+                            "on" : "stdout"
+                        },
+                        {
+                            "condition": "like",
+                            "like_to": "Failed to get unit file state",
+                            "control_flag" : "optional",
+                            "on" : "stderr"
+                        }
+                        
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"2.2.8 Ensure DNS Server is not enabled",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"systemctl is-enabled bind9",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "disabled",
+                            "control_flag" : "optional",
+                            "on" : "stdout"
+                        },
+                        {
+                            "condition": "like",
+                            "like_to": "Failed to get unit file state",
+                            "control_flag" : "optional",
+                            "on" : "stderr"
+                        }
+                        
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"2.2.9 Ensure FTP Server is not enabled",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"systemctl is-enabled vsftpd",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "disabled",
+                            "control_flag" : "optional",
+                            "on" : "stdout"
+                        },
+                        {
+                            "condition": "like",
+                            "like_to": "Failed to get unit file state",
+                            "control_flag" : "optional",
+                            "on" : "stderr"
+                        }
+                        
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"2.2.10 Ensure HTTP server is not enabled",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"systemctl is-enabled apache2",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "disabled",
+                            "control_flag" : "optional",
+                            "on" : "stdout"
+                        },
+                        {
+                            "condition": "like",
+                            "like_to": "Failed to get unit file state",
+                            "control_flag" : "optional",
+                            "on" : "stderr"
+                        }
+                        
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"2.2.11 Ensure IMAP and POP3 server is not enabled",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"systemctl is-enabled dovecot",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "disabled",
+                            "control_flag" : "optional",
+                            "on" : "stdout"
+                        },
+                        {
+                            "condition": "like",
+                            "like_to": "Failed to get unit file state",
+                            "control_flag" : "optional",
+                            "on" : "stderr"
+                        }
+                        
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"2.2.12 Ensure Samba is not enabled",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"systemctl is-enabled smbd",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "disabled",
+                            "control_flag" : "optional",
+                            "on" : "stdout"
+                        },
+                        {
+                            "condition": "like",
+                            "like_to": "Failed to get unit file state",
+                            "control_flag" : "optional",
+                            "on" : "stderr"
+                        }
+                        
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"2.2.13 Ensure HTTP Proxy Server is not enabled",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"systemctl is-enabled squid",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "disabled",
+                            "control_flag" : "optional",
+                            "on" : "stdout"
+                        },
+                        {
+                            "condition": "like",
+                            "like_to": "Failed to get unit file state",
+                            "control_flag" : "optional",
+                            "on" : "stderr"
+                        }
+                        
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"2.2.14 Ensure SNMP Server is not enabled",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"systemctl is-enabled snmpd",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "disabled",
+                            "control_flag" : "optional",
+                            "on" : "stdout"
+                        },
+                        {
+                            "condition": "like",
+                            "like_to": "Failed to get unit file state",
+                            "control_flag" : "optional",
+                            "on" : "stderr"
+                        }
+                        
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"2.2.15 Ensure mail transfer agent is configured for local-only mode",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"netstat -an | grep LIST | grep ':25[[:space:]]'",
+                    "response_conditions":[
+                        {
+                            "condition": "pass_if_no_lines",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"2.2.16 Ensure rsync service is not enabled",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"systemctl is-enabled rsync",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "disabled",
+                            "control_flag" : "optional",
+                            "on" : "stdout"
+                        },
+                        {
+                            "condition": "like",
+                            "like_to": "Failed to get unit file state",
+                            "control_flag" : "optional",
+                            "on" : "stderr"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"2.2.17 Ensure NIS Server is not enabled",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"systemctl is-enabled nis",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "disabled",
+                            "control_flag" : "optional",
+                            "on" : "stdout"
+                        },
+                        {
+                            "condition": "like",
+                            "like_to": "Failed to get unit file state",
+                            "control_flag" : "optional",
+                            "on" : "stderr"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"2.3.1 Ensure NIS Client is not installed",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"dpkg -s nis",
+                    "response_conditions":[
+                        {
+                            "condition": "not_like",
+                            "not_like_to": "install ok installed",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"2.3.2 Ensure rsh client is not installed",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"dpkg -s rsh-client",
+                    "response_conditions":[
+                        {
+                            "condition": "not_like",
+                            "not_like_to": "install ok installed",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                },
+                {
+                    "elevated" : true,
+                    "cmd":"dpkg -s rsh-redone-client",
+                    "response_conditions":[
+                        {
+                            "condition": "not_like",
+                            "not_like_to": "install ok installed",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"2.3.3 Ensure talk client is not installed",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"dpkg -s talk",
+                    "response_conditions":[
+                        {
+                            "condition": "not_like",
+                            "not_like_to": "install ok installed",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"2.3.4 Ensure telnet client is not installed",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"dpkg -s telnet",
+                    "response_conditions":[
+                        {
+                            "condition": "not_like",
+                            "not_like_to": "install ok installed",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"2.3.5 Ensure LDAP client is not installed",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"dpkg -s ldap-utils",
+                    "response_conditions":[
+                        {
+                            "condition": "not_like",
+                            "not_like_to": "install ok installed",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"3.1.1 Ensure IP forwarding is disabled",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"sysctl net.ipv4.ip_forward",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "net.ipv4.ip_forward = 0",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"3.1.2 Ensure packet redirect sending is disabled ",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"sysctl net.ipv4.conf.all.send_redirects",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "net.ipv4.conf.all.send_redirects = 0",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                },
+                {
+                    "elevated" : true,
+                    "cmd":"sysctl net.ipv4.conf.default.send_redirects",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "net.ipv4.conf.default.send_redirects = 0",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"3.2.1 Ensure source routed packets are not accepted",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"sysctl net.ipv4.conf.all.accept_redirects",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "net.ipv4.conf.all.accept_redirects = 0",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                },
+                {
+                    "elevated" : true,
+                    "cmd":"sysctl net.ipv4.conf.default.accept_redirects",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "net.ipv4.conf.default.accept_redirects = 0",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"3.2.3 Ensure secure ICMP redirects are not accepted",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"sysctl net.ipv4.conf.all.secure_redirects",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "net.ipv4.conf.all.secure_redirects = 0",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                },
+                {
+                    "elevated" : true,
+                    "cmd":"sysctl net.ipv4.conf.default.secure_redirects",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "net.ipv4.conf.default.secure_redirects = 0",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"3.2.4 Ensure suspicious packets are logged",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"sysctl net.ipv4.conf.all.log_martians",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "net.ipv4.conf.all.log_martians = 1",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                },
+                {
+                    "elevated" : true,
+                    "cmd":"sysctl net.ipv4.conf.default.log_martians",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "net.ipv4.conf.default.log_martians = 1",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"3.2.5 Ensure broadcast ICMP requests are ignored",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"sysctl net.ipv4.icmp_echo_ignore_broadcasts",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "net.ipv4.conf.all.log_martians = 1",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"3.2.6 Ensure bogus ICMP responses are ignored",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"sysctl net.ipv4.icmp_ignore_bogus_error_responses",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "net.ipv4.icmp_ignore_bogus_error_responses = 1",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"3.2.7 Ensure Reverse Path Filtering is enabled",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"sysctl net.ipv4.conf.all.rp_filter",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "net.ipv4.conf.all.rp_filter = 1",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                },
+                {
+                    "elevated" : true,
+                    "cmd":"sysctl net.ipv4.conf.default.rp_filter",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "net.ipv4.conf.default.rp_filter = 1",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"3.2.8 Ensure TCP SYN Cookies is enabled",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"sysctl net.ipv4.tcp_syncookies",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "net.ipv4.tcp_syncookies = 1",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"3.2.8 Ensure TCP SYN Cookies is enabled",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"sysctl net.ipv4.tcp_syncookies",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "net.ipv4.tcp_syncookies = 1",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"3.3.1 Ensure IPv6 router advertisements are not accepted",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"sysctl net.ipv6.conf.all.accept_ra",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "net.ipv6.conf.all.accept_ra = 0",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                },
+                {
+                    "elevated" : true,
+                    "cmd":"sysctl net.ipv6.conf.default.accept_ra",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "net.ipv6.conf.all.accept_ra = 0",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
         }
+
     ]
 }
