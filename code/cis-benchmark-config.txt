@@ -1,0 +1,6 @@
+[session]
+username=someuser
+password=somepassword
+ip=someip
+port=22
+benchmark=ubuntu-16.04-benchmark.json

@@ -329,337 +329,6 @@ tmpfs on /dev/shm type tmpfs (rw,nosuid,nodev)
 
 
 [VERDICT] : PASSED
---------- 1.1.1.1 Ensure mounting of cramfs filesystems is disabled ---------
-
-[COMMAND] : 
-modprobe -n -v cramfs
-
-[STDOUT] : 
-
-
-[STDERR] : 
-
-
-[COMMAND] : 
-lsmod | grep cramfs
-
-[STDOUT] : 
-
-
-[STDERR] : 
-
-
-[VERDICT] : FAILED
---------- 1.1.1.2 Ensure mounting of freevxfs filesystems is disabled ---------
-
-[COMMAND] : 
-modprobe -n -v freevxfs
-
-[STDOUT] : 
-
-
-[STDERR] : 
-
-
-[COMMAND] : 
-lsmod | grep freevxfs
-
-[STDOUT] : 
-
-
-[STDERR] : 
-
-
-[VERDICT] : FAILED
---------- 1.1.1.3 Ensure mounting of jffs2 filesystems is disabled ---------
-
-[COMMAND] : 
-modprobe -n -v jffs2
-
-[STDOUT] : 
-
-
-[STDERR] : 
-
-
-[COMMAND] : 
-lsmod | grep jffs2
-
-[STDOUT] : 
-
-
-[STDERR] : 
-
-
-[VERDICT] : FAILED
---------- 1.1.1.4 Ensure mounting of hfs filesystems is disabled ---------
-
-[COMMAND] : 
-modprobe -n -v hfs
-
-[STDOUT] : 
-
-
-[STDERR] : 
-
-
-[COMMAND] : 
-lsmod | grep hfs
-
-[STDOUT] : 
-
-
-[STDERR] : 
-
-
-[VERDICT] : FAILED
---------- 1.1.1.5 Ensure mounting of hfsplus filesystems is disabled ---------
-
-[COMMAND] : 
-modprobe -n -v hfsplus
-
-[STDOUT] : 
-
-
-[STDERR] : 
-
-
-[COMMAND] : 
-lsmod | grep hfsplus
-
-[STDOUT] : 
-
-
-[STDERR] : 
-
-
-[VERDICT] : FAILED
---------- 1.1.1.6 Ensure mounting of squashfs filesystems is disabled ---------
-
-[COMMAND] : 
-modprobe -n -v squashfs
-
-[STDOUT] : 
-
-
-[STDERR] : 
-
-
-[COMMAND] : 
-lsmod | grep squashfs
-
-[STDOUT] : 
-
-
-[STDERR] : 
-
-
-[VERDICT] : FAILED
---------- 1.1.1.7 Ensure mounting of udf filesystems is disabled ---------
-
-[COMMAND] : 
-modprobe -n -v udf
-
-[STDOUT] : 
-insmod /lib/modules/4.4.0-1128-aws/kernel/lib/crc-itu-t.ko 
-insmod /lib/modules/4.4.0-1128-aws/kernel/fs/udf/udf.ko 
-
-
-[STDERR] : 
-
-
-[COMMAND] : 
-lsmod | grep udf
-
-[STDOUT] : 
-
-
-[STDERR] : 
-
-
-[VERDICT] : FAILED
---------- 1.1.1.8 Ensure mounting of FAT filesystems is disabled ---------
-
-[COMMAND] : 
-modprobe -n -v vfat
-
-[STDOUT] : 
-
-
-[STDERR] : 
-
-
-[COMMAND] : 
- lsmod | grep vfat
-
-[STDOUT] : 
-
-
-[STDERR] : 
-
-
-[VERDICT] : FAILED
---------- 1.1.2 Ensure separate partition exists for /tmp ---------
-
-[COMMAND] : 
-mount | grep /tmp
-
-[STDOUT] : 
-
-
-[STDERR] : 
-
-
-[VERDICT] : FAILED
---------- 1.1.3 Ensure nodev option set on /tmp partition ---------
-
-[COMMAND] : 
-mount | grep /tmp
-
-[STDOUT] : 
-
-
-[STDERR] : 
-
-
-[VERDICT] : FAILED
---------- 1.1.4 Ensure nosuid option set on /tmp partition ---------
-
-[COMMAND] : 
-mount | grep /tmp
-
-[STDOUT] : 
-
-
-[STDERR] : 
-
-
-[VERDICT] : FAILED
---------- 1.1.5 Ensure separate partition exists for /var ---------
-
-[COMMAND] : 
-mount | grep /var
-
-[STDOUT] : 
-lxcfs on /var/lib/lxcfs type fuse.lxcfs (rw,nosuid,nodev,relatime,user_id=0,group_id=0,allow_other)
-/var/lib/snapd/snaps/snapd_11588.snap on /snap/snapd/11588 type squashfs (ro,nodev,relatime)
-/var/lib/snapd/snaps/core18_1997.snap on /snap/core18/1997 type squashfs (ro,nodev,relatime)
-/var/lib/snapd/snaps/amazon-ssm-agent_3552.snap on /snap/amazon-ssm-agent/3552 type squashfs (ro,nodev,relatime)
-
-
-[STDERR] : 
-
-
-[VERDICT] : FAILED
---------- 1.1.6 Ensure separate partition exists for /var/tmp ---------
-
-[COMMAND] : 
-mount | grep /var/tmp
-
-[STDOUT] : 
-
-
-[STDERR] : 
-
-
-[VERDICT] : FAILED
---------- 1.1.7 Ensure nodev option set on /var/tmp partition ---------
-
-[COMMAND] : 
-mount | grep /var/tmp
-
-[STDOUT] : 
-
-
-[STDERR] : 
-
-
-[VERDICT] : FAILED
---------- 1.1.8 Ensure nosuid option set on /var/tmp partition ---------
-
-[COMMAND] : 
-mount | grep /var/tmp
-
-[STDOUT] : 
-
-
-[STDERR] : 
-
-
-[VERDICT] : FAILED
---------- 1.1.9 Ensure noexec option set on /var/tmp partition ---------
-
-[COMMAND] : 
-mount | grep /var/tmp
-
-[STDOUT] : 
-
-
-[STDERR] : 
-
-
-[VERDICT] : FAILED
---------- 1.1.10 Ensure separate partition exists for /var/log ---------
-
-[COMMAND] : 
-mount | grep /var/log
-
-[STDOUT] : 
-
-
-[STDERR] : 
-
-
-[VERDICT] : FAILED
---------- 1.1.11 Ensure separate partition exists for /var/log/audit ---------
-
-[COMMAND] : 
-mount | grep /var/log/audit
-
-[STDOUT] : 
-
-
-[STDERR] : 
-
-
-[VERDICT] : FAILED
---------- 1.1.11 Ensure separate partition exists for /var/log/audit ---------
-
-[COMMAND] : 
-mount | grep /home
-
-[STDOUT] : 
-
-
-[STDERR] : 
-
-
-[VERDICT] : FAILED
---------- 1.1.13 Ensure nodev option set on /home partition ---------
-
-[COMMAND] : 
-mount | grep /home
-
-[STDOUT] : 
-
-
-[STDERR] : 
-
-
-[VERDICT] : FAILED
---------- 1.1.14 Ensure nodev option set on /dev/shm partition ---------
-
-[COMMAND] : 
-mount | grep /dev/shm
-
-[STDOUT] : 
-tmpfs on /dev/shm type tmpfs (rw,nosuid,nodev)
-
-
-[STDERR] : 
-
-
-[VERDICT] : PASSED
 --------- 1.1.15 Ensure nosuid option set on /dev/shm partition ---------
 
 [COMMAND] : 
@@ -823,7 +492,7 @@ stat /boot/grub/grub.cfg
   Size: 5651      	Blocks: 16         IO Block: 4096   regular file
 Device: ca01h/51713d	Inode: 184         Links: 1
 Access: (0444/-r--r--r--)  Uid: (    0/    root)   Gid: (    0/    root)
-Access: 2021-04-29 03:41:23.757784145 +0000
+Access: 2021-10-26 15:04:53.340108046 +0000
 Modify: 2021-04-29 03:41:23.757784145 +0000
 Change: 2021-04-29 03:41:23.757784145 +0000
  Birth: -
@@ -2082,7 +1751,7 @@ target     prot opt source               destination
 iptables -L INPUT -v -n
 
 [STDOUT] : 
-Chain INPUT (policy ACCEPT 8 packets, 817 bytes)
+Chain INPUT (policy ACCEPT 4490 packets, 473K bytes)
  pkts bytes target     prot opt in     out     source               destination         
 
 
@@ -2093,7 +1762,7 @@ Chain INPUT (policy ACCEPT 8 packets, 817 bytes)
 iptables -L OUTPUT -v -n
 
 [STDOUT] : 
-Chain OUTPUT (policy ACCEPT 18 packets, 2280 bytes)
+Chain OUTPUT (policy ACCEPT 5163 packets, 863K bytes)
  pkts bytes target     prot opt in     out     source               destination         
 
 
@@ -2107,13 +1776,13 @@ Chain OUTPUT (policy ACCEPT 18 packets, 2280 bytes)
 iptables -L -v -n
 
 [STDOUT] : 
-Chain INPUT (policy ACCEPT 24 packets, 2451 bytes)
+Chain INPUT (policy ACCEPT 4516 packets, 476K bytes)
  pkts bytes target     prot opt in     out     source               destination         
 
 Chain FORWARD (policy ACCEPT 0 packets, 0 bytes)
  pkts bytes target     prot opt in     out     source               destination         
 
-Chain OUTPUT (policy ACCEPT 27 packets, 3348 bytes)
+Chain OUTPUT (policy ACCEPT 5171 packets, 864K bytes)
  pkts bytes target     prot opt in     out     source               destination         
 
 
@@ -2136,10 +1805,10 @@ tcp6       0      0 ::1:6010                :::*                    LISTEN
 udp        0      0 0.0.0.0:68              0.0.0.0:*                          
 Active UNIX domain sockets (only servers)
 Proto RefCnt Flags       Type       State         I-Node   Path
-unix  2      [ ACC ]     STREAM     LISTENING     23603    /run/user/1001/systemd/private
+unix  2      [ ACC ]     STREAM     LISTENING     52880    /run/user/1001/systemd/private
 unix  2      [ ACC ]     STREAM     LISTENING     17820    /run/user/1000/systemd/private
 unix  2      [ ACC ]     SEQPACKET  LISTENING     8830     /run/udev/control
-unix  2      [ ACC ]     STREAM     LISTENING     23607    /run/user/1001/snapd-session-agent.socket
+unix  2      [ ACC ]     STREAM     LISTENING     52884    /run/user/1001/snapd-session-agent.socket
 unix  2      [ ACC ]     STREAM     LISTENING     17824    /run/user/1000/snapd-session-agent.socket
 unix  2      [ ACC ]     STREAM     LISTENING     12990    /var/lib/lxd/unix.socket
 unix  2      [ ACC ]     STREAM     LISTENING     12985    /run/snapd.socket
@@ -2161,7 +1830,7 @@ unix  2      [ ACC ]     STREAM     LISTENING     8821     /run/lvm/lvmetad.sock
 iptables -L INPUT -v -n
 
 [STDOUT] : 
-Chain INPUT (policy ACCEPT 40 packets, 4069 bytes)
+Chain INPUT (policy ACCEPT 4538 packets, 478K bytes)
  pkts bytes target     prot opt in     out     source               destination         
 
 
@@ -2637,18 +2306,18 @@ find /var/log -type f -ls
     58085      4 -rw-rw-r--   1 root     utmp       292584 Oct 26 14:52 /var/log/lastlog
     51277     52 -rw-r-----   1 syslog   adm         52479 Oct 26 15:06 /var/log/kern.log
     51231    152 -rw-r--r--   1 syslog   adm        153054 Oct 26 14:52 /var/log/cloud-init.log
-    58084      0 -rw-------   1 root     utmp            0 Apr 29  2021 /var/log/btmp
+    58084      4 -rw-------   1 root     utmp          384 Oct 26 15:26 /var/log/btmp
     58081      0 -rw-r-----   1 root     adm             0 Apr 29  2021 /var/log/fsck/checkroot
     58082      0 -rw-r-----   1 root     adm             0 Apr 29  2021 /var/log/fsck/checkfs
     51232      8 -rw-r-----   1 root     adm          4761 Oct 26 14:52 /var/log/cloud-init-output.log
-   256214      4 -rw-------   1 root     root          551 Oct 26 14:56 /var/log/amazon/ssm/hibernate.log
+   256214      4 -rw-------   1 root     root         1102 Oct 26 15:26 /var/log/amazon/ssm/hibernate.log
    256165      4 -rw-------   1 root     root          132 Oct 26 14:51 /var/log/amazon/ssm/audits/amazon-ssm-agent-audit-2021-10-26
    256164      4 -rw-------   1 root     root         2185 Oct 26 14:51 /var/log/amazon/ssm/amazon-ssm-agent.log
     58378      4 -rw-r-----   1 root     adm           201 Apr 29  2021 /var/log/apt/term.log
     58379      4 -rw-r--r--   1 root     root         1204 Apr 29  2021 /var/log/apt/history.log
-    51276    100 -rw-r-----   1 syslog   adm         99664 Oct 26 15:06 /var/log/syslog
+    51276    104 -rw-r-----   1 syslog   adm        103814 Oct 26 15:24 /var/log/syslog
     51281      0 -rw-r--r--   1 root     root            0 Oct 26 14:51 /var/log/unattended-upgrades/unattended-upgrades-shutdown.log
-    51278     84 -rw-r-----   1 syslog   adm         84431 Oct 26 15:07 /var/log/auth.log
+    51278    248 -rw-r-----   1 syslog   adm        246734 Oct 26 15:27 /var/log/auth.log
     58381     16 -rw-r--r--   1 root     root        13144 Apr 29  2021 /var/log/dpkg.log
     58083      4 -rw-rw-r--   1 root     utmp         2688 Oct 26 14:52 /var/log/wtmp
 
@@ -3639,38 +3308,38 @@ root
 --------- 6.2.6 Ensure root PATH Integrity ---------
 
 [COMMAND] : 
-#!/bin/bash
-if [ "`echo $PATH | grep :: `" != "" ]; then
- echo "Empty Directory in PATH (::)"
-fi
-if [ "`echo $PATH | grep :$`" != "" ]; then
- echo "Trailing : in PATH"
-fi
-p=`echo $PATH | sed -e 's/::/:/' -e 's/:$//' -e 's/:/ /g'`
-set -- $p
-while [ "$1" != "" ]; do
- if [ "$1" = "." ]; then
- echo "PATH contains ."
- shift
- continue
- fi
- if [ -d $1 ]; then
- dirperm=`ls -ldH $1 | cut -f1 -d" "`
- if [ `echo $dirperm | cut -c6 ` != "-" ]; then
- echo "Group Write permission set on directory $1"
- fi
- if [ `echo $dirperm | cut -c9 ` != "-" ]; then
- echo "Other Write permission set on directory $1"
- fi
- dirown=`ls -ldH $1 | awk '{print $3}'`
- if [ "$dirown" != "root" ] ; then
- echo $1 is not owned by root
- fi
- else
- echo $1 is not a directory
-272 | P a g e
- fi
- shift
+#!/bin/bash
+if [ "`echo $PATH | grep :: `" != "" ]; then
+ echo "Empty Directory in PATH (::)"
+fi
+if [ "`echo $PATH | grep :$`" != "" ]; then
+ echo "Trailing : in PATH"
+fi
+p=`echo $PATH | sed -e 's/::/:/' -e 's/:$//' -e 's/:/ /g'`
+set -- $p
+while [ "$1" != "" ]; do
+ if [ "$1" = "." ]; then
+ echo "PATH contains ."
+ shift
+ continue
+ fi
+ if [ -d $1 ]; then
+ dirperm=`ls -ldH $1 | cut -f1 -d" "`
+ if [ `echo $dirperm | cut -c6 ` != "-" ]; then
+ echo "Group Write permission set on directory $1"
+ fi
+ if [ `echo $dirperm | cut -c9 ` != "-" ]; then
+ echo "Other Write permission set on directory $1"
+ fi
+ dirown=`ls -ldH $1 | awk '{print $3}'`
+ if [ "$dirown" != "root" ] ; then
+ echo $1 is not owned by root
+ fi
+ else
+ echo $1 is not a directory
+272 | P a g e
+ fi
+ shift
 done
 
 [STDOUT] : 
@@ -3683,11 +3352,11 @@ done
 --------- 6.2.7 Ensure all users' home directories exist ---------
 
 [COMMAND] : 
-#!/bin/bash
-cat /etc/passwd | awk -F: '{ print $1 " " $3 " " $6 }' | while read user uid dir; do
- if [ $uid -ge 1000 -a ! -d "$dir" -a $user != "nfsnobody" ]; then
- echo "The home directory ($dir) of user $user does not exist."
- fi
+#!/bin/bash
+cat /etc/passwd | awk -F: '{ print $1 " " $3 " " $6 }' | while read user uid dir; do
+ if [ $uid -ge 1000 -a ! -d "$dir" -a $user != "nfsnobody" ]; then
+ echo "The home directory ($dir) of user $user does not exist."
+ fi
 done
 
 [STDOUT] : 
@@ -3700,23 +3369,23 @@ done
 --------- 6.2.8 Ensure users' home directories permissions are 750 or more restrictive ---------
 
 [COMMAND] : 
-#!/bin/bash
-for dir in `cat /etc/passwd | egrep -v '(root|halt|sync|shutdown)' | awk -F: '($7 !=
-"/usr/sbin/nologin") { print $6 }'`; do
- dirperm=`ls -ld $dir | cut -f1 -d" "`
- if [ `echo $dirperm | cut -c6 ` != "-" ]; then
-echo "Group Write permission set on directory $dir"
-fi
-if [ `echo $dirperm | cut -c8 ` != "-" ]; then
-echo "Other Read permission set on directory $dir"
-fi
-if [ `echo $dirperm | cut -c9 ` != "-" ]; then
-echo "Other Write permission set on directory $dir"
-fi
-if [ `echo $dirperm | cut -c10 ` != "-" ]; then
-echo "Other Execute permission set on directory $dir"
-fi
-done
+#!/bin/bash
+for dir in `cat /etc/passwd | egrep -v '(root|halt|sync|shutdown)' | awk -F: '($7 !=
+"/usr/sbin/nologin") { print $6 }'`; do
+ dirperm=`ls -ld $dir | cut -f1 -d" "`
+ if [ `echo $dirperm | cut -c6 ` != "-" ]; then
+echo "Group Write permission set on directory $dir"
+fi
+if [ `echo $dirperm | cut -c8 ` != "-" ]; then
+echo "Other Read permission set on directory $dir"
+fi
+if [ `echo $dirperm | cut -c9 ` != "-" ]; then
+echo "Other Write permission set on directory $dir"
+fi
+if [ `echo $dirperm | cut -c10 ` != "-" ]; then
+echo "Other Execute permission set on directory $dir"
+fi
+done
 
 
 [STDOUT] : 
@@ -3729,15 +3398,15 @@ done
 --------- 6.2.9 Ensure users own their home directories ---------
 
 [COMMAND] : 
-#!/bin/bash
-cat /etc/passwd | awk -F: '{ print $1 " " $3 " " $6 }' | while read user uid dir; do
-if [ $uid -ge 1000 -a -d "$dir" -a $user != "nfsnobody" ]; then
-owner=$(stat -L -c "%U" "$dir")
-if [ "$owner" != "$user" ]; then
-echo "The home directory ($dir) of user $user is owned by $owner."
-fi
-fi
-done
+#!/bin/bash
+cat /etc/passwd | awk -F: '{ print $1 " " $3 " " $6 }' | while read user uid dir; do
+if [ $uid -ge 1000 -a -d "$dir" -a $user != "nfsnobody" ]; then
+owner=$(stat -L -c "%U" "$dir")
+if [ "$owner" != "$user" ]; then
+echo "The home directory ($dir) of user $user is owned by $owner."
+fi
+fi
+done
 
 
 [STDOUT] : 
@@ -3750,21 +3419,21 @@ done
 --------- 6.2.10 Ensure users' dot files are not group or world writable ---------
 
 [COMMAND] : 
-#!/bin/bash
-for dir in `cat /etc/passwd | egrep -v '(root|sync|halt|shutdown)' | awk -F: '($7 !=
-"/usr/sbin/nologin") { print $6 }'`; do
-for file in $dir/.[A-Za-z0-9]*; do
-if [ ! -h "$file" -a -f "$file" ]; then
-fileperm=`ls -ld $file | cut -f1 -d" "`
-if [ `echo $fileperm | cut -c6 ` != "-" ]; then
-echo "Group Write permission set on file $file"
-fi
-if [ `echo $fileperm | cut -c9 ` != "-" ]; then
-echo "Other Write permission set on file $file"
-fi
-fi
- done
-done
+#!/bin/bash
+for dir in `cat /etc/passwd | egrep -v '(root|sync|halt|shutdown)' | awk -F: '($7 !=
+"/usr/sbin/nologin") { print $6 }'`; do
+for file in $dir/.[A-Za-z0-9]*; do
+if [ ! -h "$file" -a -f "$file" ]; then
+fileperm=`ls -ld $file | cut -f1 -d" "`
+if [ `echo $fileperm | cut -c6 ` != "-" ]; then
+echo "Group Write permission set on file $file"
+fi
+if [ `echo $fileperm | cut -c9 ` != "-" ]; then
+echo "Other Write permission set on file $file"
+fi
+fi
+ done
+done
 
 
 [STDOUT] : 
@@ -3777,12 +3446,12 @@ done
 --------- 6.2.11 Ensure no users have .forward files ---------
 
 [COMMAND] : 
-#!/bin/bash
-for dir in `cat /etc/passwd |\
-awk -F: '{ print $6 }'`; do
-if [ ! -h "$dir/.forward" -a -f "$dir/.forward" ]; then
-echo ".forward file $dir/.forward exists"
-fi
+#!/bin/bash
+for dir in `cat /etc/passwd |\
+awk -F: '{ print $6 }'`; do
+if [ ! -h "$dir/.forward" -a -f "$dir/.forward" ]; then
+echo ".forward file $dir/.forward exists"
+fi
 done
 
 [STDOUT] : 
@@ -3795,12 +3464,12 @@ done
 --------- 6.2.12 Ensure no users have .netrc files ---------
 
 [COMMAND] : 
-#!/bin/bash
-for dir in `cat /etc/passwd |\
-awk -F: '{ print $6 }'`; do
-if [ ! -h "$dir/.netrc" -a -f "$dir/.netrc" ]; then
-echo ".netrc file $dir/.netrc exists"
-fi
+#!/bin/bash
+for dir in `cat /etc/passwd |\
+awk -F: '{ print $6 }'`; do
+if [ ! -h "$dir/.netrc" -a -f "$dir/.netrc" ]; then
+echo ".netrc file $dir/.netrc exists"
+fi
 done
 
 [STDOUT] : 
@@ -3813,32 +3482,32 @@ done
 --------- 6.2.13 Ensure users' .netrc Files are not group or world accessible  ---------
 
 [COMMAND] : 
-#!/bin/bash
-for dir in `cat /etc/passwd | egrep -v '(root|sync|halt|shutdown)' | awk -F: '($7 !=
-"/usr/sbin/nologin") { print $6 }'`; do
-for file in $dir/.netrc; do
-if [ ! -h "$file" -a -f "$file" ]; then
-fileperm=`ls -ld $file | cut -f1 -d" "`
-if [ `echo $fileperm | cut -c5 ` != "-" ]; then
-echo "Group Read set on $file"
-fi
-if [ `echo $fileperm | cut -c6 ` != "-" ]; then
-echo "Group Write set on $file"
-fi
-if [ `echo $fileperm | cut -c7 ` != "-" ]; then
-echo "Group Execute set on $file"
-fi
-if [ `echo $fileperm | cut -c8 ` != "-" ]; then
-echo "Other Read set on $file"
-fi
-if [ `echo $fileperm | cut -c9 ` != "-" ]; then
-echo "Other Write set on $file"
-fi
-if [ `echo $fileperm | cut -c10 ` != "-" ]; then
- echo "Other Execute set on $file"
-fi
-fi
-done
+#!/bin/bash
+for dir in `cat /etc/passwd | egrep -v '(root|sync|halt|shutdown)' | awk -F: '($7 !=
+"/usr/sbin/nologin") { print $6 }'`; do
+for file in $dir/.netrc; do
+if [ ! -h "$file" -a -f "$file" ]; then
+fileperm=`ls -ld $file | cut -f1 -d" "`
+if [ `echo $fileperm | cut -c5 ` != "-" ]; then
+echo "Group Read set on $file"
+fi
+if [ `echo $fileperm | cut -c6 ` != "-" ]; then
+echo "Group Write set on $file"
+fi
+if [ `echo $fileperm | cut -c7 ` != "-" ]; then
+echo "Group Execute set on $file"
+fi
+if [ `echo $fileperm | cut -c8 ` != "-" ]; then
+echo "Other Read set on $file"
+fi
+if [ `echo $fileperm | cut -c9 ` != "-" ]; then
+echo "Other Write set on $file"
+fi
+if [ `echo $fileperm | cut -c10 ` != "-" ]; then
+ echo "Other Execute set on $file"
+fi
+fi
+done
 done
 
 [STDOUT] : 
@@ -3851,15 +3520,15 @@ done
 --------- 6.2.14 Ensure no users have .rhosts files ---------
 
 [COMMAND] : 
-#!/bin/bash
-for dir in `cat /etc/passwd | egrep -v '(root|halt|sync|shutdown)' | awk -F: '($7 !=
-"/usr/sbin/nologin") { print $6 }'`; do
-for file in $dir/.rhosts; do
-if [ ! -h "$file" -a -f "$file" ]; then
-echo ".rhosts file in $dir"
-fi
-done
-done
+#!/bin/bash
+for dir in `cat /etc/passwd | egrep -v '(root|halt|sync|shutdown)' | awk -F: '($7 !=
+"/usr/sbin/nologin") { print $6 }'`; do
+for file in $dir/.rhosts; do
+if [ ! -h "$file" -a -f "$file" ]; then
+echo ".rhosts file in $dir"
+fi
+done
+done
 
 
 [STDOUT] : 
@@ -3872,13 +3541,13 @@ done
 --------- 6.2.15 Ensure all groups in /etc/passwd exist in /etc/group ---------
 
 [COMMAND] : 
-#!/bin/bash
-for i in $(cut -s -d: -f4 /etc/passwd | sort -u ); do
- grep -q -P "^.*?:[^:]*:$i:" /etc/group
- if [ $? -ne 0 ]; then
- echo "Group $i is referenced by /etc/passwd but does not exist in /etc/group"
- fi
-done
+#!/bin/bash
+for i in $(cut -s -d: -f4 /etc/passwd | sort -u ); do
+ grep -q -P "^.*?:[^:]*:$i:" /etc/group
+ if [ $? -ne 0 ]; then
+ echo "Group $i is referenced by /etc/passwd but does not exist in /etc/group"
+ fi
+done
 
 
 [STDOUT] : 
@@ -3891,14 +3560,14 @@ done
 --------- 6.2.16 Ensure no duplicate UIDs exist ---------
 
 [COMMAND] : 
-#!/bin/bash
-cat /etc/passwd | cut -f3 -d":" | sort -n | uniq -c | while read x ; do
-[ -z "${x}" ] && break
-set - $x
-if [ $1 -gt 1 ]; then
-users=`awk -F: '($3 == n) { print $1 }' n=$2 /etc/passwd | xargs`
-echo "Duplicate UID ($2): ${users}"
-fi
+#!/bin/bash
+cat /etc/passwd | cut -f3 -d":" | sort -n | uniq -c | while read x ; do
+[ -z "${x}" ] && break
+set - $x
+if [ $1 -gt 1 ]; then
+users=`awk -F: '($3 == n) { print $1 }' n=$2 /etc/passwd | xargs`
+echo "Duplicate UID ($2): ${users}"
+fi
 done
 
 [STDOUT] : 
@@ -3911,14 +3580,14 @@ done
 --------- 6.2.17 Ensure no duplicate GIDs exist ---------
 
 [COMMAND] : 
-#!/bin/bash
-cat /etc/group | cut -f3 -d":" | sort -n | uniq -c | while read x ; do
-[ -z "${x}" ] && break
-set - $x
-if [ $1 -gt 1 ]; then
-groups=`awk -F: '($3 == n) { print $1 }' n=$2 /etc/group | xargs`
-echo "Duplicate GID ($2): ${groups}"
-fi
+#!/bin/bash
+cat /etc/group | cut -f3 -d":" | sort -n | uniq -c | while read x ; do
+[ -z "${x}" ] && break
+set - $x
+if [ $1 -gt 1 ]; then
+groups=`awk -F: '($3 == n) { print $1 }' n=$2 /etc/group | xargs`
+echo "Duplicate GID ($2): ${groups}"
+fi
 done
 
 [STDOUT] : 
@@ -3931,14 +3600,14 @@ done
 --------- 6.2.18 Ensure no duplicate user names exist ---------
 
 [COMMAND] : 
-#!/bin/bash
-cat /etc/passwd | cut -f1 -d":" | sort -n | uniq -c | while read x ; do
-[ -z "${x}" ] && break
-set - $x
-if [ $1 -gt 1 ]; then
-uids=`awk -F: '($1 == n) { print $3 }' n=$2 /etc/passwd | xargs`
-echo "Duplicate User Name ($2): ${uids}"
-fi
+#!/bin/bash
+cat /etc/passwd | cut -f1 -d":" | sort -n | uniq -c | while read x ; do
+[ -z "${x}" ] && break
+set - $x
+if [ $1 -gt 1 ]; then
+uids=`awk -F: '($1 == n) { print $3 }' n=$2 /etc/passwd | xargs`
+echo "Duplicate User Name ($2): ${uids}"
+fi
 done
 
 [STDOUT] : 
@@ -3951,14 +3620,14 @@ done
 --------- 6.2.19 Ensure no duplicate group names exist ---------
 
 [COMMAND] : 
-#!/bin/bash
-cat /etc/group | cut -f1 -d":" | sort -n | uniq -c | while read x ; do
-[ -z "${x}" ] && break
-set - $x
-if [ $1 -gt 1 ]; then
-gids=`gawk -F: '($1 == n) { print $3 }' n=$2 /etc/group | xargs`
-echo "Duplicate Group Name ($2): ${gids}"
-fi
+#!/bin/bash
+cat /etc/group | cut -f1 -d":" | sort -n | uniq -c | while read x ; do
+[ -z "${x}" ] && break
+set - $x
+if [ $1 -gt 1 ]; then
+gids=`gawk -F: '($1 == n) { print $3 }' n=$2 /etc/group | xargs`
+echo "Duplicate Group Name ($2): ${gids}"
+fi
 done
 
 [STDOUT] : 
