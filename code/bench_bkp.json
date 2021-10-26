@@ -678,8 +678,14 @@
                         {
                             "condition": "like",
                             "like_to": "disabled",
-                            "control_flag" : "required",
+                            "control_flag" : "optional",
                             "on" : "stdout"
+                        },
+                        {
+                            "condition": "like",
+                            "like_to": "Failed to get unit file state",
+                            "control_flag" : "optional",
+                            "on" : "stderr"
                         }
                     ]
                 }                 
@@ -1173,8 +1179,14 @@
                         {
                             "condition": "like",
                             "like_to" : "disabled",
-                            "control_flag" : "required",
+                            "control_flag" : "optional",
                             "on" : "stdout"
+                        },
+                        {
+                            "condition": "like",
+                            "like_to": "Failed to get unit file state",
+                            "control_flag" : "optional",
+                            "on" : "stderr"
                         }
                     ]
                 } 
@@ -2506,11 +2518,9 @@
                         {
                             "condition": "like",
                             "like_to": "enabled",
-                            "control_flag" : "required",
+                            "control_flag" : "optional",
                             "on" : "stdout"
                         }
-
-                        
                     ]
                 }
             ]
@@ -2724,6 +2734,1919 @@
                             "condition": "like",
                             "like_to": "-w /etc/apparmor.d/ -p wa -k MAC-policy",
                             "control_flag" : "optional",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"4.1.1.3 Ensure audit logs are not automatically deleted",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"grep max_log_file_action /etc/audit/auditd.conf",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "max_log_file_action = keep_logs",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+
+                        
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"4.1.2 Ensure auditd service is enabled",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"systemctl is-enabled auditd",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "enabled",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"4.1.3 Ensure auditing for processes that start prior to auditd is enabled",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"grep '^\\s*linux' /boot/grub/grub.cfg",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "audit=1",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"4.1.4 Ensure events that modify date and time information are collected",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"grep time-change /etc/audit/audit.rules",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "-a always,exit -F arch=b64 -S adjtimex -S settimeofday -k time-change",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        },
+                        {
+                            "condition": "like",
+                            "like_to": "-a always,exit -F arch=b32 -S adjtimex -S settimeofday -S stime -k time-change",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        },
+                        {
+                            "condition": "like",
+                            "like_to": "-a always,exit -F arch=b64 -S clock_settime -k time-change",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        },
+                        {
+                            "condition": "like",
+                            "like_to": "-a always,exit -F arch=b32 -S clock_settime -k time-change",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        },
+                        {
+                            "condition": "like",
+                            "like_to": "-w /etc/localtime -p wa -k time-change",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"4.1.5 Ensure events that modify user/group information are collected",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"grep identity /etc/audit/audit.rules",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "-w /etc/group -p wa -k identity",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        },
+                        {
+                            "condition": "like",
+                            "like_to": "-w /etc/passwd -p wa -k identity",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        },
+                        {
+                            "condition": "like",
+                            "like_to": "-w /etc/gshadow -p wa -k identity",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        },
+                        {
+                            "condition": "like",
+                            "like_to": "-w /etc/shadow -p wa -k identity",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        },
+                        {
+                            "condition": "like",
+                            "like_to": "-w /etc/security/opasswd -p wa -k identity",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"4.1.6 Ensure events that modify the system's network environment are collected",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"grep system-locale /etc/audit/audit.rules",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "-a always,exit -F arch=b64 -S sethostname -S setdomainname -k system-locale",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        },
+                        {
+                            "condition": "like",
+                            "like_to": "-a always,exit -F arch=b32 -S sethostname -S setdomainname -k system-locale",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        },
+                        {
+                            "condition": "like",
+                            "like_to": "-w /etc/issue -p wa -k system-locale",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        },
+                        {
+                            "condition": "like",
+                            "like_to": "-w /etc/issue.net -p wa -k system-locale",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        },
+                        {
+                            "condition": "like",
+                            "like_to": "-w /etc/hosts -p wa -k system-locale",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        },
+                        {
+                            "condition": "like",
+                            "like_to": "-w /etc/network -p wa -k system-locale",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        },
+                        {
+                            "condition": "like",
+                            "like_to": "-w /etc/networks -p wa -k system-locale",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        } 
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"4.1.7 Ensure events that modify the system's Mandatory Access Controls are collected",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"grep MAC-policy /etc/audit/audit.rules",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "-w /etc/selinux/ -p wa -k MAC-policy",
+                            "control_flag" : "optional",
+                            "on" : "stdout"
+                        },
+                        {
+                            "condition": "like",
+                            "like_to": "-w /etc/apparmor/ -p wa -k MAC-policy",
+                            "control_flag" : "optional",
+                            "on" : "stdout"
+                        },
+                        {
+                            "condition": "like",
+                            "like_to": "-w /etc/apparmor.d/ -p wa -k MAC-policy",
+                            "control_flag" : "optional",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"4.1.8 Ensure login and logout events are collected",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"grep logins /etc/audit/audit.rules",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "-w /var/log/faillog -p wa -k logins",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        },
+                        {
+                            "condition": "like",
+                            "like_to": "-w /var/log/lastlog -p wa -k logins",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        },
+                        {
+                            "condition": "like",
+                            "like_to": "-w /var/log/tallylog -p wa -k logins",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"4.1.9 Ensure session initiation information is collected",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"grep session /etc/audit/audit.rules",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "-w /var/run/utmp -p wa -k session",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        },
+                        {
+                            "condition": "like",
+                            "like_to": "-w /var/log/wtmp -p wa -k session",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        },
+                        {
+                            "condition": "like",
+                            "like_to": "-w /var/log/btmp -p wa -k session",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"4.1.10 Ensure discretionary access control permission modification events are collected",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"grep perm_mod /etc/audit/audit.rules",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "-a always,exit -F arch=b64 -S chmod -S fchmod -S fchmodat -F auid>=1000 -F auid!=4294967295 -k perm_mod",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        },
+                        {
+                            "condition": "like",
+                            "like_to": "-a always,exit -F arch=b32 -S chmod -S fchmod -S fchmodat -F auid>=1000 -F auid!=4294967295 -k perm_mod",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        },
+                        {
+                            "condition": "like",
+                            "like_to": "-a always,exit -F arch=b64 -S chown -S fchown -S fchownat -S lchown -F auid>=1000 -F auid!=4294967295 -k perm_mod",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        },
+                        {
+                            "condition": "like",
+                            "like_to": "-a always,exit -F arch=b32 -S chown -S fchown -S fchownat -S lchown -F auid>=1000 -F auid!=4294967295 -k perm_mod",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        },
+                        {
+                            "condition": "like",
+                            "like_to": "-a always,exit -F arch=b64 -S setxattr -S lsetxattr -S fsetxattr -S removexattr -S lremovexattr -S fremovexattr -F auid>=1000 -F auid!=4294967295 -k perm_mod",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        },
+                        {
+                            "condition": "like",
+                            "like_to": "-a always,exit -F arch=b32 -S setxattr -S lsetxattr -S fsetxattr -S removexattr -S lremovexattr -S fremovexattr -F auid>=1000 -F auid!=4294967295 -k perm_mod",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+  
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"4.1.11 Ensure unsuccessful unauthorized file access attempts are collected",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"grep access /etc/audit/audit.rules",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "-a always,exit -F arch=b64 -S creat -S open -S openat -S truncate -S ftruncate -F exit=-EACCES -F auid>=1000 -F auid!=4294967295 -k access",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        },
+                        {
+                            "condition": "like",
+                            "like_to": "-a always,exit -F arch=b32 -S creat -S open -S openat -S truncate -S ftruncate -F exit=-EACCES -F auid>=1000 -F auid!=4294967295 -k access",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        },
+                        {
+                            "condition": "like",
+                            "like_to": "-a always,exit -F arch=b64 -S creat -S open -S openat -S truncate -S ftruncate -F exit=-EPERM -F auid>=1000 -F auid!=4294967295 -k access",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        },
+                        {
+                            "condition": "like",
+                            "like_to": "-a always,exit -F arch=b32 -S creat -S open -S openat -S truncate -S ftruncate -F exit=-EPERM -F auid>=1000 -F auid!=4294967295 -k access",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+  
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"4.1.13 Ensure successful file system mounts are collected",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"grep mounts /etc/audit/audit.rules",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "-a always,exit -F arch=b64 -S mount -F auid>=1000 -F auid!=4294967295 -k mounts",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        },
+                        {
+                            "condition": "like",
+                            "like_to": "-a always,exit -F arch=b32 -S mount -F auid>=1000 -F auid!=4294967295 -k mounts",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        },
+                        {
+                            "condition": "like",
+                            "like_to": "-a always,exit -F arch=b32 -S mount -F auid>=1000 -F auid!=4294967295 -k mounts",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"4.1.14 Ensure file deletion events by users are collected ",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"grep delete /etc/audit/audit.rules",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "-a always,exit -F arch=b64 -S unlink -S unlinkat -S rename -S renameat -F auid>=1000 - F auid!=4294967295 -k delete",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        },
+                        {
+                            "condition": "like",
+                            "like_to": "-a always,exit -F arch=b32 -S unlink -S unlinkat -S rename -S renameat -F auid>=1000 - F auid!=4294967295 -k delete",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"4.1.15 Ensure changes to system administration scope (sudoers) is collected",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"grep scope /etc/audit/audit.rules",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "-w /etc/sudoers -p wa -k scope",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        },
+                        {
+                            "condition": "like",
+                            "like_to": "-w /etc/sudoers.d -p wa -k scope",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"4.1.16 Ensure system administrator actions (sudolog) are collected",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"grep actions /etc/audit/audit.rules",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "-w /var/log/sudo.log -p wa -k actions",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"4.1.17 Ensure kernel module loading and unloading is collected",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"grep modules /etc/audit/audit.rules",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "-w /sbin/insmod -p x -k modules",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        },
+                        {
+                            "condition": "like",
+                            "like_to": "-w /sbin/rmmod -p x -k modules",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        },
+                        {
+                            "condition": "like",
+                            "like_to": "-w /sbin/modprobe -p x -k modules",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        },
+                        {
+                            "condition": "like",
+                            "like_to": "-a always,exit arch=b64 -S init_module -S delete_module -k modules",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"4.1.18 Ensure the audit configuration is immutable",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"grep '^\\s*[^#]' /etc/audit/audit.rules | tail -1",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "-e 2",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"4.2.1.1 Ensure rsyslog Service is enabled",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"systemctl is-enabled rsyslog",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "enabled",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"4.2.1.3 Ensure rsyslog default file permissions configured",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"grep ^\\$FileCreateMode /etc/rsyslog.conf",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "0640",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"4.2.1.4 Ensure rsyslog is configured to send logs to a remote log host",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":" grep '^*.*[^I][^I]*@' /etc/rsyslog.conf",
+                    "response_conditions":[
+                        {
+                            "condition": "pass_if_lines",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"4.2.1.5 Ensure remote rsyslog messages are only accepted on designated log hosts",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"grep '$ModLoad imtcp.so' /etc/rsyslog.conf",
+                    "response_conditions":[
+                        {
+                            "condition": "pass_if_lines",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                },
+                {
+                    "elevated" : true,
+                    "cmd":"grep '$InputTCPServerRun' /etc/rsyslog.conf",
+                    "response_conditions":[
+                        {
+                            "condition": "pass_if_lines",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"4.2.2.1 Ensure syslog-ng service is enabled",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"systemctl is-enabled syslog-ng",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "enabled",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"4.2.4 Ensure permissions on all logfiles are configured",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"find /var/log -type f -ls",
+                    "response_conditions":[
+                        {
+                            "condition": "default_pass",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"5.1.1 Ensure cron daemon is enabled",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"systemctl is-enabled crond",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "enabled",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"5.1.2 Ensure permissions on /etc/crontab are configured",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":" stat /etc/crontab",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "Access: (0600/-rw-------)  Uid: (    0/    root)   Gid: (    0/    root)",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"5.1.3 Ensure permissions on /etc/cron.hourly are configured",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"stat /etc/cron.hourly",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "Access: (0600/-rw-------)  Uid: (    0/    root)   Gid: (    0/    root)",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"5.1.4 Ensure permissions on /etc/cron.daily are configured",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"stat /etc/cron.daily",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "Access: (0600/-rw-------)  Uid: (    0/    root)   Gid: (    0/    root)",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"5.1.5 Ensure permissions on /etc/cron.weekly are configured",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"stat /etc/cron.weekly",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "Access: (0600/-rw-------)  Uid: (    0/    root)   Gid: (    0/    root)",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"5.1.6 Ensure permissions on /etc/cron.monthly are configured",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"stat /etc/cron.monthly",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "Access: (0600/-rw-------)  Uid: (    0/    root)   Gid: (    0/    root)",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"5.1.7 Ensure permissions on /etc/cron.d are configured",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"stat /etc/cron.d",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "Access: (0600/-rw-------)  Uid: (    0/    root)   Gid: (    0/    root)",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"5.1.8 Ensure at/cron is restricted to authorized users",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"stat /etc/cron.deny",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "No such file or directory",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                },
+                {
+                    "elevated" : true,
+                    "cmd":"stat /etc/at.deny",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "No such file or directory",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+
+                
+            ]
+        },
+        {
+            "name":"5.2.1 Ensure permissions on /etc/ssh/sshd_config are configured",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"stat /etc/ssh/sshd_config",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "Access: (0600/-rw-------)  Uid: (    0/    root)   Gid: (    0/    root)",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"5.2.2 Ensure SSH Protocol is set to 2",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"grep '^Protocol' /etc/ssh/sshd_config",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "Protocol 2",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"5.2.3 Ensure SSH LogLevel is set to INFO",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"grep '^LogLevel' /etc/ssh/sshd_config",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "LogLevel INFO",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"5.2.4 Ensure SSH X11 forwarding is disabled",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"grep '^X11Forwarding' /etc/ssh/sshd_config",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "X11Forwarding no",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"5.2.5 Ensure SSH MaxAuthTries is set to 3 or less",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"grep '^MaxAuthTries' /etc/ssh/sshd_config",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "MaxAuthTries 3",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"5.2.6 Ensure SSH IgnoreRhosts is enabled",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":" grep '^IgnoreRhosts' /etc/ssh/sshd_config",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "IgnoreRhosts yes",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"5.2.7 Ensure SSH HostbasedAuthentication is disabled",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"grep '^HostbasedAuthentication' /etc/ssh/sshd_config",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "HostbasedAuthentication no",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"5.2.8 Ensure SSH root login is disabled",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"grep '^PermitRootLogin' /etc/ssh/sshd_config",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "PermitRootLogin no",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"5.2.9 Ensure SSH PermitEmptyPasswords is disabled",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"grep '^PermitEmptyPasswords' /etc/ssh/sshd_config",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "PermitRootLogin no",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"5.2.10 Ensure SSH PermitUserEnvironment is disabled",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"grep PermitUserEnvironment /etc/ssh/sshd_config",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "PermitUserEnvironment no",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"5.2.11 Ensure only approved MAC algorithms are used",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"grep 'MACs' /etc/ssh/sshd_config",
+                    "response_conditions":[
+                        {
+                            "condition": "default_pass",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"5.2.12 Ensure SSH Idle Timeout Interval is configured",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"grep '^ClientAliveInterval' /etc/ssh/sshd_config",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "ClientAliveInterval 300",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                },
+                {
+                    "elevated" : true,
+                    "cmd":"grep '^ClientAliveCountMax' /etc/ssh/sshd_config",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "ClientAliveCountMax 0",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+
+                
+            ]
+        },
+        {
+            "name":"5.2.13 Ensure SSH LoginGraceTime is set to one minute or less",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"grep '^LoginGraceTime' /etc/ssh/sshd_config",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "LoginGraceTime 60",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"5.2.14 Ensure SSH access is limited",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"grep '^AllowUsers' /etc/ssh/sshd_config",
+                    "response_conditions":[
+                        {
+                            "condition": "default_pass",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                },
+                {
+                    "elevated" : true,
+                    "cmd":"grep '^AllowGroups' /etc/ssh/sshd_config",
+                    "response_conditions":[
+                        {
+                            "condition": "default_pass",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                },
+                {
+                    "elevated" : true,
+                    "cmd":"grep '^DenyUsers' /etc/ssh/sshd_config",
+                    "response_conditions":[
+                        {
+                            "condition": "default_pass",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                },
+                {
+                    "elevated" : true,
+                    "cmd":" grep '^DenyGroups' /etc/ssh/sshd_config",
+                    "response_conditions":[
+                        {
+                            "condition": "default_pass",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"5.2.15 Ensure SSH warning banner is configured",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"grep '^Banner' /etc/ssh/sshd_config",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "Banner /etc/issue.net",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"5.3.1 Ensure password creation requirements are configured",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"grep pam_pwquality.so /etc/pam.d/common-password",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "password requisite pam_pwquality.so try_first_pass retry=3",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                },
+                {
+                    "elevated" : true,
+                    "cmd":"grep ^minlen /etc/security/pwquality.conf",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "minlen=8",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                },
+                {
+                    "elevated" : true,
+                    "cmd":"grep ^dcredit /etc/security/pwquality.conf",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "dcredit=-1",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                },
+                {
+                    "elevated" : true,
+                    "cmd":"grep ^lcredit /etc/security/pwquality.conf",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "lcredit=-1",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                },
+                {
+                    "elevated" : true,
+                    "cmd":"grep ^ocredit /etc/security/pwquality.conf",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "lcredit=-1",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                },
+                {
+                    "elevated" : true,
+                    "cmd":"grep ^ucredit /etc/security/pwquality.conf",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "ucredit=-1",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"5.3.3 Ensure password reuse is limited",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"egrep '^password\\s+sufficient\\s+pam_unix.so' /etc/pam.d/common-password",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "password sufficient pam_unix.so remember=6",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"5.3.4 Ensure password hashing algorithm is SHA-512",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"egrep '^password\\s+\\S+\\s+pam_unix.so' /etc/pam.d/common-password",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "password sufficient pam_unix.so sha512",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"5.4.1.1 Ensure password expiration is 60 days or less",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"grep PASS_MAX_DAYS /etc/login.defs",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "PASS_MAX_DAYS 90",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                },
+                {
+                    "elevated" : true,
+                    "cmd":"egrep ^[^:]+:[^\\!*] /etc/shadow | cut -d: -f1",
+                    "response_conditions":[
+                        {
+                            "condition": "default_pass",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"5.4.1.2 Ensure minimum days between password changes is 7 or more ",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"grep PASS_MIN_DAYS /etc/login.defs",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "PASS_MIN_DAYS 7",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                },
+                {
+                    "elevated" : true,
+                    "cmd":"egrep ^[^:]+:[^\\!*] /etc/shadow | cut -d: -f1",
+                    "response_conditions":[
+                        {
+                            "condition": "default_pass",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"5.4.1.3 Ensure password expiration warning days is 7 or more",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"grep PASS_WARN_AGE /etc/login.defs",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "PASS_WARN_AGE 7",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                },
+                {
+                    "elevated" : true,
+                    "cmd":"egrep ^[^:]+:[^\\!*] /etc/shadow | cut -d: -f1",
+                    "response_conditions":[
+                        {
+                            "condition": "default_pass",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"5.4.1.4 Ensure inactive password lock is 30 days or less",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"useradd -D | grep INACTIVE",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "INACTIVE=30",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                },
+                {
+                    "elevated" : true,
+                    "cmd":" egrep ^[^:]+:[^\\!*] /etc/shadow | cut -d: -f1",
+                    "response_conditions":[
+                        {
+                            "condition": "default_pass",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"5.4.2 Ensure system accounts are non-login",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"egrep -v \"^\\+\" \/etc\/passwd | awk -F: '($1!=\"root\" && $1!=\"sync\" && $1!=\"shutdown\" && $1!=\"halt\" && $3<1000 && $7!=\"\/usr\/sbin\/nologin\" && $7!=\"\/bin\/false\") {print}'",
+                    "response_conditions":[
+                        {
+                            "condition": "pass_if_no_lines",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"5.4.3 Ensure default group for the root account is GID 0",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"grep '^root:' /etc/passwd | cut -f4 -d:",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "0",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"5.4.4 Ensure default user umask is 027 or more restrictive",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"grep '^umask' /etc/bash.bashrc",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "umask 027",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                },
+                {
+                    "elevated" : true,
+                    "cmd":"grep '^umask' /etc/profile",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "umask 027",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"5.5 Ensure root login is restricted to system console",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"cat /etc/securetty",
+                    "response_conditions":[
+                        {
+                            "condition": "default_pass",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"5.6 Ensure access to the su command is restricted",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"grep pam_wheel.so /etc/pam.d/su",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "auth required pam_wheel.so use_uid",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"6.1.2 Ensure permissions on /etc/passwd are configured",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"stat /etc/passwd",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "Access: (0644/-rw-r--r--)  Uid: (    0/    root)   Gid: (    0/    root)",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"6.1.3 Ensure permissions on /etc/shadow are configured",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"stat /etc/shadow",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "Access: (0640/-rw-r-----)  Uid: (    0/    root)   Gid: (   42/  shadow)",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"6.1.4 Ensure permissions on /etc/group are configured",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"stat /etc/group",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "Access: (0644/-rw-r--r--)  Uid: (    0/    root)   Gid: (    0/    root)",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"6.1.5 Ensure permissions on /etc/gshadow are configured",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"stat /etc/gshadow",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "Access: (0640/-rw-r-----)  Uid: (    0/    root)   Gid: (   42/  shadow)",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"6.1.6 Ensure permissions on /etc/passwd- are configured",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"stat /etc/passwd-",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "Access: (0600/-rw-------)  Uid: (    0/    root)   Gid: (    0/    root)",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"6.1.7 Ensure permissions on /etc/shadow- are configured",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"stat /etc/shadow-",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "Access: (0600/-rw-------)  Uid: (    0/    root)   Gid: (    0/    root)",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"6.1.8 Ensure permissions on /etc/group- are configured",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"stat /etc/group-",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "Access: (0600/-rw-------)  Uid: (    0/    root)   Gid: (    0/    root)",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"6.1.9 Ensure permissions on /etc/gshadow- are configured",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"stat /etc/gshadow",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "Access: (0600/-rw-------)  Uid: (    0/    root)   Gid: (    0/    root)",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"6.1.10 Ensure no world writable files exist",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"df --local -P | awk {'if (NR!=1) print $6'} | xargs -I '{}' find '{}' -xdev -type f -perm -0002",
+                    "response_conditions":[
+                        {
+                            "condition": "pass_if_no_lines",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"6.1.11 Ensure no unowned files or directories exist",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"df --local -P | awk {'if (NR!=1) print $6'} | xargs -I '{}' find '{}' -xdev -nouser",
+                    "response_conditions":[
+                        {
+                            "condition": "pass_if_no_lines",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"6.1.13 Audit SUID executables",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"df --local -P | awk {'if (NR!=1) print $6'} | xargs -I '{}' find '{}' -xdev -type f -perm -4000",
+                    "response_conditions":[
+                        {
+                            "condition": "pass_if_no_lines",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"6.1.14 Audit SGID executables",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"df --local -P | awk {'if (NR!=1) print $6'} | xargs -I '{}' find '{}' -xdev -type f -perm -2000",
+                    "response_conditions":[
+                        {
+                            "condition": "pass_if_no_lines",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"6.2.1 Ensure password fields are not empty",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"cat \/etc\/shadow | awk -F: '($2 == \"\" ) { print $1 \" does not have a password \"}'",
+                    "response_conditions":[
+                        {
+                            "condition": "pass_if_no_lines",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"6.2.2 Ensure no legacy '+' entries exist in /etc/passwd",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"grep '^+:' /etc/passwd",
+                    "response_conditions":[
+                        {
+                            "condition": "pass_if_no_lines",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"6.2.3 Ensure no legacy '+ entries exist in /etc/shadow",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"grep '^+:' /etc/shadow",
+                    "response_conditions":[
+                        {
+                            "condition": "pass_if_no_lines",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"6.2.4 Ensure no legacy '+' entries exist in /etc/group",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"grep '^+:' /etc/group",
+                    "response_conditions":[
+                        {
+                            "condition": "pass_if_no_lines",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"6.2.5 Ensure root is the only UID 0 account",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"cat /etc/passwd | awk -F: '($3 == 0) { print $1 }'",
+                    "response_conditions":[
+                        {
+                            "condition": "like",
+                            "like_to": "root",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"6.2.6 Ensure root PATH Integrity",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"#!\/bin\/bash\r\nif [ \"`echo $PATH | grep :: `\" != \"\" ]; then\r\n echo \"Empty Directory in PATH (::)\"\r\nfi\r\nif [ \"`echo $PATH | grep :$`\" != \"\" ]; then\r\n echo \"Trailing : in PATH\"\r\nfi\r\np=`echo $PATH | sed -e 's\/::\/:\/' -e 's\/:$\/\/' -e 's\/:\/ \/g'`\r\nset -- $p\r\nwhile [ \"$1\" != \"\" ]; do\r\n if [ \"$1\" = \".\" ]; then\r\n echo \"PATH contains .\"\r\n shift\r\n continue\r\n fi\r\n if [ -d $1 ]; then\r\n dirperm=`ls -ldH $1 | cut -f1 -d\" \"`\r\n if [ `echo $dirperm | cut -c6 ` != \"-\" ]; then\r\n echo \"Group Write permission set on directory $1\"\r\n fi\r\n if [ `echo $dirperm | cut -c9 ` != \"-\" ]; then\r\n echo \"Other Write permission set on directory $1\"\r\n fi\r\n dirown=`ls -ldH $1 | awk '{print $3}'`\r\n if [ \"$dirown\" != \"root\" ] ; then\r\n echo $1 is not owned by root\r\n fi\r\n else\r\n echo $1 is not a directory\r\n272 | P a g e\r\n fi\r\n shift\r\ndone",
+                    "response_conditions":[
+                        {
+                            "condition": "pass_if_no_lines",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"6.2.7 Ensure all users' home directories exist",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"#!\/bin\/bash\r\ncat \/etc\/passwd | awk -F: '{ print $1 \" \" $3 \" \" $6 }' | while read user uid dir; do\r\n if [ $uid -ge 1000 -a ! -d \"$dir\" -a $user != \"nfsnobody\" ]; then\r\n echo \"The home directory ($dir) of user $user does not exist.\"\r\n fi\r\ndone",
+                    "response_conditions":[
+                        {
+                            "condition": "pass_if_no_lines",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"6.2.8 Ensure users' home directories permissions are 750 or more restrictive",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"#!\/bin\/bash\r\nfor dir in `cat \/etc\/passwd | egrep -v '(root|halt|sync|shutdown)' | awk -F: '($7 !=\r\n\"\/usr\/sbin\/nologin\") { print $6 }'`; do\r\n dirperm=`ls -ld $dir | cut -f1 -d\" \"`\r\n if [ `echo $dirperm | cut -c6 ` != \"-\" ]; then\r\necho \"Group Write permission set on directory $dir\"\r\nfi\r\nif [ `echo $dirperm | cut -c8 ` != \"-\" ]; then\r\necho \"Other Read permission set on directory $dir\"\r\nfi\r\nif [ `echo $dirperm | cut -c9 ` != \"-\" ]; then\r\necho \"Other Write permission set on directory $dir\"\r\nfi\r\nif [ `echo $dirperm | cut -c10 ` != \"-\" ]; then\r\necho \"Other Execute permission set on directory $dir\"\r\nfi\r\ndone\r\n",
+                    "response_conditions":[
+                        {
+                            "condition": "pass_if_no_lines",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"6.2.9 Ensure users own their home directories",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"#!\/bin\/bash\r\ncat \/etc\/passwd | awk -F: '{ print $1 \" \" $3 \" \" $6 }' | while read user uid dir; do\r\nif [ $uid -ge 1000 -a -d \"$dir\" -a $user != \"nfsnobody\" ]; then\r\nowner=$(stat -L -c \"%U\" \"$dir\")\r\nif [ \"$owner\" != \"$user\" ]; then\r\necho \"The home directory ($dir) of user $user is owned by $owner.\"\r\nfi\r\nfi\r\ndone\r\n",
+                    "response_conditions":[
+                        {
+                            "condition": "pass_if_no_lines",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"6.2.10 Ensure users' dot files are not group or world writable",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"#!\/bin\/bash\r\nfor dir in `cat \/etc\/passwd | egrep -v '(root|sync|halt|shutdown)' | awk -F: '($7 !=\r\n\"\/usr\/sbin\/nologin\") { print $6 }'`; do\r\nfor file in $dir\/.[A-Za-z0-9]*; do\r\nif [ ! -h \"$file\" -a -f \"$file\" ]; then\r\nfileperm=`ls -ld $file | cut -f1 -d\" \"`\r\nif [ `echo $fileperm | cut -c6 ` != \"-\" ]; then\r\necho \"Group Write permission set on file $file\"\r\nfi\r\nif [ `echo $fileperm | cut -c9 ` != \"-\" ]; then\r\necho \"Other Write permission set on file $file\"\r\nfi\r\nfi\r\n done\r\ndone\r\n",
+                    "response_conditions":[
+                        {
+                            "condition": "pass_if_no_lines",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"6.2.11 Ensure no users have .forward files",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"#!\/bin\/bash\r\nfor dir in `cat \/etc\/passwd |\\\r\nawk -F: '{ print $6 }'`; do\r\nif [ ! -h \"$dir\/.forward\" -a -f \"$dir\/.forward\" ]; then\r\necho \".forward file $dir\/.forward exists\"\r\nfi\r\ndone",
+                    "response_conditions":[
+                        {
+                            "condition": "pass_if_no_lines",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"6.2.12 Ensure no users have .netrc files",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"#!\/bin\/bash\r\nfor dir in `cat \/etc\/passwd |\\\r\nawk -F: '{ print $6 }'`; do\r\nif [ ! -h \"$dir\/.netrc\" -a -f \"$dir\/.netrc\" ]; then\r\necho \".netrc file $dir\/.netrc exists\"\r\nfi\r\ndone",
+                    "response_conditions":[
+                        {
+                            "condition": "pass_if_no_lines",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"6.2.13 Ensure users' .netrc Files are not group or world accessible ",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"#!\/bin\/bash\r\nfor dir in `cat \/etc\/passwd | egrep -v '(root|sync|halt|shutdown)' | awk -F: '($7 !=\r\n\"\/usr\/sbin\/nologin\") { print $6 }'`; do\r\nfor file in $dir\/.netrc; do\r\nif [ ! -h \"$file\" -a -f \"$file\" ]; then\r\nfileperm=`ls -ld $file | cut -f1 -d\" \"`\r\nif [ `echo $fileperm | cut -c5 ` != \"-\" ]; then\r\necho \"Group Read set on $file\"\r\nfi\r\nif [ `echo $fileperm | cut -c6 ` != \"-\" ]; then\r\necho \"Group Write set on $file\"\r\nfi\r\nif [ `echo $fileperm | cut -c7 ` != \"-\" ]; then\r\necho \"Group Execute set on $file\"\r\nfi\r\nif [ `echo $fileperm | cut -c8 ` != \"-\" ]; then\r\necho \"Other Read set on $file\"\r\nfi\r\nif [ `echo $fileperm | cut -c9 ` != \"-\" ]; then\r\necho \"Other Write set on $file\"\r\nfi\r\nif [ `echo $fileperm | cut -c10 ` != \"-\" ]; then\r\n echo \"Other Execute set on $file\"\r\nfi\r\nfi\r\ndone\r\ndone",
+                    "response_conditions":[
+                        {
+                            "condition": "pass_if_no_lines",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"6.2.14 Ensure no users have .rhosts files",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"#!\/bin\/bash\r\nfor dir in `cat \/etc\/passwd | egrep -v '(root|halt|sync|shutdown)' | awk -F: '($7 !=\r\n\"\/usr\/sbin\/nologin\") { print $6 }'`; do\r\nfor file in $dir\/.rhosts; do\r\nif [ ! -h \"$file\" -a -f \"$file\" ]; then\r\necho \".rhosts file in $dir\"\r\nfi\r\ndone\r\ndone\r\n",
+                    "response_conditions":[
+                        {
+                            "condition": "pass_if_no_lines",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"6.2.15 Ensure all groups in /etc/passwd exist in /etc/group",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"#!\/bin\/bash\r\nfor i in $(cut -s -d: -f4 \/etc\/passwd | sort -u ); do\r\n grep -q -P \"^.*?:[^:]*:$i:\" \/etc\/group\r\n if [ $? -ne 0 ]; then\r\n echo \"Group $i is referenced by \/etc\/passwd but does not exist in \/etc\/group\"\r\n fi\r\ndone\r\n",
+                    "response_conditions":[
+                        {
+                            "condition": "pass_if_no_lines",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"6.2.16 Ensure no duplicate UIDs exist",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"#!\/bin\/bash\r\ncat \/etc\/passwd | cut -f3 -d\":\" | sort -n | uniq -c | while read x ; do\r\n[ -z \"${x}\" ] && break\r\nset - $x\r\nif [ $1 -gt 1 ]; then\r\nusers=`awk -F: '($3 == n) { print $1 }' n=$2 \/etc\/passwd | xargs`\r\necho \"Duplicate UID ($2): ${users}\"\r\nfi\r\ndone",
+                    "response_conditions":[
+                        {
+                            "condition": "pass_if_no_lines",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"6.2.17 Ensure no duplicate GIDs exist",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"#!\/bin\/bash\r\ncat \/etc\/group | cut -f3 -d\":\" | sort -n | uniq -c | while read x ; do\r\n[ -z \"${x}\" ] && break\r\nset - $x\r\nif [ $1 -gt 1 ]; then\r\ngroups=`awk -F: '($3 == n) { print $1 }' n=$2 \/etc\/group | xargs`\r\necho \"Duplicate GID ($2): ${groups}\"\r\nfi\r\ndone",
+                    "response_conditions":[
+                        {
+                            "condition": "pass_if_no_lines",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"6.2.18 Ensure no duplicate user names exist",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"#!\/bin\/bash\r\ncat \/etc\/passwd | cut -f1 -d\":\" | sort -n | uniq -c | while read x ; do\r\n[ -z \"${x}\" ] && break\r\nset - $x\r\nif [ $1 -gt 1 ]; then\r\nuids=`awk -F: '($1 == n) { print $3 }' n=$2 \/etc\/passwd | xargs`\r\necho \"Duplicate User Name ($2): ${uids}\"\r\nfi\r\ndone",
+                    "response_conditions":[
+                        {
+                            "condition": "pass_if_no_lines",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"6.2.19 Ensure no duplicate group names exist",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"#!\/bin\/bash\r\ncat \/etc\/group | cut -f1 -d\":\" | sort -n | uniq -c | while read x ; do\r\n[ -z \"${x}\" ] && break\r\nset - $x\r\nif [ $1 -gt 1 ]; then\r\ngids=`gawk -F: '($1 == n) { print $3 }' n=$2 \/etc\/group | xargs`\r\necho \"Duplicate Group Name ($2): ${gids}\"\r\nfi\r\ndone",
+                    "response_conditions":[
+                        {
+                            "condition": "pass_if_no_lines",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"6.2.20 Ensure shadow group is empty",
+            "audit": [
+                {
+                    "elevated" : true,
+                    "cmd":"grep ^shadow:[^:]*:[^:]*:[^:]+ /etc/group",
+                    "response_conditions":[
+                        {
+                            "condition": "pass_if_no_lines",
+                            "control_flag" : "required",
+                            "on" : "stdout"
+                        }
+                    ]
+                },
+                {
+                    "elevated" : true,
+                    "cmd":"awk -F: '($4 == \"<shadow-gid>\") { print }' \/etc\/passwd",
+                    "response_conditions":[
+                        {
+                            "condition": "pass_if_no_lines",
+                            "control_flag" : "required",
                             "on" : "stdout"
                         }
                     ]

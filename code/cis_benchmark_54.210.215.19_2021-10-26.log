@@ -1,0 +1,3991 @@
+--------- 1.1.1.1 Ensure mounting of cramfs filesystems is disabled ---------
+
+[COMMAND] : 
+modprobe -n -v cramfs
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[COMMAND] : 
+lsmod | grep cramfs
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 1.1.1.2 Ensure mounting of freevxfs filesystems is disabled ---------
+
+[COMMAND] : 
+modprobe -n -v freevxfs
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[COMMAND] : 
+lsmod | grep freevxfs
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 1.1.1.3 Ensure mounting of jffs2 filesystems is disabled ---------
+
+[COMMAND] : 
+modprobe -n -v jffs2
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[COMMAND] : 
+lsmod | grep jffs2
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 1.1.1.4 Ensure mounting of hfs filesystems is disabled ---------
+
+[COMMAND] : 
+modprobe -n -v hfs
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[COMMAND] : 
+lsmod | grep hfs
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 1.1.1.5 Ensure mounting of hfsplus filesystems is disabled ---------
+
+[COMMAND] : 
+modprobe -n -v hfsplus
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[COMMAND] : 
+lsmod | grep hfsplus
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 1.1.1.6 Ensure mounting of squashfs filesystems is disabled ---------
+
+[COMMAND] : 
+modprobe -n -v squashfs
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[COMMAND] : 
+lsmod | grep squashfs
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 1.1.1.7 Ensure mounting of udf filesystems is disabled ---------
+
+[COMMAND] : 
+modprobe -n -v udf
+
+[STDOUT] : 
+insmod /lib/modules/4.4.0-1128-aws/kernel/lib/crc-itu-t.ko 
+insmod /lib/modules/4.4.0-1128-aws/kernel/fs/udf/udf.ko 
+
+
+[STDERR] : 
+
+
+[COMMAND] : 
+lsmod | grep udf
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 1.1.1.8 Ensure mounting of FAT filesystems is disabled ---------
+
+[COMMAND] : 
+modprobe -n -v vfat
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[COMMAND] : 
+ lsmod | grep vfat
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 1.1.2 Ensure separate partition exists for /tmp ---------
+
+[COMMAND] : 
+mount | grep /tmp
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 1.1.3 Ensure nodev option set on /tmp partition ---------
+
+[COMMAND] : 
+mount | grep /tmp
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 1.1.4 Ensure nosuid option set on /tmp partition ---------
+
+[COMMAND] : 
+mount | grep /tmp
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 1.1.5 Ensure separate partition exists for /var ---------
+
+[COMMAND] : 
+mount | grep /var
+
+[STDOUT] : 
+lxcfs on /var/lib/lxcfs type fuse.lxcfs (rw,nosuid,nodev,relatime,user_id=0,group_id=0,allow_other)
+/var/lib/snapd/snaps/snapd_11588.snap on /snap/snapd/11588 type squashfs (ro,nodev,relatime)
+/var/lib/snapd/snaps/core18_1997.snap on /snap/core18/1997 type squashfs (ro,nodev,relatime)
+/var/lib/snapd/snaps/amazon-ssm-agent_3552.snap on /snap/amazon-ssm-agent/3552 type squashfs (ro,nodev,relatime)
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 1.1.6 Ensure separate partition exists for /var/tmp ---------
+
+[COMMAND] : 
+mount | grep /var/tmp
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 1.1.7 Ensure nodev option set on /var/tmp partition ---------
+
+[COMMAND] : 
+mount | grep /var/tmp
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 1.1.8 Ensure nosuid option set on /var/tmp partition ---------
+
+[COMMAND] : 
+mount | grep /var/tmp
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 1.1.9 Ensure noexec option set on /var/tmp partition ---------
+
+[COMMAND] : 
+mount | grep /var/tmp
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 1.1.10 Ensure separate partition exists for /var/log ---------
+
+[COMMAND] : 
+mount | grep /var/log
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 1.1.11 Ensure separate partition exists for /var/log/audit ---------
+
+[COMMAND] : 
+mount | grep /var/log/audit
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 1.1.11 Ensure separate partition exists for /var/log/audit ---------
+
+[COMMAND] : 
+mount | grep /home
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 1.1.13 Ensure nodev option set on /home partition ---------
+
+[COMMAND] : 
+mount | grep /home
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 1.1.14 Ensure nodev option set on /dev/shm partition ---------
+
+[COMMAND] : 
+mount | grep /dev/shm
+
+[STDOUT] : 
+tmpfs on /dev/shm type tmpfs (rw,nosuid,nodev)
+
+
+[STDERR] : 
+
+
+[VERDICT] : PASSED
+--------- 1.1.1.1 Ensure mounting of cramfs filesystems is disabled ---------
+
+[COMMAND] : 
+modprobe -n -v cramfs
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[COMMAND] : 
+lsmod | grep cramfs
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 1.1.1.2 Ensure mounting of freevxfs filesystems is disabled ---------
+
+[COMMAND] : 
+modprobe -n -v freevxfs
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[COMMAND] : 
+lsmod | grep freevxfs
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 1.1.1.3 Ensure mounting of jffs2 filesystems is disabled ---------
+
+[COMMAND] : 
+modprobe -n -v jffs2
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[COMMAND] : 
+lsmod | grep jffs2
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 1.1.1.4 Ensure mounting of hfs filesystems is disabled ---------
+
+[COMMAND] : 
+modprobe -n -v hfs
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[COMMAND] : 
+lsmod | grep hfs
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 1.1.1.5 Ensure mounting of hfsplus filesystems is disabled ---------
+
+[COMMAND] : 
+modprobe -n -v hfsplus
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[COMMAND] : 
+lsmod | grep hfsplus
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 1.1.1.6 Ensure mounting of squashfs filesystems is disabled ---------
+
+[COMMAND] : 
+modprobe -n -v squashfs
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[COMMAND] : 
+lsmod | grep squashfs
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 1.1.1.7 Ensure mounting of udf filesystems is disabled ---------
+
+[COMMAND] : 
+modprobe -n -v udf
+
+[STDOUT] : 
+insmod /lib/modules/4.4.0-1128-aws/kernel/lib/crc-itu-t.ko 
+insmod /lib/modules/4.4.0-1128-aws/kernel/fs/udf/udf.ko 
+
+
+[STDERR] : 
+
+
+[COMMAND] : 
+lsmod | grep udf
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 1.1.1.8 Ensure mounting of FAT filesystems is disabled ---------
+
+[COMMAND] : 
+modprobe -n -v vfat
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[COMMAND] : 
+ lsmod | grep vfat
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 1.1.2 Ensure separate partition exists for /tmp ---------
+
+[COMMAND] : 
+mount | grep /tmp
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 1.1.3 Ensure nodev option set on /tmp partition ---------
+
+[COMMAND] : 
+mount | grep /tmp
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 1.1.4 Ensure nosuid option set on /tmp partition ---------
+
+[COMMAND] : 
+mount | grep /tmp
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 1.1.5 Ensure separate partition exists for /var ---------
+
+[COMMAND] : 
+mount | grep /var
+
+[STDOUT] : 
+lxcfs on /var/lib/lxcfs type fuse.lxcfs (rw,nosuid,nodev,relatime,user_id=0,group_id=0,allow_other)
+/var/lib/snapd/snaps/snapd_11588.snap on /snap/snapd/11588 type squashfs (ro,nodev,relatime)
+/var/lib/snapd/snaps/core18_1997.snap on /snap/core18/1997 type squashfs (ro,nodev,relatime)
+/var/lib/snapd/snaps/amazon-ssm-agent_3552.snap on /snap/amazon-ssm-agent/3552 type squashfs (ro,nodev,relatime)
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 1.1.6 Ensure separate partition exists for /var/tmp ---------
+
+[COMMAND] : 
+mount | grep /var/tmp
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 1.1.7 Ensure nodev option set on /var/tmp partition ---------
+
+[COMMAND] : 
+mount | grep /var/tmp
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 1.1.8 Ensure nosuid option set on /var/tmp partition ---------
+
+[COMMAND] : 
+mount | grep /var/tmp
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 1.1.9 Ensure noexec option set on /var/tmp partition ---------
+
+[COMMAND] : 
+mount | grep /var/tmp
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 1.1.10 Ensure separate partition exists for /var/log ---------
+
+[COMMAND] : 
+mount | grep /var/log
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 1.1.11 Ensure separate partition exists for /var/log/audit ---------
+
+[COMMAND] : 
+mount | grep /var/log/audit
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 1.1.11 Ensure separate partition exists for /var/log/audit ---------
+
+[COMMAND] : 
+mount | grep /home
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 1.1.13 Ensure nodev option set on /home partition ---------
+
+[COMMAND] : 
+mount | grep /home
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 1.1.14 Ensure nodev option set on /dev/shm partition ---------
+
+[COMMAND] : 
+mount | grep /dev/shm
+
+[STDOUT] : 
+tmpfs on /dev/shm type tmpfs (rw,nosuid,nodev)
+
+
+[STDERR] : 
+
+
+[VERDICT] : PASSED
+--------- 1.1.15 Ensure nosuid option set on /dev/shm partition ---------
+
+[COMMAND] : 
+mount | grep /dev/shm
+
+[STDOUT] : 
+tmpfs on /dev/shm type tmpfs (rw,nosuid,nodev)
+
+
+[STDERR] : 
+
+
+[VERDICT] : PASSED
+--------- 1.1.16 Ensure noexec option set on /dev/shm partition ---------
+
+[COMMAND] : 
+mount | grep /dev/shm
+
+[STDOUT] : 
+tmpfs on /dev/shm type tmpfs (rw,nosuid,nodev)
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 1.1.17 Ensure nodev option set on removable media partitions ---------
+
+[COMMAND] : 
+mount | grep /dev/sd
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : PASSED
+--------- 1.1.17 Ensure nodev option set on removable media partitions ---------
+
+[COMMAND] : 
+mount | grep /dev/sd
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : PASSED
+--------- 1.1.19 Ensure noexec option set on removable media partitions ---------
+
+[COMMAND] : 
+mount | grep /dev/sd
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : PASSED
+--------- 1.1.20 Ensure sticky bit is set on all world-writable directories ---------
+
+[COMMAND] : 
+df --local -P | awk {'if (NR!=1) print $6'} | xargs -I '{}' find '{}' -xdev -type d -perm -0002 -a ! -perm -1000 2>/dev/null
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : PASSED
+--------- 1.1.21 Disable Automounting ---------
+
+[COMMAND] : 
+systemctl is-enabled autofs
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 1.2.1 Ensure package manager repositories are configured ---------
+
+[COMMAND] : 
+apt-cache policy
+
+[STDOUT] : 
+Package files:
+ 100 /var/lib/dpkg/status
+     release a=now
+ 500 http://security.ubuntu.com/ubuntu xenial-security/restricted amd64 Packages
+     release v=16.04,o=Ubuntu,a=xenial-security,n=xenial,l=Ubuntu,c=restricted,b=amd64
+     origin security.ubuntu.com
+ 500 http://security.ubuntu.com/ubuntu xenial-security/main amd64 Packages
+     release v=16.04,o=Ubuntu,a=xenial-security,n=xenial,l=Ubuntu,c=main,b=amd64
+     origin security.ubuntu.com
+ 500 http://us-east-1.ec2.archive.ubuntu.com/ubuntu xenial-updates/restricted amd64 Packages
+     release v=16.04,o=Ubuntu,a=xenial-updates,n=xenial,l=Ubuntu,c=restricted,b=amd64
+     origin us-east-1.ec2.archive.ubuntu.com
+ 500 http://us-east-1.ec2.archive.ubuntu.com/ubuntu xenial-updates/main amd64 Packages
+     release v=16.04,o=Ubuntu,a=xenial-updates,n=xenial,l=Ubuntu,c=main,b=amd64
+     origin us-east-1.ec2.archive.ubuntu.com
+ 500 http://us-east-1.ec2.archive.ubuntu.com/ubuntu xenial/restricted amd64 Packages
+     release v=16.04,o=Ubuntu,a=xenial,n=xenial,l=Ubuntu,c=restricted,b=amd64
+     origin us-east-1.ec2.archive.ubuntu.com
+ 500 http://us-east-1.ec2.archive.ubuntu.com/ubuntu xenial/main amd64 Packages
+     release v=16.04,o=Ubuntu,a=xenial,n=xenial,l=Ubuntu,c=main,b=amd64
+     origin us-east-1.ec2.archive.ubuntu.com
+Pinned packages:
+
+
+[STDERR] : 
+
+
+[VERDICT] : PASSED
+--------- 1.3.1 Ensure AIDE is installed ---------
+
+[COMMAND] : 
+dpkg -s aide
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 1.3.2 Ensure filesystem integrity is regularly checked ---------
+
+[COMMAND] : 
+crontab -u root -l | grep aide
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[COMMAND] : 
+grep -r aide /etc/cron.* /etc/crontab
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 1.4.1 Ensure permissions on bootloader config are configured ---------
+
+[COMMAND] : 
+stat /boot/grub/grub.cfg
+
+[STDOUT] : 
+  File: '/boot/grub/grub.cfg'
+  Size: 5651      	Blocks: 16         IO Block: 4096   regular file
+Device: ca01h/51713d	Inode: 184         Links: 1
+Access: (0444/-r--r--r--)  Uid: (    0/    root)   Gid: (    0/    root)
+Access: 2021-04-29 03:41:23.757784145 +0000
+Modify: 2021-04-29 03:41:23.757784145 +0000
+Change: 2021-04-29 03:41:23.757784145 +0000
+ Birth: -
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 1.4.2 Ensure bootloader password is set ---------
+
+[COMMAND] : 
+grep '^set superusers' /boot/grub/grub.cfg
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[COMMAND] : 
+grep '^password' /boot/grub/grub.cfg
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 1.4.3 Ensure authentication required for single user mode ---------
+
+[COMMAND] : 
+grep ^root:[*\!]: /etc/shadow
+
+[STDOUT] : 
+root:*:18746:0:99999:7:::
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 1.5.1 Ensure core dumps are restricted ---------
+
+[COMMAND] : 
+grep 'hard core' /etc/security/limits.conf /etc/security/limits.d/*
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[COMMAND] : 
+sysctl fs.suid_dumpable
+
+[STDOUT] : 
+fs.suid_dumpable = 2
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 1.5.2 Ensure XD/NX support is enabled ---------
+
+[COMMAND] : 
+dmesg | grep NX
+
+[STDOUT] : 
+[    0.000000] NX (Execute Disable) protection: active
+[    1.325058] input: Power Button as /devices/LNXSYSTM:00/LNXPWRBN:00/input/input0
+[    1.355482] input: Sleep Button as /devices/LNXSYSTM:00/LNXSLPBN:00/input/input1
+
+
+[STDERR] : 
+
+
+[VERDICT] : PASSED
+--------- 1.5.3 Ensure address space layout randomization (ASLR) is enabled ---------
+
+[COMMAND] : 
+sysctl kernel.randomize_va_space
+
+[STDOUT] : 
+kernel.randomize_va_space = 2
+
+
+[STDERR] : 
+
+
+[VERDICT] : PASSED
+--------- 1.5.4 Ensure prelink is disabled ---------
+
+[COMMAND] : 
+dpkg -s prelink
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : PASSED
+--------- 1.6.1.1 Ensure SELinux is not disabled in bootloader configuration ---------
+
+[COMMAND] : 
+grep '^\s*linux' /boot/grub/grub.cfg
+
+[STDOUT] : 
+        linux	/boot/vmlinuz-4.4.0-1128-aws root=LABEL=cloudimg-rootfs ro  console=tty1 console=ttyS0 nvme.io_timeout=4294967295 nvme_core.io_timeout=4294967295
+	        linux	/boot/vmlinuz-4.4.0-1128-aws root=LABEL=cloudimg-rootfs ro  console=tty1 console=ttyS0 nvme.io_timeout=4294967295 nvme_core.io_timeout=4294967295
+	        linux	/boot/vmlinuz-4.4.0-1128-aws root=LABEL=cloudimg-rootfs ro recovery nomodeset dis_ucode_ldr 
+
+
+[STDERR] : 
+
+
+[VERDICT] : PASSED
+--------- 1.6.1.2 Ensure the SELinux state is enforcing ---------
+
+[COMMAND] : 
+grep SELINUX=enforcing /etc/selinux/config
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[COMMAND] : 
+sestatus
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 1.6.1.3 Ensure SELinux policy is configured ---------
+
+[COMMAND] : 
+grep SELINUXTYPE= /etc/selinux/config
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[COMMAND] : 
+sestatus
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 1.6.1.4 Ensure no unconfined daemons exist ---------
+
+[COMMAND] : 
+ps -eZ | egrep 'initrc' | egrep -vw 'tr|ps|egrep|bash|awk' | tr ':' ' ' | awk '{ print $NF }'
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : PASSED
+--------- 1.6.2.1 Ensure AppArmor is not disabled in bootloader configuration ---------
+
+[COMMAND] : 
+grep '^\s*linux' /boot/grub/grub.cfg
+
+[STDOUT] : 
+        linux	/boot/vmlinuz-4.4.0-1128-aws root=LABEL=cloudimg-rootfs ro  console=tty1 console=ttyS0 nvme.io_timeout=4294967295 nvme_core.io_timeout=4294967295
+	        linux	/boot/vmlinuz-4.4.0-1128-aws root=LABEL=cloudimg-rootfs ro  console=tty1 console=ttyS0 nvme.io_timeout=4294967295 nvme_core.io_timeout=4294967295
+	        linux	/boot/vmlinuz-4.4.0-1128-aws root=LABEL=cloudimg-rootfs ro recovery nomodeset dis_ucode_ldr 
+
+
+[STDERR] : 
+
+
+[VERDICT] : PASSED
+--------- 1.6.2.2 Ensure all AppArmor Profiles are enforcing ---------
+
+[COMMAND] : 
+apparmor_status
+
+[STDOUT] : 
+apparmor module is loaded.
+18 profiles are loaded.
+16 profiles are in enforce mode.
+   /sbin/dhclient
+   /snap/snapd/11588/usr/lib/snapd/snap-confine
+   /snap/snapd/11588/usr/lib/snapd/snap-confine//mount-namespace-capture-helper
+   /usr/bin/lxc-start
+   /usr/lib/NetworkManager/nm-dhcp-client.action
+   /usr/lib/NetworkManager/nm-dhcp-helper
+   /usr/lib/connman/scripts/dhclient-script
+   /usr/lib/lxd/lxd-bridge-proxy
+   /usr/lib/snapd/snap-confine
+   /usr/lib/snapd/snap-confine//mount-namespace-capture-helper
+   /usr/sbin/tcpdump
+   lxc-container-default
+   lxc-container-default-cgns
+   lxc-container-default-with-mounting
+   lxc-container-default-with-nesting
+   snap-update-ns.amazon-ssm-agent
+2 profiles are in complain mode.
+   snap.amazon-ssm-agent.amazon-ssm-agent
+   snap.amazon-ssm-agent.ssm-cli
+3 processes have profiles defined.
+1 processes are in enforce mode.
+   /sbin/dhclient (903) 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 1.6.3 Ensure SELinux or AppArmor are installed ---------
+
+[COMMAND] : 
+dpkg -s selinux
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[COMMAND] : 
+dpkg -s apparmor
+
+[STDOUT] : 
+Package: apparmor
+Status: install ok installed
+Priority: extra
+Section: admin
+Installed-Size: 1651
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Architecture: amd64
+Version: 2.10.95-0ubuntu2.11
+Replaces: apparmor-parser, apparmor-utils (<< 2.8.0-0ubuntu28), libapache2-mod-apparmor (<< 2.5.1-0ubuntu3)
+Depends: libc6 (>= 2.17), debconf (>= 0.5) | debconf-2.0, lsb-base (>= 4.1+Debian11ubuntu7), python3:any, libapparmor-perl, debconf
+Suggests: apparmor-profiles, apparmor-profiles-extra, apparmor-docs, apparmor-utils
+Breaks: apparmor-easyprof-ubuntu (<< 1.2.22), apparmor-utils (<< 2.8.0-0ubuntu28), libapache2-mod-apparmor (<< 2.5.1-0ubuntu3), libvirt-bin (<< 1.2.6-0ubuntu6~), lightdm (<< 1.11.8-0ubuntu2~), lxc (<< 1.1.0~alpha1-0ubuntu5~), rsyslog (<< 7.4.4-1ubuntu9~)
+Conffiles:
+ /etc/apparmor.d/abstractions/X c46cb626d9466bf8cf082d84032ff4e9
+ /etc/apparmor.d/abstractions/apache2-common 009189f793ba7caa55befe9a613dce98
+ /etc/apparmor.d/abstractions/apparmor_api/change_profile 9f4c0a621f4939af15588b7fe670dfe7
+ /etc/apparmor.d/abstractions/apparmor_api/examine f3b118b0344df2bcf4d18b81b45536bd
+ /etc/apparmor.d/abstractions/apparmor_api/find_mountpoint cf9e6513e00b441c0e3fbaf57b5c5110
+ /etc/apparmor.d/abstractions/apparmor_api/introspect 4c345c7e02de097f250c3ab12a442bed
+ /etc/apparmor.d/abstractions/apparmor_api/is_enabled d98f1c1f3f41075007943f3ef072bd99
+ /etc/apparmor.d/abstractions/aspell fdcbf54106fd1ee376d4ade77e720488
+ /etc/apparmor.d/abstractions/audio 71e2298f55bd94030785030d5146da8b
+ /etc/apparmor.d/abstractions/authentication 04cf81938b39380d97f675e9e3d28824
+ /etc/apparmor.d/abstractions/base 9e71ef39948a97946fe134aa7d6f7d24
+ /etc/apparmor.d/abstractions/bash 4a5f51dc0fe10de2eba86b22351ae092
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 1.7.1.1 Ensure message of the day is configured properly ---------
+
+[COMMAND] : 
+cat /etc/motd
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[COMMAND] : 
+egrep '(\v|\r|\m|\s)' /etc/motd
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 1.7.1.4 Ensure permissions on /etc/motd are configured ---------
+
+[COMMAND] : 
+stat /etc/motd
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 1.7.1.5 Ensure permissions on /etc/issue are configured ---------
+
+[COMMAND] : 
+stat /etc/issue
+
+[STDOUT] : 
+  File: '/etc/issue'
+  Size: 26        	Blocks: 8          IO Block: 4096   regular file
+Device: ca01h/51713d	Inode: 1297        Links: 1
+Access: (0644/-rw-r--r--)  Uid: (    0/    root)   Gid: (    0/    root)
+Access: 2021-10-26 14:51:18.488000000 +0000
+Modify: 2020-08-17 14:19:19.000000000 +0000
+Change: 2021-04-29 03:39:08.419401626 +0000
+ Birth: -
+
+
+[STDERR] : 
+
+
+[VERDICT] : PASSED
+--------- 1.7.1.6 Ensure permissions on /etc/issue.net are configured ---------
+
+[COMMAND] : 
+stat /etc/issue.net
+
+[STDOUT] : 
+  File: '/etc/issue.net'
+  Size: 19        	Blocks: 8          IO Block: 4096   regular file
+Device: ca01h/51713d	Inode: 1298        Links: 1
+Access: (0644/-rw-r--r--)  Uid: (    0/    root)   Gid: (    0/    root)
+Access: 2021-04-29 03:37:17.000000000 +0000
+Modify: 2020-08-17 14:19:19.000000000 +0000
+Change: 2021-04-29 03:39:08.419401626 +0000
+ Birth: -
+
+
+[STDERR] : 
+
+
+[VERDICT] : PASSED
+--------- 1.8 Ensure updates, patches, and additional security software are installed ---------
+
+[COMMAND] : 
+apt-get -s upgrade
+
+[STDOUT] : 
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+
+[STDERR] : 
+
+
+[VERDICT] : PASSED
+--------- 2.1.10 Ensure xinetd is not enabled ---------
+
+[COMMAND] : 
+systemctl is-enabled xinetd
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 2.1.10-A Ensure openbsd-inetd is not installed ---------
+
+[COMMAND] : 
+dpkg -s openbsd-inted
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : PASSED
+--------- 2.2.1.1 Ensure time synchronization is in use ---------
+
+[COMMAND] : 
+dpkg -s ntp
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[COMMAND] : 
+dpkg -s chrony
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 2.2.1.2 Ensure ntp is configured ---------
+
+[COMMAND] : 
+grep '^restrict' /etc/ntp.conf
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[COMMAND] : 
+grep '^server' /etc/ntp.conf
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 2.2.2 Ensure X Window System is not installed ---------
+
+[COMMAND] : 
+dpkg -l xserver-xorg*
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : PASSED
+--------- 2.2.3 Ensure Avahi Server is not enabled ---------
+
+[COMMAND] : 
+systemctl is-enabled avahi-daemon
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 2.2.4 Ensure CUPS is not enabled ---------
+
+[COMMAND] : 
+systemctl is-enabled cups
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 2.2.5 Ensure DHCP Server is not enabled  ---------
+
+[COMMAND] : 
+ systemctl is-enabled isc-dhcp-server
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[COMMAND] : 
+systemctl is-enabled isc-dhcp-server6
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 2.2.6 Ensure LDAP server is not enabled  ---------
+
+[COMMAND] : 
+systemctl is-enabled slapd
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 2.2.7 Ensure NFS and RPC are not enabled ---------
+
+[COMMAND] : 
+systemctl is-enabled nfs-kernel-server
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[COMMAND] : 
+ systemctl is-enabled rpcbind
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 2.2.8 Ensure DNS Server is not enabled ---------
+
+[COMMAND] : 
+systemctl is-enabled bind9
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 2.2.9 Ensure FTP Server is not enabled ---------
+
+[COMMAND] : 
+systemctl is-enabled vsftpd
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 2.2.10 Ensure HTTP server is not enabled ---------
+
+[COMMAND] : 
+systemctl is-enabled apache2
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 2.2.11 Ensure IMAP and POP3 server is not enabled ---------
+
+[COMMAND] : 
+systemctl is-enabled dovecot
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 2.2.12 Ensure Samba is not enabled ---------
+
+[COMMAND] : 
+systemctl is-enabled smbd
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 2.2.13 Ensure HTTP Proxy Server is not enabled ---------
+
+[COMMAND] : 
+systemctl is-enabled squid
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 2.2.14 Ensure SNMP Server is not enabled ---------
+
+[COMMAND] : 
+systemctl is-enabled snmpd
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 2.2.15 Ensure mail transfer agent is configured for local-only mode ---------
+
+[COMMAND] : 
+netstat -an | grep LIST | grep ':25[[:space:]]'
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : PASSED
+--------- 2.2.16 Ensure rsync service is not enabled ---------
+
+[COMMAND] : 
+systemctl is-enabled rsync
+
+[STDOUT] : 
+disabled
+
+
+[STDERR] : 
+
+
+[VERDICT] : PASSED
+--------- 2.2.17 Ensure NIS Server is not enabled ---------
+
+[COMMAND] : 
+systemctl is-enabled nis
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 2.3.1 Ensure NIS Client is not installed ---------
+
+[COMMAND] : 
+dpkg -s nis
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : PASSED
+--------- 2.3.2 Ensure rsh client is not installed ---------
+
+[COMMAND] : 
+dpkg -s rsh-client
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[COMMAND] : 
+dpkg -s rsh-redone-client
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : PASSED
+--------- 2.3.3 Ensure talk client is not installed ---------
+
+[COMMAND] : 
+dpkg -s talk
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : PASSED
+--------- 2.3.4 Ensure telnet client is not installed ---------
+
+[COMMAND] : 
+dpkg -s telnet
+
+[STDOUT] : 
+Package: telnet
+Status: install ok installed
+Priority: standard
+Section: net
+Installed-Size: 178
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Architecture: amd64
+Source: netkit-telnet
+Version: 0.17-40
+Replaces: netstd
+Provides: telnet-client
+Depends: netbase, libc6 (>= 2.15), libstdc++6 (>= 4.1.1)
+Description: basic telnet client
+ The telnet command is used for interactive communication with another host
+ using the TELNET protocol.
+ .
+ For the purpose of remote login, the present client executable should be
+ depreciated in favour of an ssh-client, or in some cases with variants like
+ telnet-ssl or Kerberized TELNET clients.  The most important reason is that
+ this implementation exchanges user name and password in clear text.
+ .
+ On the other hand, the present program does satisfy common use cases of
+ network diagnostics, like protocol testing of SMTP services, so it can
+ become handy enough.
+Original-Maintainer: Mats Erik Andersson <mats.andersson@gisladisker.se>
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 2.3.5 Ensure LDAP client is not installed ---------
+
+[COMMAND] : 
+dpkg -s ldap-utils
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : PASSED
+--------- 3.1.1 Ensure IP forwarding is disabled ---------
+
+[COMMAND] : 
+sysctl net.ipv4.ip_forward
+
+[STDOUT] : 
+net.ipv4.ip_forward = 0
+
+
+[STDERR] : 
+
+
+[VERDICT] : PASSED
+--------- 3.1.2 Ensure packet redirect sending is disabled  ---------
+
+[COMMAND] : 
+sysctl net.ipv4.conf.all.send_redirects
+
+[STDOUT] : 
+net.ipv4.conf.all.send_redirects = 1
+
+
+[STDERR] : 
+
+
+[COMMAND] : 
+sysctl net.ipv4.conf.default.send_redirects
+
+[STDOUT] : 
+net.ipv4.conf.default.send_redirects = 1
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 3.2.1 Ensure source routed packets are not accepted ---------
+
+[COMMAND] : 
+sysctl net.ipv4.conf.all.accept_redirects
+
+[STDOUT] : 
+net.ipv4.conf.all.accept_redirects = 1
+
+
+[STDERR] : 
+
+
+[COMMAND] : 
+sysctl net.ipv4.conf.default.accept_redirects
+
+[STDOUT] : 
+net.ipv4.conf.default.accept_redirects = 1
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 3.2.3 Ensure secure ICMP redirects are not accepted ---------
+
+[COMMAND] : 
+sysctl net.ipv4.conf.all.secure_redirects
+
+[STDOUT] : 
+net.ipv4.conf.all.secure_redirects = 1
+
+
+[STDERR] : 
+
+
+[COMMAND] : 
+sysctl net.ipv4.conf.default.secure_redirects
+
+[STDOUT] : 
+net.ipv4.conf.default.secure_redirects = 1
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 3.2.4 Ensure suspicious packets are logged ---------
+
+[COMMAND] : 
+sysctl net.ipv4.conf.all.log_martians
+
+[STDOUT] : 
+net.ipv4.conf.all.log_martians = 0
+
+
+[STDERR] : 
+
+
+[COMMAND] : 
+sysctl net.ipv4.conf.default.log_martians
+
+[STDOUT] : 
+net.ipv4.conf.default.log_martians = 0
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 3.2.5 Ensure broadcast ICMP requests are ignored ---------
+
+[COMMAND] : 
+sysctl net.ipv4.icmp_echo_ignore_broadcasts
+
+[STDOUT] : 
+net.ipv4.icmp_echo_ignore_broadcasts = 1
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 3.2.6 Ensure bogus ICMP responses are ignored ---------
+
+[COMMAND] : 
+sysctl net.ipv4.icmp_ignore_bogus_error_responses
+
+[STDOUT] : 
+net.ipv4.icmp_ignore_bogus_error_responses = 1
+
+
+[STDERR] : 
+
+
+[VERDICT] : PASSED
+--------- 3.2.7 Ensure Reverse Path Filtering is enabled ---------
+
+[COMMAND] : 
+sysctl net.ipv4.conf.all.rp_filter
+
+[STDOUT] : 
+net.ipv4.conf.all.rp_filter = 1
+
+
+[STDERR] : 
+
+
+[COMMAND] : 
+sysctl net.ipv4.conf.default.rp_filter
+
+[STDOUT] : 
+net.ipv4.conf.default.rp_filter = 1
+
+
+[STDERR] : 
+
+
+[VERDICT] : PASSED
+--------- 3.2.8 Ensure TCP SYN Cookies is enabled ---------
+
+[COMMAND] : 
+sysctl net.ipv4.tcp_syncookies
+
+[STDOUT] : 
+net.ipv4.tcp_syncookies = 1
+
+
+[STDERR] : 
+
+
+[VERDICT] : PASSED
+--------- 3.2.8 Ensure TCP SYN Cookies is enabled ---------
+
+[COMMAND] : 
+sysctl net.ipv4.tcp_syncookies
+
+[STDOUT] : 
+net.ipv4.tcp_syncookies = 1
+
+
+[STDERR] : 
+
+
+[VERDICT] : PASSED
+--------- 3.3.1 Ensure IPv6 router advertisements are not accepted ---------
+
+[COMMAND] : 
+sysctl net.ipv6.conf.all.accept_ra
+
+[STDOUT] : 
+net.ipv6.conf.all.accept_ra = 1
+
+
+[STDERR] : 
+
+
+[COMMAND] : 
+sysctl net.ipv6.conf.default.accept_ra
+
+[STDOUT] : 
+net.ipv6.conf.default.accept_ra = 1
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 3.3.2 Ensure IPv6 redirects are not accepted ---------
+
+[COMMAND] : 
+sysctl net.ipv6.conf.all.accept_redirects
+
+[STDOUT] : 
+net.ipv6.conf.all.accept_redirects = 1
+
+
+[STDERR] : 
+
+
+[COMMAND] : 
+sysctl net.ipv6.conf.default.accept_redirects
+
+[STDOUT] : 
+net.ipv6.conf.default.accept_redirects = 1
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 3.3.3 Ensure IPv6 is disabled ---------
+
+[COMMAND] : 
+grep '^\s*linux' /boot/grub/grub.cfg
+
+[STDOUT] : 
+        linux	/boot/vmlinuz-4.4.0-1128-aws root=LABEL=cloudimg-rootfs ro  console=tty1 console=ttyS0 nvme.io_timeout=4294967295 nvme_core.io_timeout=4294967295
+	        linux	/boot/vmlinuz-4.4.0-1128-aws root=LABEL=cloudimg-rootfs ro  console=tty1 console=ttyS0 nvme.io_timeout=4294967295 nvme_core.io_timeout=4294967295
+	        linux	/boot/vmlinuz-4.4.0-1128-aws root=LABEL=cloudimg-rootfs ro recovery nomodeset dis_ucode_ldr 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 3.4.1 Ensure TCP Wrappers is installed ---------
+
+[COMMAND] : 
+dpkg -s tcpd
+
+[STDOUT] : 
+Package: tcpd
+Status: install ok installed
+Priority: optional
+Section: net
+Installed-Size: 111
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Architecture: amd64
+Multi-Arch: foreign
+Source: tcp-wrappers
+Version: 7.6.q-25
+Replaces: libwrap0 (<< 7.6-8)
+Depends: libc6 (>= 2.4), libwrap0 (>= 7.6-4~)
+Description: Wietse Venema's TCP wrapper utilities
+ Wietse Venema's network logger, also known as TCPD or LOG_TCP.
+ .
+ These programs log the client host name of incoming telnet,
+ ftp, rsh, rlogin, finger etc. requests.
+ .
+ Security options are:
+  - access control per host, domain and/or service;
+  - detection of host name spoofing or host address spoofing;
+  - booby traps to implement an early-warning system.
+Original-Maintainer: Marco d'Itri <md@linux.it>
+
+
+[STDERR] : 
+
+
+[VERDICT] : PASSED
+--------- 3.4.2 Ensure /etc/hosts.allow is configured ---------
+
+[COMMAND] : 
+dpkg -s tcpd
+
+[STDOUT] : 
+Package: tcpd
+Status: install ok installed
+Priority: optional
+Section: net
+Installed-Size: 111
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Architecture: amd64
+Multi-Arch: foreign
+Source: tcp-wrappers
+Version: 7.6.q-25
+Replaces: libwrap0 (<< 7.6-8)
+Depends: libc6 (>= 2.4), libwrap0 (>= 7.6-4~)
+Description: Wietse Venema's TCP wrapper utilities
+ Wietse Venema's network logger, also known as TCPD or LOG_TCP.
+ .
+ These programs log the client host name of incoming telnet,
+ ftp, rsh, rlogin, finger etc. requests.
+ .
+ Security options are:
+  - access control per host, domain and/or service;
+  - detection of host name spoofing or host address spoofing;
+  - booby traps to implement an early-warning system.
+Original-Maintainer: Marco d'Itri <md@linux.it>
+
+
+[STDERR] : 
+
+
+[VERDICT] : PASSED
+--------- 3.4.3 Ensure /etc/hosts.deny is configured ---------
+
+[COMMAND] : 
+cat /etc/hosts.deny
+
+[STDOUT] : 
+# /etc/hosts.deny: list of hosts that are _not_ allowed to access the system.
+#                  See the manual pages hosts_access(5) and hosts_options(5).
+#
+# Example:    ALL: some.host.name, .some.domain
+#             ALL EXCEPT in.fingerd: other.host.name, .other.domain
+#
+# If you're going to protect the portmapper use the name "rpcbind" for the
+# daemon name. See rpcbind(8) and rpc.mountd(8) for further information.
+#
+# The PARANOID wildcard matches any host whose name does not match its
+# address.
+#
+# You may wish to enable this to ensure any programs that don't
+# validate looked up hostnames still leave understandable logs. In past
+# versions of Debian this has been the default.
+# ALL: PARANOID
+
+
+
+[STDERR] : 
+
+
+[VERDICT] : PASSED
+--------- 3.4.4 Ensure permissions on /etc/hosts.allow are configured ---------
+
+[COMMAND] : 
+stat /etc/hosts.allow
+
+[STDOUT] : 
+  File: '/etc/hosts.allow'
+  Size: 411       	Blocks: 8          IO Block: 4096   regular file
+Device: ca01h/51713d	Inode: 1416        Links: 1
+Access: (0644/-rw-r--r--)  Uid: (    0/    root)   Gid: (    0/    root)
+Access: 2021-10-26 14:51:47.089093496 +0000
+Modify: 2021-04-29 03:38:21.515547389 +0000
+Change: 2021-04-29 03:39:08.423401613 +0000
+ Birth: -
+
+
+[STDERR] : 
+
+
+[VERDICT] : PASSED
+--------- 3.4.5 Ensure permissions on /etc/hosts.deny are 644 ---------
+
+[COMMAND] : 
+stat /etc/hosts.deny
+
+[STDOUT] : 
+  File: '/etc/hosts.deny'
+  Size: 711       	Blocks: 8          IO Block: 4096   regular file
+Device: ca01h/51713d	Inode: 1417        Links: 1
+Access: (0644/-rw-r--r--)  Uid: (    0/    root)   Gid: (    0/    root)
+Access: 2021-10-26 14:51:47.089093496 +0000
+Modify: 2021-04-29 03:38:21.519547377 +0000
+Change: 2021-04-29 03:39:08.423401613 +0000
+ Birth: -
+
+
+[STDERR] : 
+
+
+[VERDICT] : PASSED
+--------- 3.5.1 Ensure DCCP is disabled ---------
+
+[COMMAND] : 
+modprobe -n -v dccp
+
+[STDOUT] : 
+insmod /lib/modules/4.4.0-1128-aws/kernel/net/dccp/dccp.ko 
+
+
+[STDERR] : 
+
+
+[COMMAND] : 
+lsmod | grep dccp
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 3.5.2 Ensure SCTP is disabled ---------
+
+[COMMAND] : 
+modprobe -n -v sctp
+
+[STDOUT] : 
+insmod /lib/modules/4.4.0-1128-aws/kernel/net/sctp/sctp.ko 
+
+
+[STDERR] : 
+
+
+[COMMAND] : 
+lsmod | grep sctp
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 3.5.3 Ensure RDS is disabled ---------
+
+[COMMAND] : 
+modprobe -n -v rds
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[COMMAND] : 
+lsmod | grep rds
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 3.5.4 Ensure TIPC is disabled ---------
+
+[COMMAND] : 
+modprobe -n -v tipc
+
+[STDOUT] : 
+insmod /lib/modules/4.4.0-1128-aws/kernel/net/ipv4/udp_tunnel.ko 
+insmod /lib/modules/4.4.0-1128-aws/kernel/net/ipv6/ip6_udp_tunnel.ko 
+insmod /lib/modules/4.4.0-1128-aws/kernel/net/tipc/tipc.ko 
+
+
+[STDERR] : 
+
+
+[COMMAND] : 
+lsmod | grep tipc
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 3.6.1 Ensure iptables is installed ---------
+
+[COMMAND] : 
+dpkg -s iptables
+
+[STDOUT] : 
+Package: iptables
+Status: install ok installed
+Priority: important
+Section: net
+Installed-Size: 1624
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Architecture: amd64
+Version: 1.6.0-2ubuntu3
+Depends: libxtables11 (= 1.6.0-2ubuntu3), libc6 (>= 2.14), libnfnetlink0
+Description: administration tools for packet filtering and NAT
+ iptables is the userspace command line program used to configure
+ the Linux packet filtering ruleset. It is targeted towards system
+ administrators. Since Network Address Translation is also configured
+ from the packet filter ruleset, iptables is used for this, too. The
+ iptables package also includes ip6tables. ip6tables is used for
+ configuring the IPv6 packet filter
+Homepage: http://www.netfilter.org/
+Original-Maintainer: iptables devel team <pkg-netfilter-devel@lists.alioth.debian.org>
+
+
+[STDERR] : 
+
+
+[VERDICT] : PASSED
+--------- 3.6.2 Ensure default deny firewall policy ---------
+
+[COMMAND] : 
+iptables -L
+
+[STDOUT] : 
+Chain INPUT (policy ACCEPT)
+target     prot opt source               destination         
+
+Chain FORWARD (policy ACCEPT)
+target     prot opt source               destination         
+
+Chain OUTPUT (policy ACCEPT)
+target     prot opt source               destination         
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 3.6.3 Ensure loopback traffic is configured ---------
+
+[COMMAND] : 
+iptables -L INPUT -v -n
+
+[STDOUT] : 
+Chain INPUT (policy ACCEPT 8 packets, 817 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+
+[STDERR] : 
+
+
+[COMMAND] : 
+iptables -L OUTPUT -v -n
+
+[STDOUT] : 
+Chain OUTPUT (policy ACCEPT 18 packets, 2280 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 3.6.4 Ensure outbound and established connections are configured ---------
+
+[COMMAND] : 
+iptables -L -v -n
+
+[STDOUT] : 
+Chain INPUT (policy ACCEPT 24 packets, 2451 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain FORWARD (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+Chain OUTPUT (policy ACCEPT 27 packets, 3348 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 3.6.5 Ensure firewall rules exist for all open ports ---------
+
+[COMMAND] : 
+netstat -ln
+
+[STDOUT] : 
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State      
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN     
+tcp        0      0 127.0.0.1:6010          0.0.0.0:*               LISTEN     
+tcp6       0      0 :::22                   :::*                    LISTEN     
+tcp6       0      0 ::1:6010                :::*                    LISTEN     
+udp        0      0 0.0.0.0:68              0.0.0.0:*                          
+Active UNIX domain sockets (only servers)
+Proto RefCnt Flags       Type       State         I-Node   Path
+unix  2      [ ACC ]     STREAM     LISTENING     23603    /run/user/1001/systemd/private
+unix  2      [ ACC ]     STREAM     LISTENING     17820    /run/user/1000/systemd/private
+unix  2      [ ACC ]     SEQPACKET  LISTENING     8830     /run/udev/control
+unix  2      [ ACC ]     STREAM     LISTENING     23607    /run/user/1001/snapd-session-agent.socket
+unix  2      [ ACC ]     STREAM     LISTENING     17824    /run/user/1000/snapd-session-agent.socket
+unix  2      [ ACC ]     STREAM     LISTENING     12990    /var/lib/lxd/unix.socket
+unix  2      [ ACC ]     STREAM     LISTENING     12985    /run/snapd.socket
+unix  2      [ ACC ]     STREAM     LISTENING     12987    /run/uuidd/request
+unix  2      [ ACC ]     STREAM     LISTENING     12988    /var/run/dbus/system_bus_socket
+unix  2      [ ACC ]     STREAM     LISTENING     12989    /run/acpid.socket
+unix  2      [ ACC ]     STREAM     LISTENING     12986    /run/snapd-snap.socket
+unix  2      [ ACC ]     STREAM     LISTENING     17469    /var/lib/amazon/ssm/ipc/health
+unix  2      [ ACC ]     STREAM     LISTENING     17470    /var/lib/amazon/ssm/ipc/termination
+unix  2      [ ACC ]     STREAM     LISTENING     13151    @ISCSIADM_ABSTRACT_NAMESPACE
+unix  2      [ ACC ]     STREAM     LISTENING     8816     /run/systemd/private
+unix  2      [ ACC ]     STREAM     LISTENING     8821     /run/lvm/lvmetad.socket
+
+
+[STDERR] : 
+
+
+[COMMAND] : 
+iptables -L INPUT -v -n
+
+[STDOUT] : 
+Chain INPUT (policy ACCEPT 40 packets, 4069 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 3.7 Ensure wireless interfaces are disabled ---------
+
+[COMMAND] : 
+iwconfig
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[COMMAND] : 
+ip link show up
+
+[STDOUT] : 
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 9001 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 12:31:a6:91:bf:e5 brd ff:ff:ff:ff:ff:ff
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 4.1.1.1 Ensure audit log storage size is configured ---------
+
+[COMMAND] : 
+grep max_log_file /etc/audit/auditd.conf
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 4.1.1.2 Ensure system is disabled when audit logs are full  ---------
+
+[COMMAND] : 
+grep space_left_action /etc/audit/auditd.conf
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[COMMAND] : 
+grep action_mail_acct /etc/audit/auditd.conf
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[COMMAND] : 
+grep admin_space_left_action /etc/audit/auditd.conf
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 4.1.1.3 Ensure audit logs are not automatically deleted ---------
+
+[COMMAND] : 
+grep max_log_file_action /etc/audit/auditd.conf
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 4.1.2 Ensure auditd service is enabled ---------
+
+[COMMAND] : 
+systemctl is-enabled auditd
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 4.1.3 Ensure auditing for processes that start prior to auditd is enabled  ---------
+
+[COMMAND] : 
+grep '^\s*linux' /boot/grub/grub.cfg
+
+[STDOUT] : 
+        linux	/boot/vmlinuz-4.4.0-1128-aws root=LABEL=cloudimg-rootfs ro  console=tty1 console=ttyS0 nvme.io_timeout=4294967295 nvme_core.io_timeout=4294967295
+	        linux	/boot/vmlinuz-4.4.0-1128-aws root=LABEL=cloudimg-rootfs ro  console=tty1 console=ttyS0 nvme.io_timeout=4294967295 nvme_core.io_timeout=4294967295
+	        linux	/boot/vmlinuz-4.4.0-1128-aws root=LABEL=cloudimg-rootfs ro recovery nomodeset dis_ucode_ldr 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 4.1.3 Ensure auditing for processes that start prior to auditd is enabled  ---------
+
+[COMMAND] : 
+grep '^\s*linux' /boot/grub/grub.cfg
+
+[STDOUT] : 
+        linux	/boot/vmlinuz-4.4.0-1128-aws root=LABEL=cloudimg-rootfs ro  console=tty1 console=ttyS0 nvme.io_timeout=4294967295 nvme_core.io_timeout=4294967295
+	        linux	/boot/vmlinuz-4.4.0-1128-aws root=LABEL=cloudimg-rootfs ro  console=tty1 console=ttyS0 nvme.io_timeout=4294967295 nvme_core.io_timeout=4294967295
+	        linux	/boot/vmlinuz-4.4.0-1128-aws root=LABEL=cloudimg-rootfs ro recovery nomodeset dis_ucode_ldr 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 4.1.4 Ensure events that modify date and time information are collected ---------
+
+[COMMAND] : 
+grep time-change /etc/audit/audit.rules
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 4.1.3 Ensure auditing for processes that start prior to auditd is enabled  ---------
+
+[COMMAND] : 
+grep identity /etc/audit/audit.rules
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 4.1.5 Ensure events that modify user/group information are collected ---------
+
+[COMMAND] : 
+grep identity /etc/audit/audit.rules
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 4.1.6 Ensure events that modify the system's network environment are collected ---------
+
+[COMMAND] : 
+ grep system-locale /etc/audit/audit.rules
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 4.1.7 Ensure events that modify the system's Mandatory Access Controls are collected ---------
+
+[COMMAND] : 
+grep MAC-policy /etc/audit/audit.rules
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 4.1.1.3 Ensure audit logs are not automatically deleted ---------
+
+[COMMAND] : 
+grep max_log_file_action /etc/audit/auditd.conf
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 4.1.2 Ensure auditd service is enabled ---------
+
+[COMMAND] : 
+systemctl is-enabled auditd
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 4.1.3 Ensure auditing for processes that start prior to auditd is enabled ---------
+
+[COMMAND] : 
+grep '^\s*linux' /boot/grub/grub.cfg
+
+[STDOUT] : 
+        linux	/boot/vmlinuz-4.4.0-1128-aws root=LABEL=cloudimg-rootfs ro  console=tty1 console=ttyS0 nvme.io_timeout=4294967295 nvme_core.io_timeout=4294967295
+	        linux	/boot/vmlinuz-4.4.0-1128-aws root=LABEL=cloudimg-rootfs ro  console=tty1 console=ttyS0 nvme.io_timeout=4294967295 nvme_core.io_timeout=4294967295
+	        linux	/boot/vmlinuz-4.4.0-1128-aws root=LABEL=cloudimg-rootfs ro recovery nomodeset dis_ucode_ldr 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 4.1.4 Ensure events that modify date and time information are collected ---------
+
+[COMMAND] : 
+grep time-change /etc/audit/audit.rules
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 4.1.5 Ensure events that modify user/group information are collected ---------
+
+[COMMAND] : 
+grep identity /etc/audit/audit.rules
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 4.1.6 Ensure events that modify the system's network environment are collected ---------
+
+[COMMAND] : 
+grep system-locale /etc/audit/audit.rules
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 4.1.7 Ensure events that modify the system's Mandatory Access Controls are collected ---------
+
+[COMMAND] : 
+grep MAC-policy /etc/audit/audit.rules
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 4.1.8 Ensure login and logout events are collected ---------
+
+[COMMAND] : 
+grep logins /etc/audit/audit.rules
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 4.1.9 Ensure session initiation information is collected ---------
+
+[COMMAND] : 
+grep session /etc/audit/audit.rules
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 4.1.10 Ensure discretionary access control permission modification events are collected ---------
+
+[COMMAND] : 
+grep perm_mod /etc/audit/audit.rules
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 4.1.11 Ensure unsuccessful unauthorized file access attempts are collected ---------
+
+[COMMAND] : 
+grep access /etc/audit/audit.rules
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 4.1.13 Ensure successful file system mounts are collected ---------
+
+[COMMAND] : 
+grep mounts /etc/audit/audit.rules
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 4.1.14 Ensure file deletion events by users are collected  ---------
+
+[COMMAND] : 
+grep delete /etc/audit/audit.rules
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 4.1.15 Ensure changes to system administration scope (sudoers) is collected ---------
+
+[COMMAND] : 
+grep scope /etc/audit/audit.rules
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 4.1.16 Ensure system administrator actions (sudolog) are collected ---------
+
+[COMMAND] : 
+grep actions /etc/audit/audit.rules
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 4.1.17 Ensure kernel module loading and unloading is collected ---------
+
+[COMMAND] : 
+grep modules /etc/audit/audit.rules
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 4.1.18 Ensure the audit configuration is immutable ---------
+
+[COMMAND] : 
+grep '^\s*[^#]' /etc/audit/audit.rules | tail -1
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 4.2.1.1 Ensure rsyslog Service is enabled ---------
+
+[COMMAND] : 
+systemctl is-enabled rsyslog
+
+[STDOUT] : 
+enabled
+
+
+[STDERR] : 
+
+
+[VERDICT] : PASSED
+--------- 4.2.1.3 Ensure rsyslog default file permissions configured ---------
+
+[COMMAND] : 
+grep ^\$FileCreateMode /etc/rsyslog.conf
+
+[STDOUT] : 
+$FileCreateMode 0640
+
+
+[STDERR] : 
+
+
+[VERDICT] : PASSED
+--------- 4.2.1.4 Ensure rsyslog is configured to send logs to a remote log host ---------
+
+[COMMAND] : 
+ grep '^*.*[^I][^I]*@' /etc/rsyslog.conf
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 4.2.1.5 Ensure remote rsyslog messages are only accepted on designated log hosts ---------
+
+[COMMAND] : 
+grep '$ModLoad imtcp.so' /etc/rsyslog.conf
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[COMMAND] : 
+grep '$InputTCPServerRun' /etc/rsyslog.conf
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 4.2.2.1 Ensure syslog-ng service is enabled ---------
+
+[COMMAND] : 
+systemctl is-enabled syslog-ng
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 4.2.4 Ensure permissions on all logfiles are configured ---------
+
+[COMMAND] : 
+find /var/log -type f -ls
+
+[STDOUT] : 
+    58085      4 -rw-rw-r--   1 root     utmp       292584 Oct 26 14:52 /var/log/lastlog
+    51277     52 -rw-r-----   1 syslog   adm         52479 Oct 26 15:06 /var/log/kern.log
+    51231    152 -rw-r--r--   1 syslog   adm        153054 Oct 26 14:52 /var/log/cloud-init.log
+    58084      0 -rw-------   1 root     utmp            0 Apr 29  2021 /var/log/btmp
+    58081      0 -rw-r-----   1 root     adm             0 Apr 29  2021 /var/log/fsck/checkroot
+    58082      0 -rw-r-----   1 root     adm             0 Apr 29  2021 /var/log/fsck/checkfs
+    51232      8 -rw-r-----   1 root     adm          4761 Oct 26 14:52 /var/log/cloud-init-output.log
+   256214      4 -rw-------   1 root     root          551 Oct 26 14:56 /var/log/amazon/ssm/hibernate.log
+   256165      4 -rw-------   1 root     root          132 Oct 26 14:51 /var/log/amazon/ssm/audits/amazon-ssm-agent-audit-2021-10-26
+   256164      4 -rw-------   1 root     root         2185 Oct 26 14:51 /var/log/amazon/ssm/amazon-ssm-agent.log
+    58378      4 -rw-r-----   1 root     adm           201 Apr 29  2021 /var/log/apt/term.log
+    58379      4 -rw-r--r--   1 root     root         1204 Apr 29  2021 /var/log/apt/history.log
+    51276    100 -rw-r-----   1 syslog   adm         99664 Oct 26 15:06 /var/log/syslog
+    51281      0 -rw-r--r--   1 root     root            0 Oct 26 14:51 /var/log/unattended-upgrades/unattended-upgrades-shutdown.log
+    51278     84 -rw-r-----   1 syslog   adm         84431 Oct 26 15:07 /var/log/auth.log
+    58381     16 -rw-r--r--   1 root     root        13144 Apr 29  2021 /var/log/dpkg.log
+    58083      4 -rw-rw-r--   1 root     utmp         2688 Oct 26 14:52 /var/log/wtmp
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 5.1.1 Ensure cron daemon is enabled ---------
+
+[COMMAND] : 
+systemctl is-enabled crond
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 5.1.2 Ensure permissions on /etc/crontab are configured ---------
+
+[COMMAND] : 
+ stat /etc/crontab
+
+[STDOUT] : 
+  File: '/etc/crontab'
+  Size: 722       	Blocks: 8          IO Block: 4096   regular file
+Device: ca01h/51713d	Inode: 1059        Links: 1
+Access: (0644/-rw-r--r--)  Uid: (    0/    root)   Gid: (    0/    root)
+Access: 2021-10-26 14:51:12.040000000 +0000
+Modify: 2016-04-05 21:59:09.000000000 +0000
+Change: 2021-04-29 03:39:08.411401652 +0000
+ Birth: -
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 5.1.3 Ensure permissions on /etc/cron.hourly are configured ---------
+
+[COMMAND] : 
+stat /etc/cron.hourly
+
+[STDOUT] : 
+  File: '/etc/cron.hourly'
+  Size: 4096      	Blocks: 8          IO Block: 4096   directory
+Device: ca01h/51713d	Inode: 1064        Links: 2
+Access: (0755/drwxr-xr-x)  Uid: (    0/    root)   Gid: (    0/    root)
+Access: 2021-10-26 15:04:34.540233090 +0000
+Modify: 2021-04-29 03:37:01.515751547 +0000
+Change: 2021-04-29 03:39:08.411401652 +0000
+ Birth: -
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 5.1.4 Ensure permissions on /etc/cron.daily are configured ---------
+
+[COMMAND] : 
+stat /etc/cron.daily
+
+[STDOUT] : 
+  File: '/etc/cron.daily'
+  Size: 4096      	Blocks: 8          IO Block: 4096   directory
+Device: ca01h/51713d	Inode: 379         Links: 2
+Access: (0755/drwxr-xr-x)  Uid: (    0/    root)   Gid: (    0/    root)
+Access: 2021-10-26 15:04:34.536233117 +0000
+Modify: 2021-04-29 03:38:43.027481838 +0000
+Change: 2021-04-29 03:39:08.395401703 +0000
+ Birth: -
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 5.1.5 Ensure permissions on /etc/cron.weekly are configured ---------
+
+[COMMAND] : 
+stat /etc/cron.weekly
+
+[STDOUT] : 
+  File: '/etc/cron.weekly'
+  Size: 4096      	Blocks: 8          IO Block: 4096   directory
+Device: ca01h/51713d	Inode: 1066        Links: 2
+Access: (0755/drwxr-xr-x)  Uid: (    0/    root)   Gid: (    0/    root)
+Access: 2021-10-26 15:04:34.496233389 +0000
+Modify: 2021-04-29 03:38:43.031481825 +0000
+Change: 2021-04-29 03:39:08.411401652 +0000
+ Birth: -
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 5.1.6 Ensure permissions on /etc/cron.monthly are configured ---------
+
+[COMMAND] : 
+stat /etc/cron.monthly
+
+[STDOUT] : 
+  File: '/etc/cron.monthly'
+  Size: 4096      	Blocks: 8          IO Block: 4096   directory
+Device: ca01h/51713d	Inode: 1057        Links: 2
+Access: (0755/drwxr-xr-x)  Uid: (    0/    root)   Gid: (    0/    root)
+Access: 2021-10-26 15:04:34.524233199 +0000
+Modify: 2021-04-29 03:37:01.515751547 +0000
+Change: 2021-04-29 03:39:08.411401652 +0000
+ Birth: -
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 5.1.7 Ensure permissions on /etc/cron.d are configured ---------
+
+[COMMAND] : 
+stat /etc/cron.d
+
+[STDOUT] : 
+  File: '/etc/cron.d'
+  Size: 4096      	Blocks: 8          IO Block: 4096   directory
+Device: ca01h/51713d	Inode: 1060        Links: 2
+Access: (0755/drwxr-xr-x)  Uid: (    0/    root)   Gid: (    0/    root)
+Access: 2021-10-26 14:51:12.040000000 +0000
+Modify: 2021-04-29 03:38:31.803516370 +0000
+Change: 2021-04-29 03:39:08.411401652 +0000
+ Birth: -
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 5.1.8 Ensure at/cron is restricted to authorized users ---------
+
+[COMMAND] : 
+stat /etc/cron.deny
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[COMMAND] : 
+stat /etc/at.deny
+
+[STDOUT] : 
+  File: '/etc/at.deny'
+  Size: 144       	Blocks: 8          IO Block: 4096   regular file
+Device: ca01h/51713d	Inode: 1365        Links: 1
+Access: (0640/-rw-r-----)  Uid: (    0/    root)   Gid: (    1/  daemon)
+Access: 2021-04-29 03:37:49.000000000 +0000
+Modify: 2016-01-14 22:35:27.000000000 +0000
+Change: 2021-04-29 03:39:08.423401613 +0000
+ Birth: -
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 5.2.1 Ensure permissions on /etc/ssh/sshd_config are configured ---------
+
+[COMMAND] : 
+stat /etc/ssh/sshd_config
+
+[STDOUT] : 
+  File: '/etc/ssh/sshd_config'
+  Size: 2541      	Blocks: 8          IO Block: 4096   regular file
+Device: ca01h/51713d	Inode: 51271       Links: 1
+Access: (0644/-rw-r--r--)  Uid: (    0/    root)   Gid: (    0/    root)
+Access: 2021-10-26 14:52:52.562454076 +0000
+Modify: 2021-10-26 14:52:48.746440067 +0000
+Change: 2021-10-26 14:52:48.754440098 +0000
+ Birth: -
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 5.2.2 Ensure SSH Protocol is set to 2 ---------
+
+[COMMAND] : 
+grep '^Protocol' /etc/ssh/sshd_config
+
+[STDOUT] : 
+Protocol 2
+
+
+[STDERR] : 
+
+
+[VERDICT] : PASSED
+--------- 5.2.3 Ensure SSH LogLevel is set to INFO ---------
+
+[COMMAND] : 
+grep '^LogLevel' /etc/ssh/sshd_config
+
+[STDOUT] : 
+LogLevel INFO
+
+
+[STDERR] : 
+
+
+[VERDICT] : PASSED
+--------- 5.2.4 Ensure SSH X11 forwarding is disabled ---------
+
+[COMMAND] : 
+grep '^X11Forwarding' /etc/ssh/sshd_config
+
+[STDOUT] : 
+X11Forwarding yes
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 5.2.5 Ensure SSH MaxAuthTries is set to 3 or less ---------
+
+[COMMAND] : 
+grep '^MaxAuthTries' /etc/ssh/sshd_config
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 5.2.6 Ensure SSH IgnoreRhosts is enabled ---------
+
+[COMMAND] : 
+ grep '^IgnoreRhosts' /etc/ssh/sshd_config
+
+[STDOUT] : 
+IgnoreRhosts yes
+
+
+[STDERR] : 
+
+
+[VERDICT] : PASSED
+--------- 5.2.7 Ensure SSH HostbasedAuthentication is disabled ---------
+
+[COMMAND] : 
+grep '^HostbasedAuthentication' /etc/ssh/sshd_config
+
+[STDOUT] : 
+HostbasedAuthentication no
+
+
+[STDERR] : 
+
+
+[VERDICT] : PASSED
+--------- 5.2.8 Ensure SSH root login is disabled ---------
+
+[COMMAND] : 
+grep '^PermitRootLogin' /etc/ssh/sshd_config
+
+[STDOUT] : 
+PermitRootLogin prohibit-password
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 5.2.9 Ensure SSH PermitEmptyPasswords is disabled ---------
+
+[COMMAND] : 
+grep '^PermitEmptyPasswords' /etc/ssh/sshd_config
+
+[STDOUT] : 
+PermitEmptyPasswords no
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 5.2.10 Ensure SSH PermitUserEnvironment is disabled ---------
+
+[COMMAND] : 
+grep PermitUserEnvironment /etc/ssh/sshd_config
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 5.2.11 Ensure only approved MAC algorithms are used ---------
+
+[COMMAND] : 
+grep 'MACs' /etc/ssh/sshd_config
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 5.2.12 Ensure SSH Idle Timeout Interval is configured ---------
+
+[COMMAND] : 
+grep '^ClientAliveInterval' /etc/ssh/sshd_config
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[COMMAND] : 
+grep '^ClientAliveCountMax' /etc/ssh/sshd_config
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 5.2.13 Ensure SSH LoginGraceTime is set to one minute or less ---------
+
+[COMMAND] : 
+grep '^LoginGraceTime' /etc/ssh/sshd_config
+
+[STDOUT] : 
+LoginGraceTime 120
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 5.2.14 Ensure SSH access is limited ---------
+
+[COMMAND] : 
+grep '^AllowUsers' /etc/ssh/sshd_config
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[COMMAND] : 
+grep '^AllowGroups' /etc/ssh/sshd_config
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[COMMAND] : 
+grep '^DenyUsers' /etc/ssh/sshd_config
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[COMMAND] : 
+ grep '^DenyGroups' /etc/ssh/sshd_config
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 5.2.15 Ensure SSH warning banner is configured ---------
+
+[COMMAND] : 
+grep '^Banner' /etc/ssh/sshd_config
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 5.3.1 Ensure password creation requirements are configured ---------
+
+[COMMAND] : 
+grep pam_pwquality.so /etc/pam.d/common-password
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[COMMAND] : 
+grep ^minlen /etc/security/pwquality.conf
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[COMMAND] : 
+grep ^dcredit /etc/security/pwquality.conf
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[COMMAND] : 
+grep ^lcredit /etc/security/pwquality.conf
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[COMMAND] : 
+grep ^ocredit /etc/security/pwquality.conf
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[COMMAND] : 
+grep ^ucredit /etc/security/pwquality.conf
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 5.3.3 Ensure password reuse is limited ---------
+
+[COMMAND] : 
+egrep '^password\s+sufficient\s+pam_unix.so' /etc/pam.d/common-password
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 5.3.4 Ensure password hashing algorithm is SHA-512 ---------
+
+[COMMAND] : 
+egrep '^password\s+\S+\s+pam_unix.so' /etc/pam.d/common-password
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 5.4.1.1 Ensure password expiration is 60 days or less ---------
+
+[COMMAND] : 
+grep PASS_MAX_DAYS /etc/login.defs
+
+[STDOUT] : 
+#	PASS_MAX_DAYS	Maximum number of days a password may be used.
+PASS_MAX_DAYS	99999
+
+
+[STDERR] : 
+
+
+[COMMAND] : 
+egrep ^[^:]+:[^\!*] /etc/shadow | cut -d: -f1
+
+[STDOUT] : 
+audit-user
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 5.4.1.2 Ensure minimum days between password changes is 7 or more  ---------
+
+[COMMAND] : 
+grep PASS_MIN_DAYS /etc/login.defs
+
+[STDOUT] : 
+#	PASS_MIN_DAYS	Minimum number of days allowed between password changes.
+PASS_MIN_DAYS	0
+
+
+[STDERR] : 
+
+
+[COMMAND] : 
+egrep ^[^:]+:[^\!*] /etc/shadow | cut -d: -f1
+
+[STDOUT] : 
+audit-user
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 5.4.1.3 Ensure password expiration warning days is 7 or more ---------
+
+[COMMAND] : 
+grep PASS_WARN_AGE /etc/login.defs
+
+[STDOUT] : 
+#	PASS_WARN_AGE	Number of days warning given before a password expires.
+PASS_WARN_AGE	7
+
+
+[STDERR] : 
+
+
+[COMMAND] : 
+egrep ^[^:]+:[^\!*] /etc/shadow | cut -d: -f1
+
+[STDOUT] : 
+audit-user
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 5.4.1.4 Ensure inactive password lock is 30 days or less ---------
+
+[COMMAND] : 
+useradd -D | grep INACTIVE
+
+[STDOUT] : 
+INACTIVE=-1
+
+
+[STDERR] : 
+
+
+[COMMAND] : 
+ egrep ^[^:]+:[^\!*] /etc/shadow | cut -d: -f1
+
+[STDOUT] : 
+audit-user
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 5.4.2 Ensure system accounts are non-login ---------
+
+[COMMAND] : 
+egrep -v "^\+" /etc/passwd | awk -F: '($1!="root" && $1!="sync" && $1!="shutdown" && $1!="halt" && $3<1000 && $7!="/usr/sbin/nologin" && $7!="/bin/false") {print}'
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : PASSED
+--------- 5.4.3 Ensure default group for the root account is GID 0 ---------
+
+[COMMAND] : 
+grep '^root:' /etc/passwd | cut -f4 -d:
+
+[STDOUT] : 
+0
+
+
+[STDERR] : 
+
+
+[VERDICT] : PASSED
+--------- 5.4.4 Ensure default user umask is 027 or more restrictive ---------
+
+[COMMAND] : 
+grep '^umask' /etc/bash.bashrc
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[COMMAND] : 
+grep '^umask' /etc/profile
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 5.5 Ensure root login is restricted to system console ---------
+
+[COMMAND] : 
+cat /etc/securetty
+
+[STDOUT] : 
+# /etc/securetty: list of terminals on which root is allowed to login.
+# See securetty(5) and login(1).
+
+console
+
+# Local X displays (allows empty passwords with pam_unix's nullok_secure)
+:0
+:0.0
+:0.1
+:1
+:1.0
+:1.1
+:2
+:2.0
+:2.1
+:3
+:3.0
+:3.1
+#...
+
+
+# ==========================================================
+#
+# TTYs sorted by major number according to Documentation/devices.txt
+#
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 5.6 Ensure access to the su command is restricted ---------
+
+[COMMAND] : 
+grep pam_wheel.so /etc/pam.d/su
+
+[STDOUT] : 
+# auth       required   pam_wheel.so
+# auth       sufficient pam_wheel.so trust
+# auth       required   pam_wheel.so deny group=nosu
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 6.1.2 Ensure permissions on /etc/passwd are configured ---------
+
+[COMMAND] : 
+stat /etc/passwd
+
+[STDOUT] : 
+  File: '/etc/passwd'
+  Size: 1669      	Blocks: 8          IO Block: 4096   regular file
+Device: ca01h/51713d	Inode: 51272       Links: 1
+Access: (0644/-rw-r--r--)  Uid: (    0/    root)   Gid: (    0/    root)
+Access: 2021-10-26 14:52:19.290233381 +0000
+Modify: 2021-10-26 14:52:18.690225505 +0000
+Change: 2021-10-26 14:52:18.690225505 +0000
+ Birth: -
+
+
+[STDERR] : 
+
+
+[VERDICT] : PASSED
+--------- 6.1.3 Ensure permissions on /etc/shadow are configured ---------
+
+[COMMAND] : 
+stat /etc/shadow
+
+[STDOUT] : 
+  File: '/etc/shadow'
+  Size: 1007      	Blocks: 8          IO Block: 4096   regular file
+Device: ca01h/51713d	Inode: 51252       Links: 1
+Access: (0640/-rw-r-----)  Uid: (    0/    root)   Gid: (   42/  shadow)
+Access: 2021-10-26 14:52:15.550179759 +0000
+Modify: 2021-10-26 14:52:15.538179569 +0000
+Change: 2021-10-26 14:52:15.546179696 +0000
+ Birth: -
+
+
+[STDERR] : 
+
+
+[VERDICT] : PASSED
+--------- 6.1.4 Ensure permissions on /etc/group are configured ---------
+
+[COMMAND] : 
+stat /etc/group
+
+[STDOUT] : 
+  File: '/etc/group'
+  Size: 819       	Blocks: 8          IO Block: 4096   regular file
+Device: ca01h/51713d	Inode: 51313       Links: 1
+Access: (0644/-rw-r--r--)  Uid: (    0/    root)   Gid: (    0/    root)
+Access: 2021-10-26 14:52:31.590351539 +0000
+Modify: 2021-10-26 14:52:30.990347244 +0000
+Change: 2021-10-26 14:52:30.990347244 +0000
+ Birth: -
+
+
+[STDERR] : 
+
+
+[VERDICT] : PASSED
+--------- 6.1.5 Ensure permissions on /etc/gshadow are configured ---------
+
+[COMMAND] : 
+stat /etc/gshadow
+
+[STDOUT] : 
+  File: '/etc/gshadow'
+  Size: 694       	Blocks: 8          IO Block: 4096   regular file
+Device: ca01h/51713d	Inode: 51311       Links: 1
+Access: (0640/-rw-r-----)  Uid: (    0/    root)   Gid: (   42/  shadow)
+Access: 2021-10-26 14:52:30.994347274 +0000
+Modify: 2021-10-26 14:52:30.994347274 +0000
+Change: 2021-10-26 14:52:30.994347274 +0000
+ Birth: -
+
+
+[STDERR] : 
+
+
+[VERDICT] : PASSED
+--------- 6.1.6 Ensure permissions on /etc/passwd- are configured ---------
+
+[COMMAND] : 
+stat /etc/passwd-
+
+[STDOUT] : 
+  File: '/etc/passwd-'
+  Size: 1666      	Blocks: 8          IO Block: 4096   regular file
+Device: ca01h/51713d	Inode: 51268       Links: 1
+Access: (0600/-rw-------)  Uid: (    0/    root)   Gid: (    0/    root)
+Access: 2021-10-26 14:52:04.000000000 +0000
+Modify: 2021-10-26 14:52:04.000000000 +0000
+Change: 2021-10-26 14:52:18.690225505 +0000
+ Birth: -
+
+
+[STDERR] : 
+
+
+[VERDICT] : PASSED
+--------- 6.1.7 Ensure permissions on /etc/shadow- are configured ---------
+
+[COMMAND] : 
+stat /etc/shadow-
+
+[STDOUT] : 
+  File: '/etc/shadow-'
+  Size: 878       	Blocks: 8          IO Block: 4096   regular file
+Device: ca01h/51713d	Inode: 1455        Links: 1
+Access: (0600/-rw-------)  Uid: (    0/    root)   Gid: (    0/    root)
+Access: 2021-10-26 14:51:12.000000000 +0000
+Modify: 2021-10-26 14:51:11.000000000 +0000
+Change: 2021-10-26 14:52:04.230974368 +0000
+ Birth: -
+
+
+[STDERR] : 
+
+
+[VERDICT] : PASSED
+--------- 6.1.8 Ensure permissions on /etc/group- are configured ---------
+
+[COMMAND] : 
+stat /etc/group-
+
+[STDOUT] : 
+  File: '/etc/group-'
+  Size: 808       	Blocks: 8          IO Block: 4096   regular file
+Device: ca01h/51713d	Inode: 1454        Links: 1
+Access: (0600/-rw-------)  Uid: (    0/    root)   Gid: (    0/    root)
+Access: 2021-10-26 14:52:04.000000000 +0000
+Modify: 2021-10-26 14:52:04.000000000 +0000
+Change: 2021-10-26 14:52:30.990347244 +0000
+ Birth: -
+
+
+[STDERR] : 
+
+
+[VERDICT] : PASSED
+--------- 6.1.9 Ensure permissions on /etc/gshadow- are configured ---------
+
+[COMMAND] : 
+stat /etc/gshadow
+
+[STDOUT] : 
+  File: '/etc/gshadow'
+  Size: 694       	Blocks: 8          IO Block: 4096   regular file
+Device: ca01h/51713d	Inode: 51311       Links: 1
+Access: (0640/-rw-r-----)  Uid: (    0/    root)   Gid: (   42/  shadow)
+Access: 2021-10-26 14:52:30.994347274 +0000
+Modify: 2021-10-26 14:52:30.994347274 +0000
+Change: 2021-10-26 14:52:30.994347274 +0000
+ Birth: -
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 6.1.10 Ensure no world writable files exist ---------
+
+[COMMAND] : 
+df --local -P | awk {'if (NR!=1) print $6'} | xargs -I '{}' find '{}' -xdev -type f -perm -0002
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : PASSED
+--------- 6.1.11 Ensure no unowned files or directories exist ---------
+
+[COMMAND] : 
+df --local -P | awk {'if (NR!=1) print $6'} | xargs -I '{}' find '{}' -xdev -nouser
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : PASSED
+--------- 6.1.13 Audit SUID executables ---------
+
+[COMMAND] : 
+df --local -P | awk {'if (NR!=1) print $6'} | xargs -I '{}' find '{}' -xdev -type f -perm -4000
+
+[STDOUT] : 
+/usr/lib/policykit-1/polkit-agent-helper-1
+/usr/lib/dbus-1.0/dbus-daemon-launch-helper
+/usr/lib/x86_64-linux-gnu/lxc/lxc-user-nic
+/usr/lib/eject/dmcrypt-get-device
+/usr/lib/openssh/ssh-keysign
+/usr/lib/snapd/snap-confine
+/usr/bin/pkexec
+/usr/bin/chsh
+/usr/bin/passwd
+/usr/bin/at
+/usr/bin/gpasswd
+/usr/bin/newgidmap
+/usr/bin/sudo
+/usr/bin/newuidmap
+/usr/bin/newgrp
+/usr/bin/chfn
+/bin/ping
+/bin/ping6
+/bin/fusermount
+/bin/umount
+/bin/mount
+/bin/su
+/snap/snapd/11588/usr/lib/snapd/snap-confine
+/snap/core18/1997/bin/mount
+/snap/core18/1997/bin/ping
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 6.1.14 Audit SGID executables ---------
+
+[COMMAND] : 
+df --local -P | awk {'if (NR!=1) print $6'} | xargs -I '{}' find '{}' -xdev -type f -perm -2000
+
+[STDOUT] : 
+/sbin/unix_chkpwd
+/sbin/pam_extrausers_chkpwd
+/usr/lib/x86_64-linux-gnu/utempter/utempter
+/usr/bin/wall
+/usr/bin/ssh-agent
+/usr/bin/bsd-write
+/usr/bin/at
+/usr/bin/screen
+/usr/bin/mlocate
+/usr/bin/expiry
+/usr/bin/chage
+/usr/bin/crontab
+/snap/core18/1997/sbin/pam_extrausers_chkpwd
+/snap/core18/1997/sbin/unix_chkpwd
+/snap/core18/1997/usr/bin/chage
+/snap/core18/1997/usr/bin/expiry
+/snap/core18/1997/usr/bin/ssh-agent
+/snap/core18/1997/usr/bin/wall
+
+
+[STDERR] : 
+
+
+[VERDICT] : FAILED
+--------- 6.2.1 Ensure password fields are not empty ---------
+
+[COMMAND] : 
+cat /etc/shadow | awk -F: '($2 == "" ) { print $1 " does not have a password "}'
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : PASSED
+--------- 6.2.2 Ensure no legacy '+' entries exist in /etc/passwd ---------
+
+[COMMAND] : 
+grep '^+:' /etc/passwd
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : PASSED
+--------- 6.2.3 Ensure no legacy '+ entries exist in /etc/shadow ---------
+
+[COMMAND] : 
+grep '^+:' /etc/shadow
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : PASSED
+--------- 6.2.4 Ensure no legacy '+' entries exist in /etc/group ---------
+
+[COMMAND] : 
+grep '^+:' /etc/group
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : PASSED
+--------- 6.2.5 Ensure root is the only UID 0 account ---------
+
+[COMMAND] : 
+cat /etc/passwd | awk -F: '($3 == 0) { print $1 }'
+
+[STDOUT] : 
+root
+
+
+[STDERR] : 
+
+
+[VERDICT] : PASSED
+--------- 6.2.6 Ensure root PATH Integrity ---------
+
+[COMMAND] : 
+#!/bin/bash
+if [ "`echo $PATH | grep :: `" != "" ]; then
+ echo "Empty Directory in PATH (::)"
+fi
+if [ "`echo $PATH | grep :$`" != "" ]; then
+ echo "Trailing : in PATH"
+fi
+p=`echo $PATH | sed -e 's/::/:/' -e 's/:$//' -e 's/:/ /g'`
+set -- $p
+while [ "$1" != "" ]; do
+ if [ "$1" = "." ]; then
+ echo "PATH contains ."
+ shift
+ continue
+ fi
+ if [ -d $1 ]; then
+ dirperm=`ls -ldH $1 | cut -f1 -d" "`
+ if [ `echo $dirperm | cut -c6 ` != "-" ]; then
+ echo "Group Write permission set on directory $1"
+ fi
+ if [ `echo $dirperm | cut -c9 ` != "-" ]; then
+ echo "Other Write permission set on directory $1"
+ fi
+ dirown=`ls -ldH $1 | awk '{print $3}'`
+ if [ "$dirown" != "root" ] ; then
+ echo $1 is not owned by root
+ fi
+ else
+ echo $1 is not a directory
+272 | P a g e
+ fi
+ shift
+done
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : PASSED
+--------- 6.2.7 Ensure all users' home directories exist ---------
+
+[COMMAND] : 
+#!/bin/bash
+cat /etc/passwd | awk -F: '{ print $1 " " $3 " " $6 }' | while read user uid dir; do
+ if [ $uid -ge 1000 -a ! -d "$dir" -a $user != "nfsnobody" ]; then
+ echo "The home directory ($dir) of user $user does not exist."
+ fi
+done
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : PASSED
+--------- 6.2.8 Ensure users' home directories permissions are 750 or more restrictive ---------
+
+[COMMAND] : 
+#!/bin/bash
+for dir in `cat /etc/passwd | egrep -v '(root|halt|sync|shutdown)' | awk -F: '($7 !=
+"/usr/sbin/nologin") { print $6 }'`; do
+ dirperm=`ls -ld $dir | cut -f1 -d" "`
+ if [ `echo $dirperm | cut -c6 ` != "-" ]; then
+echo "Group Write permission set on directory $dir"
+fi
+if [ `echo $dirperm | cut -c8 ` != "-" ]; then
+echo "Other Read permission set on directory $dir"
+fi
+if [ `echo $dirperm | cut -c9 ` != "-" ]; then
+echo "Other Write permission set on directory $dir"
+fi
+if [ `echo $dirperm | cut -c10 ` != "-" ]; then
+echo "Other Execute permission set on directory $dir"
+fi
+done
+
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : PASSED
+--------- 6.2.9 Ensure users own their home directories ---------
+
+[COMMAND] : 
+#!/bin/bash
+cat /etc/passwd | awk -F: '{ print $1 " " $3 " " $6 }' | while read user uid dir; do
+if [ $uid -ge 1000 -a -d "$dir" -a $user != "nfsnobody" ]; then
+owner=$(stat -L -c "%U" "$dir")
+if [ "$owner" != "$user" ]; then
+echo "The home directory ($dir) of user $user is owned by $owner."
+fi
+fi
+done
+
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : PASSED
+--------- 6.2.10 Ensure users' dot files are not group or world writable ---------
+
+[COMMAND] : 
+#!/bin/bash
+for dir in `cat /etc/passwd | egrep -v '(root|sync|halt|shutdown)' | awk -F: '($7 !=
+"/usr/sbin/nologin") { print $6 }'`; do
+for file in $dir/.[A-Za-z0-9]*; do
+if [ ! -h "$file" -a -f "$file" ]; then
+fileperm=`ls -ld $file | cut -f1 -d" "`
+if [ `echo $fileperm | cut -c6 ` != "-" ]; then
+echo "Group Write permission set on file $file"
+fi
+if [ `echo $fileperm | cut -c9 ` != "-" ]; then
+echo "Other Write permission set on file $file"
+fi
+fi
+ done
+done
+
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : PASSED
+--------- 6.2.11 Ensure no users have .forward files ---------
+
+[COMMAND] : 
+#!/bin/bash
+for dir in `cat /etc/passwd |\
+awk -F: '{ print $6 }'`; do
+if [ ! -h "$dir/.forward" -a -f "$dir/.forward" ]; then
+echo ".forward file $dir/.forward exists"
+fi
+done
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : PASSED
+--------- 6.2.12 Ensure no users have .netrc files ---------
+
+[COMMAND] : 
+#!/bin/bash
+for dir in `cat /etc/passwd |\
+awk -F: '{ print $6 }'`; do
+if [ ! -h "$dir/.netrc" -a -f "$dir/.netrc" ]; then
+echo ".netrc file $dir/.netrc exists"
+fi
+done
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : PASSED
+--------- 6.2.13 Ensure users' .netrc Files are not group or world accessible  ---------
+
+[COMMAND] : 
+#!/bin/bash
+for dir in `cat /etc/passwd | egrep -v '(root|sync|halt|shutdown)' | awk -F: '($7 !=
+"/usr/sbin/nologin") { print $6 }'`; do
+for file in $dir/.netrc; do
+if [ ! -h "$file" -a -f "$file" ]; then
+fileperm=`ls -ld $file | cut -f1 -d" "`
+if [ `echo $fileperm | cut -c5 ` != "-" ]; then
+echo "Group Read set on $file"
+fi
+if [ `echo $fileperm | cut -c6 ` != "-" ]; then
+echo "Group Write set on $file"
+fi
+if [ `echo $fileperm | cut -c7 ` != "-" ]; then
+echo "Group Execute set on $file"
+fi
+if [ `echo $fileperm | cut -c8 ` != "-" ]; then
+echo "Other Read set on $file"
+fi
+if [ `echo $fileperm | cut -c9 ` != "-" ]; then
+echo "Other Write set on $file"
+fi
+if [ `echo $fileperm | cut -c10 ` != "-" ]; then
+ echo "Other Execute set on $file"
+fi
+fi
+done
+done
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : PASSED
+--------- 6.2.14 Ensure no users have .rhosts files ---------
+
+[COMMAND] : 
+#!/bin/bash
+for dir in `cat /etc/passwd | egrep -v '(root|halt|sync|shutdown)' | awk -F: '($7 !=
+"/usr/sbin/nologin") { print $6 }'`; do
+for file in $dir/.rhosts; do
+if [ ! -h "$file" -a -f "$file" ]; then
+echo ".rhosts file in $dir"
+fi
+done
+done
+
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : PASSED
+--------- 6.2.15 Ensure all groups in /etc/passwd exist in /etc/group ---------
+
+[COMMAND] : 
+#!/bin/bash
+for i in $(cut -s -d: -f4 /etc/passwd | sort -u ); do
+ grep -q -P "^.*?:[^:]*:$i:" /etc/group
+ if [ $? -ne 0 ]; then
+ echo "Group $i is referenced by /etc/passwd but does not exist in /etc/group"
+ fi
+done
+
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : PASSED
+--------- 6.2.16 Ensure no duplicate UIDs exist ---------
+
+[COMMAND] : 
+#!/bin/bash
+cat /etc/passwd | cut -f3 -d":" | sort -n | uniq -c | while read x ; do
+[ -z "${x}" ] && break
+set - $x
+if [ $1 -gt 1 ]; then
+users=`awk -F: '($3 == n) { print $1 }' n=$2 /etc/passwd | xargs`
+echo "Duplicate UID ($2): ${users}"
+fi
+done
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : PASSED
+--------- 6.2.17 Ensure no duplicate GIDs exist ---------
+
+[COMMAND] : 
+#!/bin/bash
+cat /etc/group | cut -f3 -d":" | sort -n | uniq -c | while read x ; do
+[ -z "${x}" ] && break
+set - $x
+if [ $1 -gt 1 ]; then
+groups=`awk -F: '($3 == n) { print $1 }' n=$2 /etc/group | xargs`
+echo "Duplicate GID ($2): ${groups}"
+fi
+done
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : PASSED
+--------- 6.2.18 Ensure no duplicate user names exist ---------
+
+[COMMAND] : 
+#!/bin/bash
+cat /etc/passwd | cut -f1 -d":" | sort -n | uniq -c | while read x ; do
+[ -z "${x}" ] && break
+set - $x
+if [ $1 -gt 1 ]; then
+uids=`awk -F: '($1 == n) { print $3 }' n=$2 /etc/passwd | xargs`
+echo "Duplicate User Name ($2): ${uids}"
+fi
+done
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : PASSED
+--------- 6.2.19 Ensure no duplicate group names exist ---------
+
+[COMMAND] : 
+#!/bin/bash
+cat /etc/group | cut -f1 -d":" | sort -n | uniq -c | while read x ; do
+[ -z "${x}" ] && break
+set - $x
+if [ $1 -gt 1 ]; then
+gids=`gawk -F: '($1 == n) { print $3 }' n=$2 /etc/group | xargs`
+echo "Duplicate Group Name ($2): ${gids}"
+fi
+done
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : PASSED
+--------- 6.2.20 Ensure shadow group is empty ---------
+
+[COMMAND] : 
+grep ^shadow:[^:]*:[^:]*:[^:]+ /etc/group
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[COMMAND] : 
+awk -F: '($4 == "<shadow-gid>") { print }' /etc/passwd
+
+[STDOUT] : 
+
+
+[STDERR] : 
+
+
+[VERDICT] : PASSED

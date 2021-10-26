@@ -1,7 +1,8 @@
 import paramiko
 import json
 import configparser
-import time
+from datetime import datetime
+
 config = configparser.ConfigParser() 
 config.read(r'cis-benchmark-config.txt')
 
@@ -21,8 +22,15 @@ ssh.connect(ip,port,username,password)
 f = open(benchmark_file,)
 benchmark = json.load(f)
 
+log_file_name = "cis_benchmark_"+ip+"_"+datetime.today().strftime('%Y-%m-%d')+".log"
+LOG_FILE = open(log_file_name, "a")
+
+no_passed = 0
+
 def auditor_engine(item):
+    global no_passed
     print(item['name'] +" : ", end = '')
+    LOG_FILE.write("--------- "+item['name'] + " ---------\n\n")
     item_pass = True
     for audit_item in item['audit']:
 
@@ -32,16 +40,23 @@ def auditor_engine(item):
             stdin.flush()            
         else:
             stdin,stdout,stderr=ssh.exec_command(audit_item['cmd'])
+
+        LOG_FILE.write("[COMMAND] : \n"+audit_item['cmd'] + '\n\n')
         outlines=stdout.readlines()
         stdout_string=''.join(outlines[:max_outlines])
+        LOG_FILE.write("[STDOUT] : \n"+stdout_string + '\n\n')
         errlines=stdout.readlines()
         err_string=''.join(errlines[:max_errlines])
+        LOG_FILE.write("[STDERR] : \n"+err_string + '\n\n')
         item_eval = response_evaluator(stdout_string,err_string,audit_item['response_conditions'])
         item_pass = item_pass and item_eval
     if item_pass:
         print("PASSED")
+        LOG_FILE.write("[VERDICT] : PASSED\n")
+        no_passed = no_passed + 1
     else:
         print("FAILED")
+        LOG_FILE.write("[VERDICT] : FAILED\n")
         
 
 def response_evaluator(stdout_string,err_string,response_conditions):
@@ -82,9 +97,15 @@ def response_evaluator(stdout_string,err_string,response_conditions):
         
     return condition
 
-        
 
-print (benchmark['title'])
+def main():
+    global no_passed
+    print (benchmark['title'])
+    for item in benchmark['items']:
+        auditor_engine(item)
 
-for item in benchmark['items']:
-    auditor_engine(item)
+    print (str(no_passed)+"/"+str(len(benchmark['items']))+" PASSED")
+
+if __name__ == "__main__":
+    main()
+
